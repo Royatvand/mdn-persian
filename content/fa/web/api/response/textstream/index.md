@@ -15,9 +15,12 @@ browser-compat: api.Response.textStream
 
 {{APIRef("Fetch API")}}{{AvailableInWorkers}}{{SeeCompatTable}}
 
-متد **`textStream()`** از رابط {{domxref("Response")}} یک {{domxref("ReadableStream")}} برمی‌گرداند که برای خواندن بدنهٔ پاسخ به‌صورت بخش‌های متنی با رمزگذاری UTF-8 به کار می‌رود.
+متد **`textStream()`** از رابط {{domxref("Response")}} یک {{domxref("ReadableStream")}} برمی‌گرداند که می‌توان از آن برای خواندن محتوای بدنهٔ پاسخ به‌صورت بخش‌های متنی با رمزگذاری UTF-8 استفاده کرد.
 
-این متد امکان پردازش تدریجی متن پاسخ را فراهم می‌کند؛ بنابراین لازم نیست پیش از دسترسی به متن، تمام بدنهٔ پاسخ خوانده شود.
+این روش نسبت به عبور دادن جریان بایتی {{domxref("Response.body")}} از طریق {{domxref("TextDecoderStream")}} راه ساده‌تری برای خواندن تدریجی بدنهٔ پاسخ فراهم می‌کند.
+
+> [!NOTE]
+> اگر بدنهٔ یک پاسخ تهی باشد، برای مثال در پاسخ با وضعیت {{httpstatus(204)}}، متد `textStream()` یک جریان معتبر اما خالی برمی‌گرداند.
 
 ## نحو
 
@@ -31,34 +34,38 @@ textStream()
 
 ### مقدار بازگشتی
 
-یک {{domxref("ReadableStream")}} که متن پاسخ را به‌صورت بخش‌های متوالی در اختیار می‌گذارد.
+یک {{domxref("ReadableStream")}}.
 
 ### خطاها
 
 - {{jsxref("TypeError")}}
-  - : اگر بدنهٔ پاسخ قبلاً خوانده شده یا قفل شده باشد، این خطا رخ می‌دهد.
+  - : اگر بدنهٔ پاسخ قبلاً خوانده شده یا قفل شده باشد، این خطا رخ می‌دهد. [اطلاعات بیشتر](/en-US/docs/Web/API/Fetch_API/Using_Fetch#locked_and_disturbed_streams)
 
 ## مثال‌ها
 
-### خواندن پاسخ به‌صورت جریان متنی
+### خواندن بدنهٔ پاسخ به‌صورت جریان متنی
 
-در این مثال، متن پاسخ را به‌تدریج می‌خوانیم و هر بخش دریافت‌شده را به عنصر صفحه اضافه می‌کنیم.
+در این مثال، یک URL را با {{domxref("fetch()")}} دریافت می‌کنیم، جریان قابل‌خواندن بدنهٔ پاسخ را با `textStream()` به دست می‌آوریم و سپس متن را با خواننده‌ای که از طریق {{domxref("ReadableStream.getReader()")}} ساخته شده است، می‌خوانیم.
 
 ```js
-const output = document.querySelector("pre");
+const pElem = document.querySelector("p");
 
-async function readResponseText(url) {
+async function streamResponseText(url) {
   const response = await fetch(url);
-  const reader = response.textStream().getReader();
+  const textStream = response.textStream();
+  // به‌جای آن می‌توان از این روش استفاده کرد:
+  // const textStream = response.body.pipeThrough(new TextDecoderStream());
+
+  const reader = textStream.getReader();
 
   while (true) {
     const { value, done } = await reader.read();
     if (done) break;
-    output.textContent += value;
+    pElem.textContent += value;
   }
 }
 
-readResponseText("https://example.com");
+streamResponseText("https://www.example.com");
 ```
 
 ## مشخصات
@@ -71,6 +78,7 @@ readResponseText("https://example.com");
 
 ## همچنین ببینید
 
-- {{domxref("Request.textStream()")}}
-- {{domxref("Response.body")}}
+- {{domxref("ReadableStream")}}
 - {{domxref("ReadableStream.getReader()")}}
+- {{domxref("Request.body")}}
+- {{domxref("Request.textStream()")}}
