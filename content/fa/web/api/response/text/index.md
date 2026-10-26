@@ -1,7 +1,6 @@
 ---
 title: "Response: text() method"
 source: "https://developer.mozilla.org/en-US/docs/Web/API/Response/text"
-status: "needs-translation"
 ---
 
 ---
@@ -14,40 +13,34 @@ browser-compat: api.Response.text
 
 {{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-The **`text()`** method of the {{domxref("Response")}} interface takes a {{domxref("Response")}} stream and reads it to completion.
-It returns a promise that resolves with a {{jsxref("String")}}.
-The response is _always_ decoded using UTF-8.
+متد **`text()`** از رابط {{domxref("Response")}} جریان بدنهٔ پاسخ را تا انتها می‌خواند و یک Promise برمی‌گرداند که با یک {{jsxref("String", "رشته")}} تکمیل می‌شود. محتوای پاسخ همیشه با رمزگذاری UTF-8 رمزگشایی می‌شود.
 
-## Syntax
+## نحو
 
 ```js-nolint
 text()
 ```
 
-### Parameters
+### پارامترها
 
-None.
+این متد پارامتری نمی‌گیرد.
 
-### Return value
+### مقدار بازگشتی
 
-A Promise that resolves with a {{jsxref("String")}}.
+یک Promise که با یک رشته تکمیل می‌شود.
 
-### Exceptions
+### خطاها
 
 - `AbortError` {{domxref("DOMException")}}
-  - : The request was [aborted](/en-US/docs/Web/API/Fetch_API/Using_Fetch#canceling_a_request).
+  - : اگر درخواست لغو شده باشد، این خطا رخ می‌دهد. [اطلاعات بیشتر](/en-US/docs/Web/API/Fetch_API/Using_Fetch#canceling_a_request)
 - {{jsxref("TypeError")}}
-  - : Thrown for one of the following reasons:
-    - The response body is [disturbed or locked](/en-US/docs/Web/API/Fetch_API/Using_Fetch#locked_and_disturbed_streams).
-    - There was an error decoding the body content (for example, because the {{httpheader("Content-Encoding")}} header is incorrect).
+  - : در هر یک از شرایط زیر رخ می‌دهد:
+    - بدنهٔ پاسخ قبلاً خوانده شده یا قفل شده باشد ([توضیحات بیشتر](/en-US/docs/Web/API/Fetch_API/Using_Fetch#locked_and_disturbed_streams)).
+    - هنگام رمزگشایی محتوای بدنه خطایی رخ دهد؛ برای مثال، مقدار سربرگ {{httpheader("Content-Encoding")}} نادرست باشد.
 
-## Examples
+## مثال
 
-In our [fetch text example](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-text) (run [fetch text live](https://mdn.github.io/dom-examples/fetch/fetch-text/)), we have an {{htmlelement("article")}} element and three links (stored in the `myLinks` array.)
-First, we loop through all of these and give each one an `onclick` event handler so that the `getData()` function is run — with the link's `data-page` identifier passed to it as an argument — when one of the links is clicked.
-
-When `getData()` is run, we create a new request using the {{domxref("Request.Request","Request()")}} constructor, then use it to fetch a specific `.txt` file.
-When the fetch is successful, we read a string out of the response using `text()`, then set the {{domxref("HTMLElement.innerText","innerText")}} of the {{htmlelement("article")}} element equal to the text object.
+در [نمونهٔ دریافت متن](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-text) می‌بینیم که چگونه محتوای یک فایل متنی را دریافت کرده و در عنصر `article` نمایش دهیم. ابتدا برای پیوندهای صفحه شنوندهٔ رویداد کلیک تنظیم می‌کنیم. هنگام کلیک، تابع `getData()` شناسهٔ صفحه را دریافت می‌کند، یک درخواست می‌سازد و فایل متنی مربوط را دریافت می‌کند. پس از موفقیت درخواست، با استفاده از `text()` متن پاسخ خوانده شده و در عنصر `article` قرار می‌گیرد.
 
 ```js
 const myArticle = document.querySelector("article");
@@ -80,16 +73,18 @@ function getData(pageId) {
 }
 ```
 
-## Specifications
+برای اجرای زندهٔ نمونه می‌توانید از [نسخهٔ قابل اجرا](https://mdn.github.io/dom-examples/fetch/fetch-text/) استفاده کنید.
+
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
-- [ServiceWorker API](/en-US/docs/Web/API/Service_Worker_API)
-- [HTTP access control (CORS)](/en-US/docs/Web/HTTP/Guides/CORS)
+- [رابط برنامه‌نویسی Service Worker](/en-US/docs/Web/API/Service_Worker_API)
+- [کنترل دسترسی HTTP (CORS)](/en-US/docs/Web/HTTP/Guides/CORS)
 - [HTTP](/en-US/docs/Web/HTTP)
