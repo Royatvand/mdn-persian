@@ -1,7 +1,6 @@
 ---
 title: "Array.prototype.every()"
 source: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every"
-status: "needs-translation"
 ---
 
 ---
@@ -13,7 +12,7 @@ browser-compat: javascript.builtins.Array.every
 sidebar: jsref
 ---
 
-The **`every()`** method of {{jsxref("Array")}} instances returns `false` if it finds an element in the array that does not satisfy the provided testing function. Otherwise, it returns `true`.
+متد **`every()`** در نمونه‌های {{jsxref("Array")}} اگر عضوی پیدا کند که تابع آزمون داده‌شده را برآورده نکند، `false` برمی‌گرداند؛ در غیر این صورت `true`.
 
 {{InteractiveExample("JavaScript Demo: Array.prototype.every()", "shorter")}}
 
@@ -26,45 +25,45 @@ console.log(array1.every(isBelowThreshold));
 // Expected output: true
 ```
 
-## Syntax
+## نحو
 
 ```js-nolint
 every(callbackFn)
 every(callbackFn, thisArg)
 ```
 
-### Parameters
+### پارامترها
 
 - `callbackFn`
-  - : A function to execute for each element in the array. It should return a [truthy](/en-US/docs/Glossary/Truthy) value to indicate the element passes the test, and a [falsy](/en-US/docs/Glossary/Falsy) value otherwise. The function is called with the following arguments:
+  - : تابعی که برای هر عضو آرایه اجرا می‌شود. اگر عضو آزمون را بگذراند باید مقدار [truthy](/en-US/docs/Glossary/Truthy) و در غیر این صورت مقدار [falsy](/en-US/docs/Glossary/Falsy) برگرداند. تابع با آرگومان‌های زیر فراخوانی می‌شود:
     - `element`
-      - : The current element being processed in the array.
+      - : عضو فعلی آرایه که در حال پردازش است.
     - `index`
-      - : The index of the current element being processed in the array.
+      - : اندیس عضو فعلی آرایه.
     - `array`
-      - : The array `every()` was called upon.
+      - : آرایه‌ای که `every()` روی آن فراخوانی شده است.
 - `thisArg` {{optional_inline}}
-  - : A value to use as `this` when executing `callbackFn`. See [iterative methods](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
+  - : مقداری که هنگام اجرای `callbackFn` به‌عنوان `this` استفاده می‌شود. بخش [متدهای تکرارشونده](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods) را ببینید.
 
-### Return value
+### مقدار بازگشتی
 
-`true` unless `callbackFn` returns a {{Glossary("falsy")}} value for an array element, in which case `false` is immediately returned.
+اگر `callbackFn` برای هیچ عضوی مقدار {{Glossary("falsy")}} برنگرداند، نتیجه `true` است؛ به‌محض دریافت چنین مقداری، `false` برگردانده می‌شود.
 
-## Description
+## توضیحات
 
-The `every()` method is an [iterative method](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods). It calls a provided `callbackFn` function once for each element in an array, until the `callbackFn` returns a [falsy](/en-US/docs/Glossary/Falsy) value. If such an element is found, `every()` immediately returns `false` and stops iterating through the array. Otherwise, if `callbackFn` returns a [truthy](/en-US/docs/Glossary/Truthy) value for all elements, `every()` returns `true`. Read the [iterative methods](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods) section for more information about how these methods work in general.
+متد `every()` یک [متد تکرارشونده](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods) است. تابع `callbackFn` را برای هر عضو اجرا می‌کند تا زمانی که مقدار [falsy](/en-US/docs/Glossary/Falsy) برگرداند. اگر چنین عضوی پیدا شود، `every()` فوراً `false` برمی‌گرداند و پیمایش را متوقف می‌کند. اگر تابع برای همهٔ اعضا مقدار [truthy](/en-US/docs/Glossary/Truthy) برگرداند، نتیجه `true` است. برای اطلاعات بیشتر، بخش [متدهای تکرارشونده](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods) را بخوانید.
 
-`every` acts like the "for all" quantifier in mathematics. In particular, for an empty array, it returns `true`. (It is [vacuously true](https://en.wikipedia.org/wiki/Vacuous_truth) that all elements of the [empty set](https://en.wikipedia.org/wiki/Empty_set#Properties) satisfy any given condition.)
+`every` مانند کمیت‌گذار «برای همه» در ریاضیات عمل می‌کند. به‌ویژه، برای آرایهٔ خالی `true` برمی‌گرداند؛ زیرا از نظر منطقی، همهٔ اعضای [مجموعهٔ تهی](https://en.wikipedia.org/wiki/Empty_set#Properties) هر شرطی را برآورده می‌کنند.
 
-`callbackFn` is invoked only for array indexes which have assigned values. It is not invoked for empty slots in [sparse arrays](/en-US/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays).
+`callbackFn` فقط برای اندیس‌هایی اجرا می‌شود که مقدار دارند و برای خانه‌های خالی در [آرایه‌های تنک](/en-US/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) فراخوانی نمی‌شود.
 
-The `every()` method is [generic](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). It only expects the `this` value to have a `length` property and integer-keyed properties.
+متد `every()` [عمومی](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods) است و فقط انتظار دارد مقدار `this` ویژگی `length` و ویژگی‌هایی با کلید عدد صحیح داشته باشد.
 
-## Examples
+## مثال‌ها
 
-### Testing size of all array elements
+### بررسی مقدار همهٔ اعضای آرایه
 
-The following example tests whether all elements in the array are 10 or bigger.
+مثال زیر بررسی می‌کند که آیا همهٔ اعضای آرایه بزرگ‌تر یا مساوی ۱۰ هستند یا نه.
 
 ```js
 function isBigEnough(element, index, array) {
@@ -74,9 +73,9 @@ function isBigEnough(element, index, array) {
 [12, 54, 18, 130, 44].every(isBigEnough); // true
 ```
 
-### Check if one array is a subset of another array
+### بررسی زیرمجموعه بودن یک آرایه نسبت به آرایهٔ دیگر
 
-The following example tests if all the elements of an array are present in another array.
+مثال زیر بررسی می‌کند که آیا همهٔ اعضای یک آرایه در آرایهٔ دیگری وجود دارند یا نه.
 
 ```js
 const isSubset = (array1, array2) =>
@@ -86,9 +85,9 @@ console.log(isSubset([1, 2, 3, 4, 5, 6, 7], [5, 7, 6])); // true
 console.log(isSubset([1, 2, 3, 4, 5, 6, 7], [5, 8, 7])); // false
 ```
 
-### Using the third argument of callbackFn
+### استفاده از آرگومان سوم callbackFn
 
-The `array` argument is useful if you want to access another element in the array. The following example first uses `filter()` to extract the positive values and then uses `every()` to check whether the array is strictly increasing.
+آرگومان `array` زمانی مفید است که بخواهید به عضو دیگری از آرایه دسترسی پیدا کنید. مثال زیر ابتدا با `filter()` مقادیر مثبت را جدا می‌کند و سپس با `every()` بررسی می‌کند که آیا آرایه به‌صورت صعودیِ سخت‌گیرانه مرتب شده است یا نه.
 
 ```js
 const numbers = [-2, 4, -8, 16, -32];
@@ -103,18 +102,18 @@ const isIncreasing = numbers
 console.log(isIncreasing); // true
 ```
 
-### Using every() on sparse arrays
+### استفاده از every() روی آرایه‌های تنک
 
-`every()` will not run its predicate on empty slots.
+`every()` تابع شرط را برای خانه‌های خالی اجرا نمی‌کند.
 
 ```js
 console.log([1, , 3].every((x) => x !== undefined)); // true
 console.log([2, , 2].every((x) => x === 2)); // true
 ```
 
-### Calling every() on non-array objects
+### فراخوانی every() روی اشیایی غیر از آرایه
 
-The `every()` method reads the `length` property of `this` and then accesses each property with a nonnegative integer key less than `length` until they all have been accessed or `callbackFn` returns `false`.
+متد `every()` ویژگی `length` مقدار `this` را می‌خواند و سپس به ویژگی‌هایی دسترسی پیدا می‌کند که کلیدشان عدد صحیح نامنفی و کوچک‌تر از `length` باشد؛ این کار تا بررسی همهٔ آن‌ها یا بازگشت `false` از `callbackFn` ادامه می‌یابد.
 
 ```js
 const arrayLike = {
@@ -129,15 +128,15 @@ console.log(
 ); // true
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - [Polyfill of `Array.prototype.every` in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
 - [es-shims polyfill of `Array.prototype.every`](https://www.npmjs.com/package/array.prototype.every)

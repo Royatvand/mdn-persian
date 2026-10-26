@@ -1,7 +1,6 @@
 ---
 title: "String.prototype.toUpperCase()"
 source: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase"
-status: "needs-translation"
 ---
 
 ---
@@ -13,7 +12,7 @@ browser-compat: javascript.builtins.String.toUpperCase
 sidebar: jsref
 ---
 
-The **`toUpperCase()`** method of {{jsxref("String")}} values returns this string converted to uppercase.
+متد **`toUpperCase()`** در مقدارهای {{jsxref("String")}} رشته را به حروف بزرگ تبدیل کرده و برمی‌گرداند.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.toUpperCase()", "shorter")}}
 
@@ -24,38 +23,35 @@ console.log(sentence.toUpperCase());
 // Expected output: "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG."
 ```
 
-## Syntax
+## نحو
 
 ```js-nolint
 toUpperCase()
 ```
 
-### Parameters
+### پارامترها
 
-None.
+این متد پارامتری نمی‌گیرد.
 
-### Return value
+### مقدار بازگشتی
 
-A new string representing the calling string converted to upper case.
+رشته‌ای جدید که نسخهٔ حروف‌بزرگ‌شدهٔ رشتهٔ فراخوانی‌کننده است.
 
-## Description
+## توضیحات
 
-The `toUpperCase()` method returns the value of the string converted to
-uppercase. This method does not affect the value of the string itself since JavaScript
-strings are immutable.
+متد `toUpperCase()` مقدار رشته را به حروف بزرگ تبدیل می‌کند و برمی‌گرداند. از آنجا که رشته‌ها در جاوااسکریپت تغییرناپذیرند، مقدار رشتهٔ اصلی تغییر نمی‌کند.
 
-## Examples
+## مثال‌ها
 
-### Basic usage
+### استفادهٔ پایه
 
 ```js
 console.log("alphabet".toUpperCase()); // 'ALPHABET'
 ```
 
-### Conversion of non-string `this` values to strings
+### تبدیل مقدارهای غیررشته‌ای this به رشته
 
-This method will convert any non-string value to a string, when you set its
-`this` to a value that is not a string:
+اگر مقدار `this` را به مقداری غیر از رشته تنظیم کنید، این متد آن مقدار را به رشته تبدیل می‌کند:
 
 ```js
 const a = String.prototype.toUpperCase.call({
@@ -70,15 +66,15 @@ const b = String.prototype.toUpperCase.call(true);
 console.log(a, b);
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - {{jsxref("String.prototype.toLocaleLowerCase()")}}
 - {{jsxref("String.prototype.toLocaleUpperCase()")}}

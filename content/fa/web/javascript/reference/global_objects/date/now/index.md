@@ -1,7 +1,6 @@
 ---
 title: "Date.now()"
 source: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/now"
-status: "needs-translation"
 ---
 
 ---
@@ -13,7 +12,7 @@ browser-compat: javascript.builtins.Date.now
 sidebar: jsref
 ---
 
-The **`Date.now()`** static method returns the number of milliseconds elapsed since the [epoch](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date), which is defined as the midnight at the beginning of January 1, 1970, UTC.
+متد ایستای **`Date.now()`** تعداد میلی‌ثانیه‌های سپری‌شده از [مبدأ زمان](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) را برمی‌گرداند؛ این مبدأ نیمه‌شب آغاز روز ۱ ژانویهٔ ۱۹۷۰ به‌وقت UTC است.
 
 {{InteractiveExample("JavaScript Demo: Date.now()")}}
 
@@ -32,27 +31,27 @@ setTimeout(() => {
 }, 2000);
 ```
 
-## Syntax
+## نحو
 
 ```js-nolint
 Date.now()
 ```
 
-### Parameters
+### پارامترها
 
-None.
+این متد پارامتری نمی‌گیرد.
 
-### Return value
+### مقدار بازگشتی
 
-A number representing the [timestamp](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date), in milliseconds, of the current time.
+عددی که [مهر زمانی](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) زمان فعلی را برحسب میلی‌ثانیه نشان می‌دهد.
 
-## Description
+## توضیحات
 
-### Reduced time precision
+### کاهش دقت زمان
 
-To offer protection against timing attacks and [fingerprinting](/en-US/docs/Glossary/Fingerprinting), the precision of `Date.now()` might get rounded depending on browser settings. In Firefox, the `privacy.reduceTimerPrecision` preference is enabled by default and defaults to 2ms. You can also enable `privacy.resistFingerprinting`, in which case the precision will be 100ms or the value of `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`, whichever is larger.
+برای محافظت در برابر حملات زمان‌سنجی و [اثر انگشت‌گیری](/en-US/docs/Glossary/Fingerprinting)، ممکن است دقت `Date.now()` بر اساس تنظیمات مرورگر گرد شود. در Firefox، گزینهٔ `privacy.reduceTimerPrecision` به‌طور پیش‌فرض فعال است و دقت را به ۲ میلی‌ثانیه محدود می‌کند. با فعال‌کردن `privacy.resistFingerprinting`، دقت به ۱۰۰ میلی‌ثانیه یا مقدار `privacy.resistFingerprinting.reduceTimerPrecision.microseconds` (هرکدام بزرگ‌تر باشد) کاهش می‌یابد.
 
-For example, with reduced time precision, the result of `Date.now()` will always be a multiple of 2, or a multiple of 100 (or `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`) with `privacy.resistFingerprinting` enabled.
+برای مثال، با کاهش دقت، نتیجهٔ `Date.now()` همیشه مضربی از ۲ خواهد بود؛ و با فعال بودن `privacy.resistFingerprinting`، مضربی از ۱۰۰ یا مقدار `privacy.resistFingerprinting.reduceTimerPrecision.microseconds` خواهد بود.
 
 ```js
 // reduced time precision (2ms) in Firefox 60
@@ -72,11 +71,11 @@ Date.now();
 // …
 ```
 
-## Examples
+## مثال‌ها
 
-### Measuring time elapsed
+### اندازه‌گیری زمان سپری‌شده
 
-You can use `Date.now()` to get the current time in milliseconds, then subtract a previous time to find out how much time elapsed between the two calls.
+می‌توانید با `Date.now()` زمان فعلی را برحسب میلی‌ثانیه بگیرید و با کم‌کردن زمان قبلی، مدت سپری‌شده بین دو فراخوانی را محاسبه کنید.
 
 ```js
 const start = Date.now();
@@ -84,17 +83,17 @@ doSomeLongRunningProcess();
 console.log(`Time elapsed: ${Date.now() - start} ms`);
 ```
 
-For more complex scenarios, you may want to use the [performance API](/en-US/docs/Web/API/Performance_API/High_precision_timing) instead.
+برای سناریوهای پیچیده‌تر، بهتر است از [Performance API](/en-US/docs/Web/API/Performance_API/High_precision_timing) استفاده کنید.
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - [Polyfill of `Date.now` in `core-js`](https://github.com/zloirock/core-js#ecmascript-date)
 - {{domxref("Performance.now()")}}

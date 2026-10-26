@@ -1,7 +1,6 @@
 ---
 title: "Promise.reject()"
 source: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject"
-status: "needs-translation"
 ---
 
 ---
@@ -13,7 +12,7 @@ browser-compat: javascript.builtins.Promise.reject
 sidebar: jsref
 ---
 
-The **`Promise.reject()`** static method returns a `Promise` object that is rejected with a given reason.
+متد ایستای **`Promise.reject()`** یک شیء `Promise` برمی‌گرداند که به‌دلیل مشخص‌شده رد شده است.
 
 {{InteractiveExample("JavaScript Demo: Promise.reject()")}}
 
@@ -30,32 +29,32 @@ Promise.reject(new Error("fail")).then(resolved, rejected);
 // Expected output: Error: fail
 ```
 
-## Syntax
+## نحو
 
 ```js-nolint
 Promise.reject(reason)
 ```
 
-### Parameters
+### پارامترها
 
 - `reason`
-  - : Reason why this `Promise` rejected.
+  - : دلیل رد شدن این `Promise`.
 
-### Return value
+### مقدار بازگشتی
 
-A {{jsxref("Promise")}} that is rejected with the given reason.
+یک {{jsxref("Promise")}} که با دلیل داده‌شده رد می‌شود.
 
-## Description
+## توضیحات
 
-The static `Promise.reject` function returns a `Promise` that is rejected. For debugging purposes and selective error catching, it is useful to make `reason` an `instanceof` {{jsxref("Error")}}.
+تابع ایستای `Promise.reject()` یک Promise ردشده برمی‌گرداند. برای اشکال‌زدایی و گرفتن انتخابی خطاها، بهتر است `reason` نمونه‌ای از {{jsxref("Error")}} باشد.
 
-`Promise.reject()` is generic and supports subclassing, which means it can be called on subclasses of `Promise`, and the result will be a promise of the subclass type. To do so, the subclass's constructor must implement the same signature as the [`Promise()`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise) constructor — accepting a single `executor` function that can be called with the `resolve` and `reject` callbacks as parameters. `Promise.reject()` is essentially a shorthand for `new Promise((resolve, reject) => reject(reason))`.
+`Promise.reject()` متدی عمومی است و از زیرکلاس‌سازی پشتیبانی می‌کند؛ بنابراین می‌توان آن را روی زیرکلاس‌های `Promise` فراخوانی کرد و نتیجه از نوع همان زیرکلاس خواهد بود. سازندهٔ زیرکلاس باید امضایی مانند سازندهٔ [`Promise()`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise) داشته باشد و تابع `executor`ای بپذیرد که callbackهای `resolve` و `reject` به آن ارسال می‌شوند. در اصل، `Promise.reject()` شکل کوتاه‌شدهٔ `new Promise((resolve, reject) => reject(reason))` است.
 
-Unlike {{jsxref("Promise.resolve()")}}, `Promise.reject()` always wraps `reason` in a new `Promise` object, even when `reason` is already a `Promise`.
+برخلاف {{jsxref("Promise.resolve()")}}، متد `Promise.reject()` همیشه `reason` را در یک شیء `Promise` جدید قرار می‌دهد؛ حتی اگر خود `reason` از قبل Promise باشد.
 
-## Examples
+## مثال‌ها
 
-### Using the static Promise.reject() method
+### استفاده از متد ایستای Promise.reject()
 
 ```js
 Promise.reject(new Error("fail")).then(
@@ -68,9 +67,9 @@ Promise.reject(new Error("fail")).then(
 );
 ```
 
-### Rejecting with a promise
+### رد کردن با یک Promise
 
-Unlike {{jsxref("Promise.resolve")}}, the `Promise.reject` method does not reuse existing `Promise` instances. It always returns a new `Promise` instance that wraps `reason`.
+برخلاف {{jsxref("Promise.resolve")}}، متد `Promise.reject()` نمونه‌های موجود `Promise` را دوباره استفاده نمی‌کند؛ همیشه نمونه‌ای جدید برمی‌گرداند که `reason` را در خود نگه می‌دارد.
 
 ```js
 const p = Promise.resolve(1);
@@ -81,9 +80,9 @@ rejected.catch((v) => {
 });
 ```
 
-### Calling reject() on a non-Promise constructor
+### فراخوانی reject() روی سازنده‌ای غیر از Promise
 
-`Promise.reject()` is a generic method. It can be called on any constructor that implements the same signature as the `Promise()` constructor. For example, we can call it on a constructor that passes it `console.log` as `reject`:
+`Promise.reject()` متدی عمومی است و می‌توان آن را روی هر سازنده‌ای با امضایی مشابه سازندهٔ `Promise()` فراخوانی کرد. برای نمونه، می‌توان از سازنده‌ای استفاده کرد که `console.log` را به‌عنوان تابع `reject` به آن می‌دهد:
 
 ```js
 class NotPromise {
@@ -100,14 +99,14 @@ class NotPromise {
 Promise.reject.call(NotPromise, "foo"); // Logs "Rejected foo"
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - {{jsxref("Promise")}}

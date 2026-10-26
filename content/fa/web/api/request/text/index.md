@@ -1,7 +1,6 @@
 ---
 title: "Request: text() method"
 source: "https://developer.mozilla.org/en-US/docs/Web/API/Request/text"
-status: "needs-translation"
 ---
 
 ---
@@ -14,32 +13,30 @@ browser-compat: api.Request.text
 
 {{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-The **`text()`** method of the {{domxref("Request")}} interface
-reads the request body and returns it as a promise that resolves with a {{jsxref("String")}}.
-The response is _always_ decoded using UTF-8.
+متد **`text()`** از رابط {{domxref("Request")}} بدنهٔ درخواست را می‌خواند و یک Promise برمی‌گرداند که با یک {{jsxref("String", "رشته")}} تکمیل می‌شود. محتوای بدنه همیشه با رمزگذاری UTF-8 رمزگشایی می‌شود.
 
-## Syntax
+## نحو
 
 ```js-nolint
 text()
 ```
 
-### Parameters
+### پارامترها
 
-None.
+این متد پارامتری نمی‌گیرد.
 
-### Return value
+### مقدار بازگشتی
 
-A Promise that resolves with a {{jsxref("String")}}.
+یک Promise که با یک رشته تکمیل می‌شود.
 
-### Exceptions
+### خطاها
 
 - {{jsxref("TypeError")}}
-  - : Thrown for one of the following reasons:
-    - The request body is [disturbed or locked](/en-US/docs/Web/API/Fetch_API/Using_Fetch#locked_and_disturbed_streams).
-    - There was an error decoding the body content (for example, because the {{httpheader("Content-Encoding")}} header is incorrect).
+  - : در هر یک از شرایط زیر رخ می‌دهد:
+    - بدنهٔ درخواست قبلاً خوانده شده یا قفل شده باشد ([توضیحات بیشتر](/en-US/docs/Web/API/Fetch_API/Using_Fetch#locked_and_disturbed_streams)).
+    - هنگام رمزگشایی محتوای بدنه خطایی رخ دهد؛ برای مثال، مقدار سربرگ {{httpheader("Content-Encoding")}} نادرست باشد.
 
-## Examples
+## مثال
 
 ```js
 const text = "Hello world";
@@ -50,18 +47,18 @@ const request = new Request("/myEndpoint", {
 });
 
 request.text().then((text) => {
-  // do something with the text sent in the request
+  // متن ارسال‌شده در درخواست را پردازش کنید
 });
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - {{domxref("Response.text()")}}

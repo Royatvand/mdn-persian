@@ -1,7 +1,6 @@
 ---
 title: "Number.isFinite()"
 source: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite"
-status: "needs-translation"
 ---
 
 ---
@@ -13,7 +12,7 @@ browser-compat: javascript.builtins.Number.isFinite
 sidebar: jsref
 ---
 
-The **`Number.isFinite()`** static method determines whether the passed value is a finite number — that is, it checks that a given value is a number, and the number is neither positive {{jsxref("Infinity")}}, negative `Infinity`, nor {{jsxref("NaN")}}.
+متد ایستای **`Number.isFinite()`** بررسی می‌کند که مقدار ورودی یک عدد متناهی باشد؛ یعنی از نوع عدد باشد و نه مثبت یا منفیِ {{jsxref("Infinity")}} و نه {{jsxref("NaN")}}.
 
 {{InteractiveExample("JavaScript Demo: Number.isFinite()")}}
 
@@ -28,24 +27,24 @@ console.log(Number.isFinite(0 / 0));
 // Expected output: false
 ```
 
-## Syntax
+## نحو
 
 ```js-nolint
 Number.isFinite(value)
 ```
 
-### Parameters
+### پارامترها
 
 - `value`
-  - : The value to be tested for finiteness.
+  - : مقداری که متناهی بودن آن بررسی می‌شود.
 
-### Return value
+### مقدار بازگشتی
 
-The boolean value `true` if the given value is a finite number. Otherwise `false`.
+اگر مقدار داده‌شده عددی متناهی باشد، `true` و در غیر این صورت `false` برمی‌گرداند.
 
-## Examples
+## مثال‌ها
 
-### Using isFinite()
+### استفاده از isFinite()
 
 ```js
 Number.isFinite(Infinity); // false
@@ -56,9 +55,9 @@ Number.isFinite(0); // true
 Number.isFinite(2e64); // true
 ```
 
-### Difference between Number.isFinite() and global isFinite()
+### تفاوت Number.isFinite() با isFinite() سراسری
 
-In comparison to the global {{jsxref("isFinite()")}} function, this method doesn't first convert the parameter to a number. This means only values of the type number _and_ are finite return `true`, and non-numbers always return `false`.
+در مقایسه با تابع سراسری {{jsxref("isFinite()")}}، این متد ابتدا پارامتر را به عدد تبدیل نمی‌کند. بنابراین فقط مقادیر نوع `number` که متناهی باشند `true` برمی‌گردانند و مقادیر غیرعددی همیشه `false` خواهند بود.
 
 ```js
 isFinite("0"); // true; coerced to number 0
@@ -67,15 +66,15 @@ isFinite(null); // true; coerced to number 0
 Number.isFinite(null); // false
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - [Polyfill of `Number.isFinite` in `core-js`](https://github.com/zloirock/core-js#ecmascript-number)
 - [es-shims polyfill of `Number.isFinite`](https://www.npmjs.com/package/number.isfinite)

@@ -1,7 +1,6 @@
 ---
 title: "Response: formData() method"
 source: "https://developer.mozilla.org/en-US/docs/Web/API/Response/formData"
-status: "needs-translation"
 ---
 
 ---
@@ -14,55 +13,50 @@ browser-compat: api.Response.formData
 
 {{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-The **`formData()`** method of the {{domxref("Response")}} interface
-takes a {{domxref("Response")}} stream and reads it to completion. It returns a promise
-that resolves with a {{domxref("FormData")}} object.
+متد **`formData()`** از رابط {{domxref("Response")}} جریان پاسخ را تا انتها می‌خواند و یک Promise برمی‌گرداند که با شیء {{domxref("FormData")}} تکمیل می‌شود.
 
 > [!NOTE]
-> This is mainly relevant to [service workers](/en-US/docs/Web/API/Service_Worker_API). If a user submits
-> a form and a service worker intercepts the request, you could for example call
-> `formData()` on it to obtain a key-value map, modify some fields, then send
-> the form onwards to the server (or use it locally).
+> این متد بیشتر در [Service Workerها](/en-US/docs/Web/API/Service_Worker_API) کاربرد دارد. برای مثال، اگر کاربر فرمی را ارسال کند و یک Service Worker درخواست را رهگیری کند، می‌توان با فراخوانی `formData()` یک نگاشت کلید-مقدار به دست آورد، برخی فیلدها را تغییر داد و سپس فرم را برای سرور فرستاد یا به‌صورت محلی استفاده کرد.
 
-## Syntax
+## نحو
 
 ```js-nolint
 formData()
 ```
 
-### Parameters
+### پارامترها
 
-None.
+این متد پارامتری نمی‌گیرد.
 
-### Return value
+### مقدار بازگشتی
 
-A {{jsxref("Promise")}} that resolves with a {{domxref("FormData")}} object.
+یک {{jsxref("Promise")}} که با شیء {{domxref("FormData")}} تکمیل می‌شود.
 
-### Exceptions
+### خطاها
 
 - `AbortError` {{domxref("DOMException")}}
-  - : The request was [aborted](/en-US/docs/Web/API/Fetch_API/Using_Fetch#canceling_a_request).
+  - : اگر درخواست لغو شده باشد، این خطا رخ می‌دهد. [توضیحات بیشتر](/en-US/docs/Web/API/Fetch_API/Using_Fetch#canceling_a_request)
 - {{jsxref("TypeError")}}
-  - : Thrown for one of the following reasons:
-    - The response body is [disturbed or locked](/en-US/docs/Web/API/Fetch_API/Using_Fetch#locked_and_disturbed_streams).
-    - There was an error decoding the body content (for example, because the {{httpheader("Content-Encoding")}} header is incorrect).
-    - The {{glossary("MIME")}} type of the body cannot be determined from the {{httpheader("Content-Type")}} headers included in the response, or is not `application/x-www-form-urlencoded` or `multipart/form-data`.
-    - The body cannot be parsed as a `FormData` object.
+  - : در هر یک از شرایط زیر رخ می‌دهد:
+    - بدنهٔ پاسخ قبلاً خوانده شده یا قفل شده باشد ([توضیحات بیشتر](/en-US/docs/Web/API/Fetch_API/Using_Fetch#locked-and-disturbed-streams)).
+    - هنگام رمزگشایی محتوای بدنه خطایی رخ دهد؛ برای مثال، مقدار سربرگ {{httpheader("Content-Encoding")}} نادرست باشد.
+    - نوع {{glossary("MIME")}} بدنه از سربرگ {{httpheader("Content-Type")}} پاسخ قابل تشخیص نباشد یا با `application/x-www-form-urlencoded` و `multipart/form-data` مطابقت نداشته باشد.
+    - نتوان بدنه را به‌عنوان شیء `FormData` تجزیه کرد.
 
-## Examples
+## مثال‌ها
 
-TBD.
+این بخش در مستندات اصلی هنوز مثالی ارائه نمی‌کند.
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
-- [ServiceWorker API](/en-US/docs/Web/API/Service_Worker_API)
-- [HTTP access control (CORS)](/en-US/docs/Web/HTTP/Guides/CORS)
+- [رابط Service Worker](/en-US/docs/Web/API/Service_Worker_API)
+- [کنترل دسترسی بین‌مبدأ HTTP (CORS)](/en-US/docs/Web/HTTP/Guides/CORS)
 - [HTTP](/en-US/docs/Web/HTTP)

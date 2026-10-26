@@ -1,7 +1,6 @@
 ---
 title: "Array.prototype.at()"
 source: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/at"
-status: "needs-translation"
 ---
 
 ---
@@ -13,7 +12,7 @@ browser-compat: javascript.builtins.Array.at
 sidebar: jsref
 ---
 
-The **`at()`** method of {{jsxref("Array")}} instances takes an integer value and returns the item at that index, allowing for positive and negative integers. Negative integers count back from the last item in the array.
+متد **`at()`** در نمونه‌های {{jsxref("Array")}} یک عدد صحیح می‌گیرد و عضو واقع در آن اندیس را برمی‌گرداند. اندیس می‌تواند مثبت یا منفی باشد؛ اندیس منفی از آخرین عضو آرایه به عقب می‌شمارد.
 
 {{InteractiveExample("JavaScript Demo: Array.prototype.at()")}}
 
@@ -31,36 +30,36 @@ console.log(`An index of ${index} returns ${array.at(index)}`);
 // Expected output: "An index of -2 returns 130"
 ```
 
-## Syntax
+## نحو
 
 ```js-nolint
 at(index)
 ```
 
-### Parameters
+### پارامترها
 
 - `index`
-  - : Zero-based index of the array element to be returned, [converted to an integer](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). Negative index counts back from the end of the array — if `index < 0`, `index + array.length` is accessed.
+  - : اندیسِ صفرمبنا برای عضو موردنظر آرایه که [به عدد صحیح تبدیل می‌شود](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). اندیس منفی از انتهای آرایه محاسبه می‌شود؛ اگر `index < 0` باشد، اندیس `index + array.length` دسترسی داده می‌شود.
 
-### Return value
+### مقدار بازگشتی
 
-The element in the array matching the given index. Always returns {{jsxref("undefined")}} if `index < -array.length` or `index >= array.length` without attempting to access the corresponding property.
+عضو آرایه در اندیس داده‌شده. اگر `index < -array.length` یا `index >= array.length` باشد، بدون تلاش برای دسترسی به ویژگی متناظر، همیشه {{jsxref("undefined")}} برمی‌گرداند.
 
-## Description
+## توضیحات
 
-The `at()` method is equivalent to the bracket notation when `index` is a non-negative integer. For example, `array[0]` and `array.at(0)` both return the first item. However, when counting elements from the end of the array, you cannot use `array[-1]` like you may in Python or R, because all values inside the square brackets are treated literally as string properties, so you will end up reading `array["-1"]`, which is just a normal string property instead of an array index.
+وقتی `index` عدد صحیحی نامنفی باشد، متد `at()` معادل استفاده از براکت است؛ برای مثال، `array[0]` و `array.at(0)` هر دو عضو اول را برمی‌گردانند. اما برای شمردن از انتهای آرایه نمی‌توان مانند Python یا R از `array[-1]` استفاده کرد؛ زیرا مقدار داخل براکت به‌عنوان نام ویژگی رشته‌ای در نظر گرفته می‌شود و در واقع `array["-1"]` خوانده خواهد شد، نه اندیس آرایه.
 
-The usual practice is to access {{jsxref("Array/length", "length")}} and calculate the index from that — for example, `array[array.length - 1]`. The `at()` method allows relative indexing, so this can be shortened to `array.at(-1)`.
+روش معمول این است که با استفاده از {{jsxref("Array/length", "length")}} اندیس را محاسبه کنیم؛ مثلاً `array[array.length - 1]`. متد `at()` اندیس‌گذاری نسبی را ممکن می‌کند و این عبارت را می‌توان به `array.at(-1)` کوتاه کرد.
 
-By combining `at()` with {{jsxref("Array/with", "with()")}}, you can both read and write (respectively) an array using negative indices.
+با ترکیب `at()` و {{jsxref("Array/with", "with()")}} می‌توانید با اندیس‌های منفی به‌ترتیب مقدار آرایه را بخوانید و تغییر دهید.
 
-The `at()` method is [generic](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). It only expects the `this` value to have a `length` property and integer-keyed properties.
+متد `at()` [عمومی](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods) است؛ فقط انتظار دارد مقدار `this` ویژگی `length` و ویژگی‌هایی با کلیدهای عدد صحیح داشته باشد.
 
-## Examples
+## مثال‌ها
 
-### Return the last value of an array
+### برگرداندن آخرین مقدار آرایه
 
-The following example provides a function which returns the last element found in a specified array.
+مثال زیر تابعی می‌سازد که آخرین عضو آرایهٔ مشخص‌شده را برمی‌گرداند.
 
 ```js
 // Our array with items
@@ -81,9 +80,9 @@ const item2 = returnLast(cart);
 console.log(item2); // 'orange'
 ```
 
-### Comparing methods
+### مقایسهٔ روش‌ها
 
-This example compares different ways to select the penultimate (last but one) item of an {{jsxref("Array")}}. While all the methods shown below are valid, this example highlights the succinctness and readability of the `at()` method.
+این مثال روش‌های مختلف انتخاب عضو یکی مانده به آخر یک {{jsxref("Array")}} را مقایسه می‌کند. همهٔ روش‌های زیر معتبرند، اما این نمونه کوتاه‌بودن و خوانایی `at()` را نشان می‌دهد.
 
 ```js
 // Our array with items
@@ -102,9 +101,9 @@ const atWay = colors.at(-2);
 console.log(atWay); // 'green'
 ```
 
-### Calling at() on non-array objects
+### فراخوانی at() روی اشیایی غیر از آرایه
 
-The `at()` method reads the `length` property of `this` and calculates the index to access.
+متد `at()` ویژگی `length` مقدار `this` را می‌خواند و اندیس مورد دسترسی را محاسبه می‌کند.
 
 ```js
 const arrayLike = {
@@ -117,15 +116,15 @@ console.log(Array.prototype.at.call(arrayLike, 0)); // "a"
 console.log(Array.prototype.at.call(arrayLike, 2)); // undefined
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - [Polyfill of `Array.prototype.at` in `core-js`](https://github.com/zloirock/core-js#relative-indexing-method)
 - [es-shims polyfill of `Array.prototype.at`](https://www.npmjs.com/package/array.prototype.at)

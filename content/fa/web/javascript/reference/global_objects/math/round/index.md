@@ -1,7 +1,6 @@
 ---
 title: "Math.round()"
 source: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round"
-status: "needs-translation"
 ---
 
 ---
@@ -13,7 +12,7 @@ browser-compat: javascript.builtins.Math.round
 sidebar: jsref
 ---
 
-The **`Math.round()`** static method returns the value of a number rounded to the nearest integer.
+متد ایستای **`Math.round()`** مقدار عدد را پس از گرد کردن به نزدیک‌ترین عدد صحیح برمی‌گرداند.
 
 {{InteractiveExample("JavaScript Demo: Math.round()")}}
 
@@ -28,35 +27,35 @@ console.log(Math.round(-5.05), Math.round(-5.5), Math.round(-5.95));
 // Expected output: -5 -5 -6
 ```
 
-## Syntax
+## نحو
 
 ```js-nolint
 Math.round(x)
 ```
 
-### Parameters
+### پارامترها
 
 - `x`
-  - : A number.
+  - : یک عدد.
 
-### Return value
+### مقدار بازگشتی
 
-The value of `x` rounded to the nearest integer.
+مقدار `x` که به نزدیک‌ترین عدد صحیح گرد شده است.
 
-## Description
+## توضیحات
 
-If the fractional portion of the argument is greater than 0.5, the argument is rounded to the integer with the next higher absolute value. If it is less than 0.5, the argument is rounded to the integer with the lower absolute value. If the fractional portion is exactly 0.5, the argument is rounded to the next integer in the direction of +∞.
+اگر بخش اعشاری آرگومان بیشتر از ۰٫۵ باشد، عدد به سمت عدد صحیحی با قدرمطلق بزرگ‌تر گرد می‌شود. اگر کمتر از ۰٫۵ باشد، به سمت عدد صحیحی با قدرمطلق کوچک‌تر گرد می‌شود. اگر بخش اعشاری دقیقاً ۰٫۵ باشد، عدد به سمت عدد صحیح بعدی در جهت مثبت بی‌نهایت گرد می‌شود.
 
 > [!NOTE]
-> This differs from many languages' `round()` functions, which often round half-increments _away from zero_, giving a different result in the case of negative numbers with a fractional part of exactly 0.5.
+> این رفتار با تابع `round()` در بسیاری از زبان‌ها متفاوت است؛ آن توابع معمولاً نیم‌واحدها را _دور از صفر_ گرد می‌کنند و در نتیجه برای اعداد منفی با بخش اعشاری دقیقاً ۰٫۵ نتیجهٔ متفاوتی می‌دهند.
 
-`Math.round(x)` is not exactly the same as [`Math.floor(x + 0.5)`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor). When `x` is -0, or -0.5 ≤ x < 0, `Math.round(x)` returns -0, while `Math.floor(x + 0.5)` returns 0. However, neglecting that difference and potential precision errors, `Math.round(x)` and `Math.floor(x + 0.5)` are generally equivalent.
+`Math.round(x)` دقیقاً با [`Math.floor(x + 0.5)`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor) یکسان نیست. وقتی `x` برابر `-0` باشد یا `-0.5 ≤ x < 0`، تابع `Math.round(x)` مقدار `-0` و تابع `Math.floor(x + 0.5)` مقدار `0` برمی‌گرداند. با صرف‌نظر از این تفاوت و خطاهای احتمالی دقت، این دو عبارت معمولاً معادل‌اند.
 
-Because `round()` is a static method of `Math`, you always use it as `Math.round()`, rather than as a method of a `Math` object you created (`Math` has no constructor).
+چون `round()` متدی ایستا از `Math` است، همیشه آن را به‌شکل `Math.round()` به کار ببرید؛ `Math` سازنده ندارد.
 
-## Examples
+## مثال‌ها
 
-### Using round
+### استفاده از round
 
 ```js
 Math.round(-Infinity); // -Infinity
@@ -70,15 +69,15 @@ Math.round(42); // 42
 Math.round(Infinity); // Infinity
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - {{jsxref("Number.prototype.toPrecision()")}}
 - {{jsxref("Number.prototype.toFixed()")}}

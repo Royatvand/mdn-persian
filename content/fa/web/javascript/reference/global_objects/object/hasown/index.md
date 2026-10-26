@@ -1,7 +1,6 @@
 ---
 title: "Object.hasOwn()"
 source: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwn"
-status: "needs-translation"
 ---
 
 ---
@@ -13,10 +12,10 @@ browser-compat: javascript.builtins.Object.hasOwn
 sidebar: jsref
 ---
 
-The **`Object.hasOwn()`** static method returns `true` if the specified object has the indicated property as its _own_ property. If the property is inherited, or does not exist, the method returns `false`.
+متد ایستای **`Object.hasOwn()`** اگر شیء مشخص‌شده، ویژگی موردنظر را به‌صورت ویژگیِ مستقیم خود داشته باشد، `true` برمی‌گرداند. اگر ویژگی به ارث رسیده باشد یا وجود نداشته باشد، نتیجه `false` است.
 
 > [!NOTE]
-> `Object.hasOwn()` is intended as a replacement for {{jsxref("Object.prototype.hasOwnProperty()")}}.
+> `Object.hasOwn()` برای جایگزینی {{jsxref("Object.prototype.hasOwnProperty()")}} در نظر گرفته شده است.
 
 {{InteractiveExample("JavaScript Demo: Object.hasOwn()")}}
 
@@ -35,34 +34,34 @@ console.log(Object.hasOwn(object, "undeclaredPropertyValue"));
 // Expected output: false
 ```
 
-## Syntax
+## نحو
 
 ```js-nolint
 Object.hasOwn(obj, prop)
 ```
 
-### Parameters
+### پارامترها
 
 - `obj`
-  - : The JavaScript object instance to test.
+  - : نمونهٔ شیء جاوااسکریپتی که باید بررسی شود.
 - `prop`
-  - : The {{jsxref("String")}} name or [Symbol](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol) of the property to test.
+  - : نام {{jsxref("String")}} یا [Symbol](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol) ویژگی مورد بررسی.
 
-### Return value
+### مقدار بازگشتی
 
-`true` if the specified object has directly defined the specified property. Otherwise `false`
+اگر شیء ویژگی مشخص‌شده را مستقیماً تعریف کرده باشد، `true` و در غیر این صورت `false`.
 
-## Description
+## توضیحات
 
-The `Object.hasOwn()` method returns `true` if the specified property is a direct property of the object — even if the property value is `null` or `undefined`. The method returns `false` if the property is inherited, or has not been declared at all. Unlike the {{jsxref("Operators/in", "in")}} operator, this method does not check for the specified property in the object's prototype chain.
+متد `Object.hasOwn()` اگر ویژگی مشخص‌شده مستقیماً متعلق به شیء باشد، `true` برمی‌گرداند؛ حتی اگر مقدار ویژگی `null` یا `undefined` باشد. اگر ویژگی به ارث رسیده باشد یا اصلاً تعریف نشده باشد، `false` برمی‌گرداند. برخلاف عملگر {{jsxref("Operators/in", "in")}}، این متد زنجیرهٔ prototype شیء را برای یافتن ویژگی بررسی نمی‌کند.
 
-It is recommended over {{jsxref("Object.prototype.hasOwnProperty()")}} because it works for [`null`-prototype objects](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) and with objects that have overridden the inherited `hasOwnProperty()` method. While it is possible to workaround these problems by accessing `Object.prototype.hasOwnProperty()` on another object (like `Object.prototype.hasOwnProperty.call(obj, prop)`, `Object.hasOwn()` is more intuitive and concise.
+استفاده از این متد به {{jsxref("Object.prototype.hasOwnProperty()")}} ترجیح داده می‌شود؛ زیرا با [اشیای دارای prototype برابر null](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) و همچنین اشیایی که متد ارث‌بری‌شدهٔ `hasOwnProperty()` را بازنویسی کرده‌اند، کار می‌کند. هرچند می‌توان با فراخوانی `Object.prototype.hasOwnProperty.call(obj, prop)` این مشکلات را دور زد، `Object.hasOwn()` ساده‌تر و قابل‌فهم‌تر است.
 
-## Examples
+## مثال‌ها
 
-### Using Object.hasOwn() to test for a property's existence
+### بررسی وجود ویژگی با Object.hasOwn()
 
-The following code shows how to determine whether the `example` object contains a property named `prop`.
+کد زیر نشان می‌دهد چگونه بررسی کنیم شیء `example` ویژگی‌ای به نام `prop` دارد یا نه.
 
 ```js
 const example = {};
@@ -78,9 +77,9 @@ example.prop = undefined;
 Object.hasOwn(example, "prop"); // true - own property exists with value of undefined
 ```
 
-### Direct vs. inherited properties
+### ویژگی‌های مستقیم در برابر ویژگی‌های ارث‌بری‌شده
 
-The following example differentiates between direct properties and properties inherited through the prototype chain:
+نمونهٔ زیر تفاوت ویژگی‌های مستقیم و ویژگی‌های به‌ارث‌رسیده از زنجیرهٔ prototype را نشان می‌دهد:
 
 ```js
 const example = {};
@@ -97,9 +96,9 @@ Object.hasOwn(example, "hasOwnProperty"); // false
 "hasOwnProperty" in example; // true
 ```
 
-### Iterating over the properties of an object
+### پیمایش ویژگی‌های یک شیء
 
-To iterate over the enumerable properties of an object, you _should_ use:
+برای پیمایش ویژگی‌های شمارش‌پذیر یک شیء، بهتر است از این روش استفاده کنید:
 
 ```js
 const example = { foo: true, bar: true };
@@ -108,7 +107,7 @@ for (const name of Object.keys(example)) {
 }
 ```
 
-But if you need to use `for...in`, you can use `Object.hasOwn()` to skip the inherited properties:
+اما اگر لازم است از `for...in` استفاده کنید، می‌توانید با `Object.hasOwn()` ویژگی‌های ارث‌بری‌شده را نادیده بگیرید:
 
 ```js
 const example = { foo: true, bar: true };
@@ -119,9 +118,9 @@ for (const name in example) {
 }
 ```
 
-### Checking if an Array index exists
+### بررسی وجود یک اندیس در آرایه
 
-The elements of an {{jsxref("Array")}} are defined as direct properties, so you can use `hasOwn()` method to check whether a particular index exists:
+عناصر {{jsxref("Array")}} به‌عنوان ویژگی‌های مستقیم تعریف می‌شوند؛ بنابراین می‌توانید با `hasOwn()` بررسی کنید که اندیس مشخصی وجود دارد یا نه:
 
 ```js
 const fruits = ["Apple", "Banana", "Watermelon", "Orange"];
@@ -129,9 +128,9 @@ Object.hasOwn(fruits, 3); // true ('Orange')
 Object.hasOwn(fruits, 4); // false - not defined
 ```
 
-### Problematic cases for hasOwnProperty()
+### موارد مشکل‌ساز برای hasOwnProperty()
 
-This section demonstrates that `Object.hasOwn()` is immune to the problems that affect `hasOwnProperty()`. Firstly, it can be used with objects that have re-implemented `hasOwnProperty()`. In the example below, the re-implemented `hasOwnProperty()` method reports false for _every_ property, but the behavior of `Object.hasOwn()` remains unaffected:
+این بخش نشان می‌دهد `Object.hasOwn()` تحت تأثیر مشکلات `hasOwnProperty()` قرار نمی‌گیرد. نخست اینکه می‌توان آن را برای اشیایی به کار برد که متد `hasOwnProperty()` را دوباره تعریف کرده‌اند. در مثال زیر، متد بازنویسی‌شده برای همهٔ ویژگی‌ها `false` می‌دهد، اما رفتار `Object.hasOwn()` تغییر نمی‌کند:
 
 ```js
 const foo = {
@@ -146,7 +145,7 @@ console.log(foo.hasOwnProperty("bar")); // false
 console.log(Object.hasOwn(foo, "bar")); // true
 ```
 
-It can also be used with [`null`-prototype objects](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects). These do not inherit from `Object.prototype`, and so `hasOwnProperty()` is inaccessible.
+همچنین می‌توان آن را با [اشیای دارای prototype برابر null](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) به کار برد. این اشیا از `Object.prototype` ارث‌بری نمی‌کنند، بنابراین متد `hasOwnProperty()` در دسترس نیست.
 
 ```js
 const foo = Object.create(null);
@@ -158,15 +157,15 @@ console.log(foo.hasOwnProperty("prop"));
 console.log(Object.hasOwn(foo, "prop")); // true
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - [Polyfill of `Object.hasOwn` in `core-js`](https://github.com/zloirock/core-js#ecmascript-object)
 - [es-shims polyfill of `Object.hasOwn`](https://www.npmjs.com/package/object.hasown)

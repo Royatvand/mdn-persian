@@ -1,7 +1,6 @@
 ---
 title: "Number.isInteger()"
 source: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger"
-status: "needs-translation"
 ---
 
 ---
@@ -13,7 +12,7 @@ browser-compat: javascript.builtins.Number.isInteger
 sidebar: jsref
 ---
 
-The **`Number.isInteger()`** static method determines whether the passed value is an integer.
+متد ایستای **`Number.isInteger()`** بررسی می‌کند که مقدار ورودی عدد صحیح است یا نه.
 
 {{InteractiveExample("JavaScript Demo: Number.isInteger()")}}
 
@@ -32,32 +31,32 @@ console.log(fits(5, 11));
 // Expected output: "Does NOT fit!"
 ```
 
-## Syntax
+## نحو
 
 ```js-nolint
 Number.isInteger(value)
 ```
 
-### Parameters
+### پارامترها
 
 - `value`
-  - : The value to be tested for being an integer.
+  - : مقداری که صحیح بودن آن بررسی می‌شود.
 
-### Return value
+### مقدار بازگشتی
 
-The boolean value `true` if the given value is an integer. Otherwise `false`.
+اگر مقدار داده‌شده عدد صحیح باشد `true` و در غیر این صورت `false` برمی‌گرداند.
 
-## Description
+## توضیحات
 
-If the target value is an integer, return `true`, otherwise return `false`. If the value is {{jsxref("NaN")}} or {{jsxref("Infinity")}}, return `false`. The method will also return `true` for floating point numbers that can be represented as integer. It will always return `false` if the value is not a number.
+اگر مقدار موردنظر عدد صحیح باشد، `true` و در غیر این صورت `false` برگردانده می‌شود. برای {{jsxref("NaN")}} یا {{jsxref("Infinity")}} نتیجه `false` است. این متد برای اعداد اعشاری‌ای که می‌توان آن‌ها را به‌صورت عدد صحیح نمایش داد نیز `true` برمی‌گرداند. اگر مقدار عدد نباشد، نتیجه همیشه `false` است.
 
-Note that some number literals, while looking like non-integers, actually represent integers — due to the precision limit of ECMAScript floating-point number encoding (IEEE-754). For example, `5.0000000000000001` only differs from `5` by `1e-16`, which is too small to be represented. (For reference, [`Number.EPSILON`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/EPSILON) stores the distance between 1 and the next representable floating-point number greater than 1, and that is about `2.22e-16`.) Therefore, `5.0000000000000001` will be represented with the same encoding as `5`, thus making `Number.isInteger(5.0000000000000001)` return `true`.
+توجه کنید که برخی مقادیر عددی با وجود ظاهر اعشاری، به‌دلیل محدودیت دقت در نمایش اعداد ممیز شناور ECMAScript (IEEE-754) در واقع عدد صحیح محسوب می‌شوند. برای مثال، تفاوت `5.0000000000000001` با `5` فقط `1e-16` است که برای نمایش دقیق بسیار کوچک است. (برای مقایسه، [`Number.EPSILON`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/EPSILON) فاصلهٔ ۱ تا عدد ممیز شناور قابل نمایش بعدی را نگه می‌دارد که حدود `2.22e-16` است.) بنابراین `5.0000000000000001` مانند `5` نمایش داده می‌شود و `Number.isInteger(5.0000000000000001)` مقدار `true` می‌دهد.
 
-In a similar sense, numbers around the magnitude of [`Number.MAX_SAFE_INTEGER`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) will suffer from loss of precision and make `Number.isInteger` return `true` even when it's not an integer. (The actual threshold varies based on how many bits are needed to represent the decimal — for example, `Number.isInteger(4500000000000000.1)` is `true`, but `Number.isInteger(4500000000000000.5)` is `false`.)
+به همین ترتیب، عددهای نزدیک به بزرگی [`Number.MAX_SAFE_INTEGER`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) ممکن است دقت خود را از دست بدهند و باعث شوند `Number.isInteger` حتی برای مقداری که در اصل صحیح نیست `true` برگرداند. (حد دقیق به تعداد بیت‌های لازم برای نمایش عدد بستگی دارد؛ برای نمونه، `Number.isInteger(4500000000000000.1)` برابر `true` است، اما `Number.isInteger(4500000000000000.5)` برابر `false` است.)
 
-## Examples
+## مثال‌ها
 
-### Using isInteger
+### استفاده از isInteger
 
 ```js
 Number.isInteger(0); // true
@@ -82,15 +81,15 @@ Number.isInteger(5.0000000000000001); // true, because of loss of precision
 Number.isInteger(4500000000000000.1); // true, because of loss of precision
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - [Polyfill of `Number.isInteger` in `core-js`](https://github.com/zloirock/core-js#ecmascript-number)
 - [es-shims polyfill of `Number.isInteger`](https://www.npmjs.com/package/number.isinteger)
