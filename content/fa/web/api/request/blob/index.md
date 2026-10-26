@@ -1,7 +1,6 @@
 ---
 title: "Request: blob() method"
 source: "https://developer.mozilla.org/en-US/docs/Web/API/Request/blob"
-status: "needs-translation"
 ---
 
 ---
@@ -14,31 +13,30 @@ browser-compat: api.Request.blob
 
 {{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-The **`blob()`** method of the {{domxref("Request")}} interface
-reads the request body and returns it as a promise that resolves with a {{domxref("Blob")}}.
+متد **`blob()`** از رابط {{domxref("Request")}} بدنهٔ درخواست را می‌خواند و یک Promise برمی‌گرداند که با یک شیء {{domxref("Blob")}} تکمیل می‌شود.
 
-## Syntax
+## نحو
 
 ```js-nolint
 blob()
 ```
 
-### Parameters
+### پارامترها
 
-None.
+این متد پارامتری نمی‌گیرد.
 
-### Return value
+### مقدار بازگشتی
 
-A promise that resolves with a {{domxref("Blob")}} whose data is the body's bytes and the media type is the request's `Content-Type` header's value.
+یک Promise که با شیء {{domxref("Blob")}} تکمیل می‌شود. دادهٔ این شیء از بایت‌های بدنه تشکیل شده و نوع رسانهٔ آن از مقدار سربرگ `Content-Type` درخواست گرفته می‌شود.
 
-### Exceptions
+### خطاها
 
 - {{jsxref("TypeError")}}
-  - : Thrown for one of the following reasons:
-    - The request body is [disturbed or locked](/en-US/docs/Web/API/Fetch_API/Using_Fetch#locked_and_disturbed_streams).
-    - There was an error decoding the body content (for example, because the {{httpheader("Content-Encoding")}} header is incorrect).
+  - : در هر یک از شرایط زیر رخ می‌دهد:
+    - بدنهٔ درخواست قبلاً خوانده شده یا قفل شده باشد ([توضیحات بیشتر](/en-US/docs/Web/API/Fetch_API/Using_Fetch#locked_and_disturbed_streams)).
+    - هنگام رمزگشایی محتوای بدنه خطایی رخ دهد؛ برای مثال، مقدار سربرگ {{httpheader("Content-Encoding")}} نادرست باشد.
 
-## Examples
+## مثال
 
 ```js
 const obj = { hello: "world" };
@@ -52,18 +50,18 @@ const request = new Request("/myEndpoint", {
 });
 
 request.blob().then((myBlob) => {
-  // do something with the blob sent in the request
+  // با Blob ارسال‌شده در درخواست کاری انجام دهید
 });
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - {{domxref("Response.blob()")}}
