@@ -1,7 +1,6 @@
 ---
 title: "Response: json() method"
 source: "https://developer.mozilla.org/en-US/docs/Web/API/Response/json"
-status: "needs-translation"
 ---
 
 ---
@@ -14,45 +13,36 @@ browser-compat: api.Response.json
 
 {{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-The **`json()`** method of the {{DOMxRef("Response")}} interface takes
-a {{DOMxRef("Response")}} stream and reads it to completion. It returns a promise which
-resolves with the result of parsing the body text as {{JSxRef("JSON")}}.
+متد **`json()`** از رابط {{DOMxRef("Response")}} جریان پاسخ را تا انتها می‌خواند و یک Promise برمی‌گرداند که با نتیجهٔ تجزیهٔ متن بدنه به‌عنوان {{JSxRef("JSON")}} تکمیل می‌شود.
 
-Note that despite the method being named `json()`, the result is not JSON but is instead the result of taking JSON as input and parsing it to produce a JavaScript object.
+با اینکه نام متد `json()` است، نتیجهٔ آن JSON خام نیست؛ بلکه مقدار جاوااسکریپتی حاصل از تجزیهٔ JSON است.
 
-## Syntax
+## نحو
 
 ```js-nolint
 json()
 ```
 
-### Parameters
+### پارامترها
 
-None.
+این متد پارامتری نمی‌گیرد.
 
-### Return value
+### مقدار بازگشتی
 
-A {{jsxref("Promise")}} that resolves to a JavaScript object. This object could be
-anything that can be represented by JSON — an object, an array, a string, a number…
+یک {{jsxref("Promise")}} که با مقداری جاوااسکریپتی تکمیل می‌شود. این مقدار می‌تواند هر چیزی باشد که JSON نمایش می‌دهد؛ مانند شیء، آرایه، رشته یا عدد.
 
-### Exceptions
+### خطاها
 
 - `AbortError` {{domxref("DOMException")}}
-  - : The request was [aborted](/en-US/docs/Web/API/Fetch_API/Using_Fetch#canceling_a_request).
+  - : اگر درخواست لغو شده باشد، این خطا رخ می‌دهد. [توضیحات بیشتر](/en-US/docs/Web/API/Fetch_API/Using_Fetch#canceling_a_request)
 - {{jsxref("TypeError")}}
-  - : Thrown for one of the following reasons:
-    - The response body is [disturbed or locked](/en-US/docs/Web/API/Fetch_API/Using_Fetch#locked_and_disturbed_streams).
-    - There was an error decoding the body content (for example, because the {{httpheader("Content-Encoding")}} header is incorrect).
+  - : اگر بدنهٔ پاسخ قبلاً خوانده شده یا قفل شده باشد، یا هنگام رمزگشایی محتوای بدنه خطایی رخ دهد؛ برای مثال، سربرگ {{httpheader("Content-Encoding")}} نادرست باشد.
 - {{jsxref("SyntaxError")}}
-  - : The response body cannot be parsed as JSON.
+  - : اگر نتوان بدنهٔ پاسخ را به‌عنوان JSON تجزیه کرد.
 
-## Examples
+## مثال
 
-In our [fetch JSON example](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-json) (run [fetch JSON live](https://mdn.github.io/dom-examples/fetch/fetch-json/)),
-we create a new request using the {{DOMxRef("Request.Request", "Request()")}} constructor, then use it to fetch a `.json` file.
-When the fetch is successful, we read and parse the data using `json()`, then read
-values out of the resulting objects as you'd expect and insert them into list items to
-display our product data.
+در [نمونهٔ دریافت JSON](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-json) می‌بینیم که چگونه با سازندهٔ {{DOMxRef("Request.Request", "Request()")}} درخواست جدیدی ساخته و یک فایل `.json` دریافت کنیم. پس از موفقیت درخواست، داده‌ها را با `json()` می‌خوانیم و تجزیه می‌کنیم؛ سپس مقادیر شیءهای حاصل را در عناصر فهرست قرار می‌دهیم تا اطلاعات محصولات نمایش داده شوند.
 
 ```js
 const myList = document.querySelector("ul");
@@ -74,16 +64,16 @@ fetch(myRequest)
   .catch(console.error);
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
-- [ServiceWorker API](/en-US/docs/Web/API/Service_Worker_API)
-- [Cross-Origin Resource Sharing (CORS)](/en-US/docs/Web/HTTP/Guides/CORS)
+- [رابط Service Worker](/en-US/docs/Web/API/Service_Worker_API)
+- [اشتراک‌گذاری منابع بین‌مبدأ (CORS)](/en-US/docs/Web/HTTP/Guides/CORS)
 - [HTTP](/en-US/docs/Web/HTTP)
