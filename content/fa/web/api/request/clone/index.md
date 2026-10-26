@@ -1,7 +1,6 @@
 ---
 title: "Request: clone() method"
 source: "https://developer.mozilla.org/en-US/docs/Web/API/Request/clone"
-status: "needs-translation"
 ---
 
 ---
@@ -14,52 +13,47 @@ browser-compat: api.Request.clone
 
 {{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-The **`clone()`** method of the {{domxref("Request")}} interface creates a copy of the current `Request` object.
+متد **`clone()`** از رابط {{domxref("Request")}} یک کپی از شیء فعلی `Request` ایجاد می‌کند.
 
-Like the underlying {{domxref("ReadableStream.tee")}} api,
-the {{domxref("Request.body", "body")}} of a cloned `Request`
-will signal backpressure at the rate of the _faster_ consumer of the two bodies,
-and unread data is enqueued internally on the slower consumed `body`
-without any limit or backpressure.
-Beware when you construct a `Request` from a stream and then `clone` it.
+مانند API زیرین {{domxref("ReadableStream.tee")}}، بدنهٔ {{domxref("Request.body", "body")}} در درخواست کپی‌شده، فشار برگشتی (backpressure) را با سرعت مصرف‌کنندهٔ سریع‌تر از میان دو مصرف‌کننده هماهنگ می‌کند. داده‌هایی که مصرف‌کنندهٔ کندتر هنوز نخوانده است، بدون محدودیت یا فشار برگشتی در صف داخلی نگه داشته می‌شوند. هنگام ساختن یک `Request` از جریان و سپس کپی‌کردن آن با `clone()` مراقب این موضوع باشید.
 
-`clone()` throws a {{jsxref("TypeError")}} if the request body has already been used. In fact, the main reason `clone()` exists is to allow multiple uses of body objects (when they are one-use only.)
+اگر بدنهٔ درخواست قبلاً استفاده شده باشد، `clone()` خطای {{jsxref("TypeError")}} ایجاد می‌کند. دلیل اصلی وجود این متد، امکان استفادهٔ چندباره از بدنه‌هایی است که فقط یک بار قابل مصرف‌اند.
 
-If you intend to modify the request, you may prefer the {{domxref("Request")}} constructor.
+اگر قصد دارید درخواست را تغییر دهید، ممکن است استفاده از سازندهٔ {{domxref("Request")}} مناسب‌تر باشد.
 
-## Syntax
+## نحو
 
 ```js-nolint
 clone()
 ```
 
-### Parameters
+### پارامترها
 
-None.
+این متد پارامتری نمی‌گیرد.
 
-### Return value
+### مقدار بازگشتی
 
-A {{domxref("Request")}} object, which is an exact copy of the `Request` that `clone()` was called on.
+یک شیء {{domxref("Request")}} که کپی دقیقی از درخواستی است که متد `clone()` روی آن فراخوانی شده است.
 
-## Examples
+## مثال
 
-In the following snippet, we create a new request using the {{domxref("Request.Request", "Request()")}} constructor (for an image file in the same directory as the script), then clone the request.
+در نمونهٔ زیر با سازندهٔ {{domxref("Request.Request", "Request()")}} درخواستی برای یک فایل تصویری در همان پوشهٔ اسکریپت ایجاد می‌کنیم و سپس آن را کپی می‌کنیم.
 
 ```js
 const myRequest = new Request("flowers.jpg");
-const newRequest = myRequest.clone(); // a copy of the request is now stored in newRequest
+const newRequest = myRequest.clone(); // اکنون کپی درخواست در newRequest ذخیره شده است
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
-- [Service Worker API](/en-US/docs/Web/API/Service_Worker_API)
-- [HTTP access control (CORS)](/en-US/docs/Web/HTTP/Guides/CORS)
+- [رابط Service Worker](/en-US/docs/Web/API/Service_Worker_API)
+- [کنترل دسترسی بین‌مبدأ HTTP (CORS)](/en-US/docs/Web/HTTP/Guides/CORS)
 - [HTTP](/en-US/docs/Web/HTTP)
