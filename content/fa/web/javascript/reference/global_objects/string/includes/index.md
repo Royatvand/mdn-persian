@@ -1,7 +1,6 @@
 ---
 title: "String.prototype.includes()"
 source: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes"
-status: "needs-translation"
 ---
 
 ---
@@ -13,7 +12,7 @@ browser-compat: javascript.builtins.String.includes
 sidebar: jsref
 ---
 
-The **`includes()`** method of {{jsxref("String")}} values performs a case-sensitive search to determine whether a given string may be found within this string, returning `true` or `false` as appropriate.
+متد **`includes()`** برای مقدارهای {{jsxref("String")}} جست‌وجویی حساس به بزرگی و کوچکی حروف انجام می‌دهد تا مشخص کند رشته‌ای دیگر در این رشته وجود دارد یا نه؛ نتیجه `true` یا `false` است.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.includes()", "shorter")}}
 
@@ -30,50 +29,50 @@ console.log(
 // Expected output: "The word "fox" is in the sentence"
 ```
 
-## Syntax
+## نحو
 
 ```js-nolint
 includes(searchString)
 includes(searchString, position)
 ```
 
-### Parameters
+### پارامترها
 
 - `searchString`
-  - : A string to be searched for within `str`. Cannot [be a regex](/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes). All values that are not regexes are [coerced to strings](/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), so omitting it or passing `undefined` causes `includes()` to search for the string `"undefined"`, which is rarely what you want.
+  - : رشته‌ای که باید درون `str` جست‌وجو شود. این مقدار نمی‌تواند [عبارت باقاعده](/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes) باشد. مقدارهای دیگر به رشته [تبدیل](/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) می‌شوند؛ بنابراین اگر این آرگومان را حذف کنید یا `undefined` بدهید، متد به‌دنبال رشتهٔ `"undefined"` می‌گردد که معمولاً مطلوب نیست.
 - `position` {{optional_inline}}
-  - : The position within the string at which to begin searching for `searchString`. (Defaults to `0`.)
+  - : موقعیتی در رشته که جست‌وجوی `searchString` از آن آغاز می‌شود. مقدار پیش‌فرض `0` است.
 
-### Return value
+### مقدار بازگشتی
 
-**`true`** if the search string is found anywhere within the given string, including when `searchString` is an empty string; otherwise, **`false`**.
+اگر رشتهٔ جست‌وجوشده در هر نقطه‌ای از رشتهٔ داده‌شده پیدا شود، `true` برمی‌گرداند؛ حتی اگر `searchString` رشته‌ای خالی باشد. در غیر این صورت `false` است.
 
-### Exceptions
+### خطاها
 
 - {{jsxref("TypeError")}}
-  - : Thrown if `searchString` [is a regex](/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes).
+  - : اگر `searchString` [عبارت باقاعده](/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes) باشد، خطا رخ می‌دهد.
 
-## Description
+## توضیحات
 
-This method lets you determine whether or not a string includes another string.
+این متد مشخص می‌کند که آیا یک رشته، رشتهٔ دیگری را در خود دارد یا نه.
 
-### Case-sensitivity
+### حساسیت به بزرگی و کوچکی حروف
 
-The `includes()` method is case sensitive. For example, the following expression returns `false`:
+متد `includes()` به بزرگی و کوچکی حروف حساس است. برای مثال، عبارت زیر `false` برمی‌گرداند:
 
 ```js
 "Blue Whale".includes("blue"); // returns false
 ```
 
-You can work around this constraint by transforming both the original string and the search string to all lowercase:
+برای دور زدن این محدودیت می‌توانید هم رشتهٔ اصلی و هم رشتهٔ جست‌وجو را به حروف کوچک تبدیل کنید:
 
 ```js
 "Blue Whale".toLowerCase().includes("blue"); // returns true
 ```
 
-## Examples
+## مثال‌ها
 
-### Using includes()
+### استفاده از includes()
 
 ```js
 const str = "To be, or not to be, that is the question.";
@@ -86,15 +85,15 @@ console.log(str.includes("TO BE")); // false
 console.log(str.includes("")); // true
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - [Polyfill of `String.prototype.includes` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
 - [es-shims polyfill of `String.prototype.includes`](https://www.npmjs.com/package/string.prototype.includes)
