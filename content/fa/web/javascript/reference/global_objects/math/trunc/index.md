@@ -1,7 +1,6 @@
 ---
 title: "Math.trunc()"
 source: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/trunc"
-status: "needs-translation"
 ---
 
 ---
@@ -13,7 +12,7 @@ browser-compat: javascript.builtins.Math.trunc
 sidebar: jsref
 ---
 
-The **`Math.trunc()`** static method returns the integer part of a number by removing any fractional digits.
+متد ایستای **`Math.trunc()`** با حذف بخش اعشاری، قسمت صحیح یک عدد را برمی‌گرداند.
 
 {{InteractiveExample("JavaScript Demo: Math.trunc()")}}
 
@@ -31,30 +30,30 @@ console.log(Math.trunc(-0.123));
 // Expected output: -0
 ```
 
-## Syntax
+## نحو
 
 ```js-nolint
 Math.trunc(x)
 ```
 
-### Parameters
+### پارامترها
 
 - `x`
-  - : A number.
+  - : یک عدد.
 
-### Return value
+### مقدار بازگشتی
 
-The integer part of `x`.
+قسمت صحیح `x`.
 
-## Description
+## توضیحات
 
-The way `Math.trunc()` works is more straightforward than the other three `Math` methods: {{jsxref("Math.floor()")}}, {{jsxref("Math.ceil()")}} and {{jsxref("Math.round()")}}; it _truncates_ (cuts off) the dot and the digits to the right of it, no matter whether the argument is a positive or negative number.
+رفتار `Math.trunc()` از سه متد دیگر `Math` یعنی {{jsxref("Math.floor()")}}، {{jsxref("Math.ceil()")}} و {{jsxref("Math.round()")}} ساده‌تر است: این متد، چه آرگومان مثبت باشد چه منفی، نقطهٔ اعشار و رقم‌های سمت راست آن را _قطع_ می‌کند.
 
-Because `trunc()` is a static method of `Math`, you always use it as `Math.trunc()`, rather than as a method of a `Math` object you created (`Math` is not a constructor).
+چون `trunc()` متدی ایستا از `Math` است، همیشه آن را به‌شکل `Math.trunc()` به کار ببرید؛ `Math` سازنده نیست و از آن نمونه ساخته نمی‌شود.
 
-## Examples
+## مثال‌ها
 
-### Using Math.trunc()
+### استفاده از Math.trunc()
 
 ```js
 Math.trunc(-Infinity); // -Infinity
@@ -68,12 +67,12 @@ Math.trunc(42.84); // 42
 Math.trunc(Infinity); // Infinity
 ```
 
-### Using bitwise no-ops to truncate numbers
+### استفاده از عملیات بیتی برای قطع بخش اعشاری
 
 > [!WARNING]
-> This is not a polyfill for `Math.trunc()` because of non-negligible edge cases.
+> این روش به‌دلیل وجود حالت‌های مرزی مهم، جایگزین کامل (polyfill) برای `Math.trunc()` نیست.
 
-Bitwise operations convert their operands to 32-bit integers, which people have historically taken advantage of to truncate float-point numbers. Common techniques include:
+عملیات بیتی عملوندها را به عدد صحیح ۳۲بیتی تبدیل می‌کنند؛ از این ویژگی برای قطع بخش اعشاری اعداد ممیز شناور استفاده شده است. روش‌های رایج عبارت‌اند از:
 
 ```js
 const original = 3.14;
@@ -84,7 +83,7 @@ const truncated4 = original ^ 0; // Bitwise XOR with 0
 const truncated5 = original >> 0; // Bitwise shifting by 0
 ```
 
-Beware that this is essentially `toInt32`, which is not the same as `Math.trunc`. When the value does not satisfy -2<sup>31</sup> - 1 < `value` < 2<sup>31</sup> (-2147483649 < `value` < 2147483648), the conversion would overflow.
+توجه کنید که این کار در اصل `toInt32` است و با `Math.trunc` یکسان نیست. اگر مقدار در بازهٔ ‎-2<sup>31</sup> - 1 < `value` < 2<sup>31</sup> (یعنی ‎-2147483649 < `value` < 2147483648) نباشد، تبدیل سرریز می‌کند.
 
 ```js
 const a = ~~2147483648; // -2147483648
@@ -92,17 +91,17 @@ const b = ~~-2147483649; // 2147483647
 const c = ~~4294967296; // 0
 ```
 
-Only use `~~` as a substitution for `Math.trunc()` when you are confident that the range of input falls within the range of 32-bit integers.
+فقط زمانی از `~~` به‌جای `Math.trunc()` استفاده کنید که مطمئن باشید ورودی در محدودهٔ اعداد صحیح ۳۲بیتی قرار دارد.
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - [Polyfill of `Math.trunc` in `core-js`](https://github.com/zloirock/core-js#ecmascript-math)
 - {{jsxref("Math.abs()")}}
