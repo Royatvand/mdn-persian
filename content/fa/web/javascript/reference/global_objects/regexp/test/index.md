@@ -1,7 +1,6 @@
 ---
 title: "RegExp.prototype.test()"
 source: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test"
-status: "needs-translation"
 ---
 
 ---
@@ -13,14 +12,9 @@ browser-compat: javascript.builtins.RegExp.test
 sidebar: jsref
 ---
 
-The **`test()`** method of {{jsxref("RegExp")}} instances executes a search with this regular expression for a match between a regular expression and a specified string. Returns `true` if there is a match; `false` otherwise.
+متد **`test()`** در نمونه‌های {{jsxref("RegExp")}} بررسی می‌کند که آیا عبارت باقاعده با رشتهٔ مشخص‌شده تطبیق دارد یا نه. در صورت تطبیق `true` و در غیر این صورت `false` برمی‌گرداند.
 
-JavaScript {{jsxref("RegExp")}} objects are **stateful** when they have
-the {{jsxref("RegExp/global", "global")}} or {{jsxref("RegExp/sticky", "sticky")}} flags
-set (e.g., `/foo/g` or `/foo/y`). They store a
-{{jsxref("RegExp/lastIndex", "lastIndex")}} from the previous match. Using this
-internally, `test()` can be used to iterate over multiple matches in a string
-of text (with capture groups).
+اشیای {{jsxref("RegExp")}} در جاوااسکریپت، وقتی پرچم {{jsxref("RegExp/global", "global")}} یا {{jsxref("RegExp/sticky", "sticky")}} داشته باشند (مثلاً `/foo/g` یا `/foo/y`)، **دارای وضعیت** هستند. آن‌ها اندیس {{jsxref("RegExp/lastIndex", "lastIndex")}} تطبیق قبلی را نگه می‌دارند. به کمک این ویژگی می‌توان از `test()` برای پیمایش چند تطبیق در یک رشته (همراه با گروه‌های ثبت‌شده) استفاده کرد.
 
 {{InteractiveExample("JavaScript Demo: RegExp.prototype.test()", "taller")}}
 
@@ -46,43 +40,34 @@ console.log(globalRegex.test(str));
 // Expected output: false
 ```
 
-## Syntax
+## نحو
 
 ```js-nolint
 test(str)
 ```
 
-### Parameters
+### پارامترها
 
 - `str`
-  - : The string against which to match the regular expression. All values are [coerced to strings](/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), so omitting it or passing `undefined` causes `test()` to search for the string `"undefined"`, which is rarely what you want.
+  - : رشته‌ای که عبارت باقاعده باید با آن تطبیق داده شود. همهٔ مقدارها به رشته [تبدیل](/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) می‌شوند؛ بنابراین حذف آرگومان یا ارسال `undefined` باعث می‌شود `test()` به‌دنبال رشتهٔ `"undefined"` بگردد که معمولاً مطلوب نیست.
 
-### Return value
+### مقدار بازگشتی
 
-`true` if there is a match between the regular expression and the string
-`str`. Otherwise, `false`.
+اگر عبارت باقاعده با رشتهٔ `str` تطبیق داشته باشد، `true` و در غیر این صورت `false`.
 
-## Description
+## توضیحات
 
-Use `test()` whenever you want to know whether a pattern is found in a
-string. `test()` returns a boolean, unlike the
-{{jsxref("String.prototype.search()")}} method (which returns the index of a match, or
-`-1` if not found).
+هرگاه بخواهید بدانید الگویی در رشته وجود دارد یا نه، از `test()` استفاده کنید. این متد مقدار بولی برمی‌گرداند؛ برخلاف {{jsxref("String.prototype.search()")}} که اندیس تطبیق یا در صورت پیدا نشدن `-1` را برمی‌گرداند.
 
-To get more information (but with slower execution), use the
-{{jsxref("RegExp/exec", "exec()")}} method. (This is similar to the
-{{jsxref("String.prototype.match()")}} method.)
+برای دریافت اطلاعات بیشتر (با اجرای کندتر)، از متد {{jsxref("RegExp/exec", "exec()")}} استفاده کنید. این متد مشابه {{jsxref("String.prototype.match()")}} است.
 
-As with `exec()` (or in combination with it), `test()` called
-multiple times on the same global regular expression instance will advance past the
-previous match.
+همانند `exec()`، اگر `test()` چند بار روی یک نمونهٔ عبارت باقاعدهٔ سراسری فراخوانی شود، جست‌وجو پس از تطبیق قبلی ادامه پیدا می‌کند.
 
-## Examples
+## مثال‌ها
 
-### Using test()
+### استفاده از test()
 
-This example tests if `"hello"` is contained at the very beginning of
-a string, returning a boolean result.
+این مثال بررسی می‌کند که آیا رشته با `"hello"` آغاز می‌شود یا نه و نتیجه‌ای بولی برمی‌گرداند.
 
 ```js
 const str = "hello world!";
@@ -91,7 +76,7 @@ const result = /^hello/.test(str);
 console.log(result); // true
 ```
 
-The following example logs a message which depends on the success of the test:
+مثال زیر پیامی متناسب با موفقیت یا شکست آزمون در کنسول چاپ می‌کند:
 
 ```js
 function testInput(re, str) {
@@ -100,25 +85,19 @@ function testInput(re, str) {
 }
 ```
 
-### Using test() on a regex with the "global" flag
+### استفاده از test() on a regex with the "global" flag
 
-When a regex has the [global flag](/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/global) set,
-`test()` will advance the {{jsxref("RegExp/lastIndex", "lastIndex")}} of the regex.
-({{jsxref("RegExp.prototype.exec()")}} also advances the `lastIndex` property.)
+وقتی عبارت باقاعده دارای [پرچم global](/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/global) باشد، `test()` مقدار {{jsxref("RegExp/lastIndex", "lastIndex")}} آن را جلو می‌برد. (متد {{jsxref("RegExp.prototype.exec()")}} نیز ویژگی `lastIndex` را تغییر می‌دهد.)
 
-Further calls to `test(str)` will resume searching
-`str` starting from `lastIndex`. The
-`lastIndex` property will continue to increase each time `test()`
-returns `true`.
+فراخوانی‌های بعدی `test(str)` جست‌وجو در `str` را از `lastIndex` ادامه می‌دهند. هر بار که `test()` مقدار `true` برگرداند، مقدار `lastIndex` افزایش می‌یابد.
 
 > [!NOTE]
 > As long as `test()` returns `true`,
 > `lastIndex` will _not_ reset—even when testing a different string!
 
-When `test()` returns `false`, the calling regex's
-`lastIndex` property will reset to `0`.
+وقتی `test()` مقدار `false` برگرداند، ویژگی `lastIndex` عبارت باقاعدهٔ فراخوانی‌شده به `0` بازنشانی می‌شود.
 
-The following example demonstrates this behavior:
+مثال زیر این رفتار را نشان می‌دهد:
 
 ```js
 const regex = /foo/g; // the "global" flag is set
@@ -148,15 +127,15 @@ regex.test("foobarfoo"); // false
 // (...and so on)
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - [Regular expressions](/en-US/docs/Web/JavaScript/Guide/Regular_expressions) guide
 - {{jsxref("RegExp")}}
