@@ -1,7 +1,6 @@
 ---
 title: "String.prototype.charAt()"
 source: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charAt"
-status: "needs-translation"
 ---
 
 ---
@@ -13,9 +12,9 @@ browser-compat: javascript.builtins.String.charAt
 sidebar: jsref
 ---
 
-The **`charAt()`** method of {{jsxref("String")}} values returns a new string consisting of the single UTF-16 code unit at the given index.
+متد **`charAt()`** در مقدارهای {{jsxref("String")}} رشته‌ای جدید شامل یک واحد کد UTF-16 در اندیس داده‌شده برمی‌گرداند.
 
-`charAt()` always indexes the string as a sequence of [UTF-16 code units](/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters), so it may return lone surrogates. To get the full Unicode code point at the given index, use {{jsxref("String.prototype.codePointAt()")}} and {{jsxref("String.fromCodePoint()")}}.
+`charAt()` همیشه رشته را به‌صورت دنباله‌ای از [واحدهای کد UTF-16](/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) اندیس‌گذاری می‌کند؛ بنابراین ممکن است surrogate منفرد برگرداند. برای دریافت کدپوینت کامل یونیکد در اندیس مشخص‌شده، از {{jsxref("String.prototype.codePointAt()")}} و {{jsxref("String.fromCodePoint()")}} استفاده کنید.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.charAt()", "shorter")}}
 
@@ -28,37 +27,37 @@ console.log(`The character at index ${index} is ${sentence.charAt(index)}`);
 // Expected output: "The character at index 4 is q"
 ```
 
-## Syntax
+## نحو
 
 ```js-nolint
 charAt(index)
 ```
 
-### Parameters
+### پارامترها
 
 - `index`
-  - : Zero-based index of the character to be returned. [Converted to an integer](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion) — `undefined` is converted to 0.
+  - : اندیس صفرمبنای نویسه‌ای که باید برگردانده شود. این مقدار [به عدد صحیح تبدیل می‌شود](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion)؛ `undefined` به ۰ تبدیل می‌شود.
 
-### Return value
+### مقدار بازگشتی
 
-A string representing the character (exactly one UTF-16 code unit) at the specified `index`. If `index` is out of the range of `0` – `str.length - 1`, `charAt()` returns an empty string.
+رشته‌ای که نویسهٔ واقع در `index` مشخص‌شده را نمایش می‌دهد (دقیقاً یک واحد کد UTF-16). اگر `index` خارج از بازهٔ `0` تا `str.length - 1` باشد، `charAt()` رشته‌ای خالی برمی‌گرداند.
 
-## Description
+## توضیحات
 
-Characters in a string are indexed from left to right. The index of the first character is `0`, and the index of the last character in a string called `str` is `str.length - 1`.
+نویسه‌های رشته از چپ به راست اندیس‌گذاری می‌شوند. اندیس نخستین نویسه `0` و اندیس آخرین نویسهٔ رشته‌ای به نام `str` برابر `str.length - 1` است.
 
-Unicode code points range from `0` to `1114111` (`0x10FFFF`). `charAt()` always returns a character whose value is less than `65536`, because the higher code points are represented by _a pair_ of 16-bit surrogate pseudo-characters. Therefore, in order to get a full character with value greater than `65535`, it is necessary to retrieve not only `charAt(i)`, but also `charAt(i + 1)` (as if manipulating a string with two characters), or to use {{jsxref("String/codePointAt", "codePointAt(i)")}} and {{jsxref("String.fromCodePoint()")}} instead. For information on Unicode, see [UTF-16 characters, Unicode code points, and grapheme clusters](/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters).
+کدپوینت‌های یونیکد از `0` تا `1114111` (`0x10FFFF`) هستند. `charAt()` همیشه نویسه‌ای با مقدار کمتر از `65536` برمی‌گرداند؛ زیرا کدپوینت‌های بزرگ‌تر با _یک جفت_ شبه‌نویسهٔ surrogate شانزده‌بیتی نمایش داده می‌شوند. بنابراین برای دریافت نویسهٔ کامل با مقدار بیشتر از `65535` باید هم `charAt(i)` و هم `charAt(i + 1)` را بگیرید، یا به‌جای آن از {{jsxref("String/codePointAt", "codePointAt(i)")}} و {{jsxref("String.fromCodePoint()")}} استفاده کنید. برای اطلاعات بیشتر، [نویسه‌های UTF-16، کدپوینت‌های یونیکد و خوشه‌های گرافیمی](/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) را ببینید.
 
-`charAt()` is very similar to using [bracket notation](/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors#bracket_notation) to access a character at the specified index. The main differences are:
+`charAt()` بسیار شبیه استفاده از [نشانه‌گذاری براکتی](/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors#bracket_notation) برای دسترسی به نویسه‌ای در اندیس مشخص است. تفاوت‌های اصلی عبارت‌اند از:
 
-- `charAt()` attempts to convert `index` to an integer, while bracket notation does not, and directly uses `index` as a property name.
-- `charAt()` returns an empty string if `index` is out of range, while bracket notation returns `undefined`.
+- `charAt()` تلاش می‌کند `index` را به عدد صحیح تبدیل کند؛ اما نشانه‌گذاری براکتی این کار را نمی‌کند و `index` را مستقیماً به‌عنوان نام ویژگی به کار می‌برد.
+- اگر `index` خارج از محدوده باشد، `charAt()` رشتهٔ خالی و نشانه‌گذاری براکتی `undefined` برمی‌گرداند.
 
-## Examples
+## مثال‌ها
 
-### Using charAt()
+### استفاده از charAt()
 
-The following example displays characters at different locations in the string `"Brave new world"`:
+مثال زیر نویسه‌های موقعیت‌های مختلف رشتهٔ `"Brave new world"` را نمایش می‌دهد:
 
 ```js
 const anyString = "Brave new world";
@@ -73,7 +72,7 @@ console.log(`The character at index 4   is '${anyString.charAt(4)}'`);
 console.log(`The character at index 999 is '${anyString.charAt(999)}'`);
 ```
 
-These lines display the following:
+این خط‌ها خروجی زیر را نمایش می‌دهند:
 
 ```plain
 The character at index 0   is 'B'
@@ -94,7 +93,7 @@ console.log(str.charAt(0)); // "\ud842", which is not a valid Unicode character
 console.log(str.charAt(1)); // "\udfb7", which is not a valid Unicode character
 ```
 
-To get the full Unicode code point at the given index, use an indexing method that splits by Unicode code points, such as {{jsxref("String.prototype.codePointAt()")}} and [spreading strings](/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Symbol.iterator) into an array of Unicode code points.
+برای دریافت کدپوینت کامل یونیکد در اندیس داده‌شده، از روشی استفاده کنید که بر اساس کدپوینت‌های یونیکد جدا می‌کند؛ مانند {{jsxref("String.prototype.codePointAt()")}} یا [گسترش رشته](/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Symbol.iterator) به آرایه‌ای از کدپوینت‌های یونیکد.
 
 ```js
 const str = "𠮷𠮾";
@@ -103,17 +102,17 @@ console.log([...str][0]); // "𠮷"
 ```
 
 > [!NOTE]
-> Avoid re-implementing the solutions above using `charAt()`. The detection of lone surrogates and their pairing is complex, and built-in APIs may be more performant as they directly use the internal representation of the string. Install a polyfill for the APIs mentioned above if necessary.
+> از بازپیاده‌سازی راه‌حل‌های بالا با `charAt()` خودداری کنید. تشخیص surrogateهای منفرد و جفت‌کردن آن‌ها پیچیده است و APIهای داخلی ممکن است کارآمدتر باشند، زیرا مستقیماً از نمایش داخلی رشته استفاده می‌کنند. در صورت نیاز برای APIهای ذکرشده polyfill نصب کنید.
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - {{jsxref("String.prototype.indexOf()")}}
 - {{jsxref("String.prototype.lastIndexOf()")}}
