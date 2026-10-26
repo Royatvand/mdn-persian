@@ -1,7 +1,6 @@
 ---
 title: "Array.prototype.indexOf()"
 source: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf"
-status: "needs-translation"
 ---
 
 ---
@@ -13,8 +12,7 @@ browser-compat: javascript.builtins.Array.indexOf
 sidebar: jsref
 ---
 
-The **`indexOf()`** method of {{jsxref("Array")}} instances returns the first index at which a
-given element can be found in the array, or -1 if it is not present.
+متد **`indexOf()`** در نمونه‌های {{jsxref("Array")}} اندیس نخستین حضور عضو مشخص‌شده در آرایه را برمی‌گرداند؛ اگر وجود نداشته باشد، `-1` برمی‌گرداند.
 
 {{InteractiveExample("JavaScript Demo: Array.prototype.indexOf()")}}
 
@@ -32,40 +30,40 @@ console.log(beasts.indexOf("giraffe"));
 // Expected output: -1
 ```
 
-## Syntax
+## نحو
 
 ```js-nolint
 indexOf(searchElement)
 indexOf(searchElement, fromIndex)
 ```
 
-### Parameters
+### پارامترها
 
 - `searchElement`
-  - : Element to locate in the array.
+  - : عضوی که باید در آرایه پیدا شود.
 - `fromIndex` {{optional_inline}}
-  - : Zero-based index at which to start searching, [converted to an integer](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
-    - Negative index counts back from the end of the array — if `-array.length <= fromIndex < 0`, `fromIndex + array.length` is used. Note, the array is still searched from front to back in this case.
-    - If `fromIndex < -array.length` or `fromIndex` is omitted, `0` is used, causing the entire array to be searched.
-    - If `fromIndex >= array.length`, the array is not searched and `-1` is returned.
+  - : اندیس صفرمبنا برای شروع جست‌وجو که [به عدد صحیح تبدیل می‌شود](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+    - اندیس منفی از انتهای آرایه به عقب می‌شمارد؛ اگر `-array.length <= fromIndex < 0` باشد، از `fromIndex + array.length` استفاده می‌شود. بااین‌حال، جست‌وجو همچنان از ابتدا به انتهای آرایه انجام می‌شود.
+    - اگر `fromIndex < -array.length` باشد یا حذف شود، مقدار `0` استفاده می‌شود و کل آرایه جست‌وجو می‌شود.
+    - اگر `fromIndex >= array.length` باشد، آرایه جست‌وجو نمی‌شود و `-1` برمی‌گردد.
 
-### Return value
+### مقدار بازگشتی
 
-The first index of `searchElement` in the array; `-1` if not found.
+اندیس نخستین حضور `searchElement` در آرایه؛ اگر پیدا نشود `-1`.
 
-## Description
+## توضیحات
 
-The `indexOf()` method compares `searchElement` to elements of the array using [strict equality](/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality) (the same algorithm used by the `===` operator). [`NaN`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN) values are never compared as equal, so `indexOf()` always returns `-1` when `searchElement` is `NaN`.
+متد `indexOf()` مقدار `searchElement` را با اعضای آرایه با استفاده از [برابری سخت‌گیرانه](/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality) (همان الگوریتم عملگر `===`) مقایسه می‌کند. مقدارهای [`NaN`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN) هرگز برابر در نظر گرفته نمی‌شوند؛ بنابراین اگر `searchElement` برابر `NaN` باشد، `indexOf()` همیشه `-1` برمی‌گرداند.
 
-The `indexOf()` method skips empty slots in [sparse arrays](/en-US/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays).
+متد `indexOf()` خانه‌های خالی در [آرایه‌های تنک](/en-US/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) را نادیده می‌گیرد.
 
-The `indexOf()` method is [generic](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). It only expects the `this` value to have a `length` property and integer-keyed properties.
+متد `indexOf()` [عمومی](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods) است و فقط انتظار دارد مقدار `this` ویژگی `length` و ویژگی‌هایی با کلیدهای عدد صحیح داشته باشد.
 
-## Examples
+## مثال‌ها
 
-### Using indexOf()
+### استفاده از indexOf()
 
-The following example uses `indexOf()` to locate values in an array.
+مثال زیر از `indexOf()` برای پیدا کردن مقدارها در آرایه استفاده می‌کند.
 
 ```js
 const array = [2, 9, 9];
@@ -76,14 +74,14 @@ array.indexOf(2, -1); // -1
 array.indexOf(2, -3); // 0
 ```
 
-You cannot use `indexOf()` to search for `NaN`.
+نمی‌توان از `indexOf()` برای جست‌وجوی `NaN` استفاده کرد.
 
 ```js
 const array = [NaN];
 array.indexOf(NaN); // -1
 ```
 
-### Finding all the occurrences of an element
+### یافتن همهٔ موارد حضور یک عضو
 
 ```js
 const indices = [];
@@ -98,7 +96,7 @@ console.log(indices);
 // [0, 2, 4]
 ```
 
-### Finding if an element exists in the array or not and updating the array
+### بررسی وجود عضو و به‌روزرسانی آرایه
 
 ```js
 function updateVegetablesCollection(veggies, veggie) {
@@ -118,17 +116,17 @@ updateVegetablesCollection(veggies, "spinach");
 // spinach already exists in the veggies collection.
 ```
 
-### Using indexOf() on sparse arrays
+### استفاده از indexOf() on sparse arrays
 
-You cannot use `indexOf()` to search for empty slots in sparse arrays.
+نمی‌توان با `indexOf()` خانه‌های خالی آرایه‌های تنک را جست‌وجو کرد.
 
 ```js
 console.log([1, , 3].indexOf(undefined)); // -1
 ```
 
-### Calling indexOf() on non-array objects
+### فراخوانی indexOf() روی اشیایی غیر از آرایه
 
-The `indexOf()` method reads the `length` property of `this` and then accesses each property whose key is a nonnegative integer less than `length`.
+متد `indexOf()` ویژگی `length` مقدار `this` را می‌خواند و سپس به ویژگی‌هایی دسترسی پیدا می‌کند که کلیدشان عدد صحیح نامنفی و کوچک‌تر از `length` باشد.
 
 ```js
 const arrayLike = {
@@ -144,15 +142,15 @@ console.log(Array.prototype.indexOf.call(arrayLike, 5));
 // -1
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - [Polyfill of `Array.prototype.indexOf` in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
 - [es-shims polyfill of `Array.prototype.indexOf`](https://www.npmjs.com/package/array.prototype.indexof)
