@@ -1,7 +1,6 @@
 ---
 title: "Math.random()"
 source: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random"
-status: "needs-translation"
 ---
 
 ---
@@ -13,10 +12,10 @@ browser-compat: javascript.builtins.Math.random
 sidebar: jsref
 ---
 
-The **`Math.random()`** static method returns a floating-point, pseudo-random number that's greater than or equal to 0 and less than 1, with approximately uniform distribution over that range — which you can then scale to your desired range. The implementation selects the initial seed to the random number generation algorithm; it cannot be chosen or reset by the user.
+متد ایستای **`Math.random()`** عددی شبه‌تصادفی از نوع ممیز شناور در بازهٔ ۰ (شامل) تا ۱ (غیرشامل) برمی‌گرداند که توزیعی تقریباً یکنواخت دارد. سپس می‌توانید آن را به بازهٔ دلخواه تبدیل کنید. پیاده‌سازی، seed اولیهٔ الگوریتم تولید عدد تصادفی را انتخاب می‌کند و کاربر نمی‌تواند آن را تعیین یا بازنشانی کند.
 
 > [!NOTE]
-> `Math.random()` _does not_ provide cryptographically secure random numbers. Do not use them for anything related to security. Use the Web Crypto API instead, and more precisely the {{domxref("Crypto.getRandomValues()")}} method.
+> `Math.random()` عددهای تصادفیِ امن از نظر رمزنگاری تولید _نمی‌کند_. برای کارهای مرتبط با امنیت از آن استفاده نکنید؛ به‌جای آن از Web Crypto API، به‌ویژه متد {{domxref("Crypto.getRandomValues()")}}، استفاده کنید.
 
 {{InteractiveExample("JavaScript Demo: Math.random()")}}
 
@@ -35,25 +34,25 @@ console.log(Math.random());
 // Expected output: a number from 0 to <1
 ```
 
-## Syntax
+## نحو
 
 ```js-nolint
 Math.random()
 ```
 
-### Parameters
+### پارامترها
 
-None.
+این متد پارامتری نمی‌گیرد.
 
-### Return value
+### مقدار بازگشتی
 
-A floating-point, pseudo-random number between 0 (inclusive) and 1 (exclusive).
+عدد شبه‌تصادفی ممیز شناور در بازهٔ ۰ (شامل) تا ۱ (غیرشامل).
 
-## Examples
+## مثال‌ها
 
-Note that as numbers in JavaScript are IEEE 754 floating point numbers with round-to-nearest-even behavior, the ranges claimed for the functions below (excluding the one for `Math.random()` itself) aren't exact. Usually, the claimed upper bound is not attainable, but if `Math.random()` returns a number very close to 1, the tiny difference may not be representable at the requested maximum, therefore causing the upper bound to be attained.
+از آنجا که عددهای جاوااسکریپت از نوع ممیز شناور IEEE 754 هستند و از قاعدهٔ گردکردن به نزدیک‌ترین عدد زوج پیروی می‌کنند، بازه‌های ادعاشده برای توابع زیر (به‌جز خود `Math.random()`) دقیق نیستند. معمولاً رسیدن به کران بالا ممکن نیست؛ اما اگر `Math.random()` عددی بسیار نزدیک به ۱ برگرداند، اختلاف کوچک ممکن است در بیشینهٔ درخواستی قابل نمایش نباشد و کران بالا به دست آید.
 
-### Getting a random number between 0 (inclusive) and 1 (exclusive)
+### تولید عدد تصادفی بین ۰ (شامل) و ۱ (غیرشامل)
 
 ```js
 function getRandom() {
@@ -61,9 +60,9 @@ function getRandom() {
 }
 ```
 
-### Getting a random number between two values
+### تولید عدد تصادفی بین دو مقدار
 
-This example returns a random number between the specified values. The returned value is no lower than (and may possibly equal) `min`, and is less than (and not equal) `max`.
+این مثال عددی تصادفی بین دو مقدار مشخص‌شده برمی‌گرداند. مقدار خروجی بزرگ‌تر یا مساوی `min` و کوچک‌تر از `max` است.
 
 ```js
 function getRandomArbitrary(min, max) {
@@ -71,9 +70,9 @@ function getRandomArbitrary(min, max) {
 }
 ```
 
-### Getting a random integer between two values
+### تولید عدد صحیح تصادفی بین دو مقدار
 
-This example returns a random _integer_ between the specified values. The value is no lower than `min` (or the next integer greater than `min` if `min` isn't an integer), and is less than (but not equal to) `max`.
+این مثال عدد صحیح تصادفی‌ای بین دو مقدار مشخص‌شده برمی‌گرداند. مقدار خروجی از `min` (یا اگر `min` صحیح نباشد، از عدد صحیح بعدی) کوچک‌تر نیست و از `max` کوچک‌تر است.
 
 ```js
 function getRandomInt(min, max) {
@@ -84,11 +83,11 @@ function getRandomInt(min, max) {
 ```
 
 > [!NOTE]
-> It might be tempting to use [`Math.round()`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round) to accomplish that, but doing so would cause your random numbers to follow a non-uniform distribution, which may not be acceptable for your needs.
+> ممکن است وسوسه شوید از [`Math.round()`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round) استفاده کنید، اما این کار توزیع عددهای تصادفی را غیریکنواخت می‌کند و ممکن است مناسب نیاز شما نباشد.
 
-### Getting a random integer between two values, inclusive
+### تولید عدد صحیح تصادفی بین دو مقدار, inclusive
 
-While the `getRandomInt()` function above is inclusive at the minimum, it's exclusive at the maximum. What if you need the results to be inclusive at both the minimum and the maximum? The `getRandomIntInclusive()` function below accomplishes that.
+تابع `getRandomInt()` بالا کران پایین را شامل می‌شود اما کران بالا را نه. اگر بخواهید هر دو کران در نتیجه ممکن باشند، تابع `getRandomIntInclusive()` زیر این کار را انجام می‌دهد.
 
 ```js
 function getRandomIntInclusive(min, max) {
@@ -98,14 +97,14 @@ function getRandomIntInclusive(min, max) {
 }
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - {{domxref("Crypto.getRandomValues()")}}
