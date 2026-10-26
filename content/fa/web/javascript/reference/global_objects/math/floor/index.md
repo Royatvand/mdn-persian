@@ -1,7 +1,6 @@
 ---
 title: "Math.floor()"
 source: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor"
-status: "needs-translation"
 ---
 
 ---
@@ -13,7 +12,7 @@ browser-compat: javascript.builtins.Math.floor
 sidebar: jsref
 ---
 
-The **`Math.floor()`** static method always rounds down and returns the largest integer less than or equal to a given number.
+متد ایستای **`Math.floor()`** همیشه عدد را به سمت پایین گرد می‌کند و بزرگ‌ترین عدد صحیح کوچک‌تر یا مساوی عدد ورودی را برمی‌گرداند.
 
 {{InteractiveExample("JavaScript Demo: Math.floor()")}}
 
@@ -31,28 +30,28 @@ console.log(Math.floor(-5.05));
 // Expected output: -6
 ```
 
-## Syntax
+## نحو
 
 ```js-nolint
 Math.floor(x)
 ```
 
-### Parameters
+### پارامترها
 
 - `x`
-  - : A number.
+  - : یک عدد.
 
-### Return value
+### مقدار بازگشتی
 
-The largest integer smaller than or equal to `x`. It's the same value as [`-Math.ceil(-x)`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil).
+بزرگ‌ترین عدد صحیح کوچک‌تر یا مساوی `x`؛ این مقدار با [`-Math.ceil(-x)`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil) برابر است.
 
-## Description
+## توضیحات
 
-Because `floor()` is a static method of `Math`, you always use it as `Math.floor()`, rather than as a method of a `Math` object you created (`Math` is not a constructor).
+چون `floor()` متدی ایستا از `Math` است، همیشه آن را به‌شکل `Math.floor()` به کار ببرید؛ `Math` سازنده نیست و از آن نمونه ساخته نمی‌شود.
 
-## Examples
+## مثال‌ها
 
-### Using Math.floor()
+### استفاده از Math.floor()
 
 ```js
 Math.floor(-Infinity); // -Infinity
@@ -66,11 +65,11 @@ Math.floor(45.95); // 45
 Math.floor(Infinity); // Infinity
 ```
 
-### Decimal adjustment
+### تنظیم اعشار
 
-In this example, we implement a method called `decimalAdjust()` that is an enhancement method of `Math.floor()`, {{jsxref("Math.ceil()")}}, and {{jsxref("Math.round()")}}. While the three `Math` functions always adjust the input to the units digit, `decimalAdjust` accepts an `exp` parameter that specifies the number of digits to the left of the decimal point to which the number should be adjusted. For example, `-1` means it would leave one digit after the decimal point (as in "× 10<sup>-1</sup>"). In addition, it allows you to select the means of adjustment — `round`, `floor`, or `ceil` — through the `type` parameter.
+در این مثال متدی به نام `decimalAdjust()` پیاده‌سازی می‌کنیم که نسخهٔ گسترش‌یافته‌ای از `Math.floor()`، {{jsxref("Math.ceil()")}} و {{jsxref("Math.round()")}} است. این سه تابع مقدار را در مرتبهٔ یکان تنظیم می‌کنند؛ اما `decimalAdjust` پارامتر `exp` می‌گیرد تا مشخص کند عدد در چه مرتبه‌ای تنظیم شود. برای مثال، `-1` یعنی یک رقم پس از ممیز باقی بماند (مانند «× 10<sup>-1</sup>»). پارامتر `type` نیز روش تنظیم را از میان `round`، `floor` یا `ceil` انتخاب می‌کند.
 
-It does so by multiplying the number by a power of 10, then rounding the result to the nearest integer, then dividing by the power of 10. To better preserve precision, it takes advantage of Number's [`toString()`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString) method, which represents large or small numbers in scientific notation (like `6.02e23`).
+این متد عدد را در توان مناسبی از ۱۰ ضرب می‌کند، حاصل را به نزدیک‌ترین عدد صحیح گرد می‌کند و سپس بر همان توان ۱۰ تقسیم می‌کند. برای حفظ دقت، از متد [`toString()`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString) استفاده می‌کند که عددهای بسیار بزرگ یا کوچک را با نماد علمی (مانند `6.02e23`) نمایش می‌دهد.
 
 ```js
 /**
@@ -130,15 +129,15 @@ ceil10(-55.59, -1); // -55.5
 ceil10(-59, 1); // -50
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - {{jsxref("Math.abs()")}}
 - {{jsxref("Math.ceil()")}}
