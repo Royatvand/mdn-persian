@@ -1,7 +1,6 @@
 ---
 title: "String.prototype.toLowerCase()"
 source: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase"
-status: "needs-translation"
 ---
 
 ---
@@ -13,7 +12,7 @@ browser-compat: javascript.builtins.String.toLowerCase
 sidebar: jsref
 ---
 
-The **`toLowerCase()`** method of {{jsxref("String")}} values returns this string converted to lower case.
+متد **`toLowerCase()`** در مقدارهای {{jsxref("String")}} رشته را به حروف کوچک تبدیل کرده و برمی‌گرداند.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.toLowerCase()", "shorter")}}
 
@@ -24,43 +23,41 @@ console.log(sentence.toLowerCase());
 // Expected output: "the quick brown fox jumps over the lazy dog."
 ```
 
-## Syntax
+## نحو
 
 ```js-nolint
 toLowerCase()
 ```
 
-### Parameters
+### پارامترها
 
-None.
+این متد پارامتری نمی‌گیرد.
 
-### Return value
+### مقدار بازگشتی
 
-A new string representing the calling string converted to lower case.
+رشته‌ای جدید که نسخهٔ حروف‌کوچک‌شدهٔ رشتهٔ فراخوانی‌کننده است.
 
-## Description
+## توضیحات
 
-The `toLowerCase()` method returns the value of the string converted to
-lower case. `toLowerCase()` does not affect the value of the string
-`str` itself.
+متد `toLowerCase()` مقدار رشته را به حروف کوچک تبدیل می‌کند و برمی‌گرداند. خود رشتهٔ `str` با اجرای `toLowerCase()` تغییر نمی‌کند.
 
-## Examples
+## مثال‌ها
 
-### Using `toLowerCase()`
+### استفاده از `toLowerCase()`
 
 ```js
 console.log("ALPHABET".toLowerCase()); // 'alphabet'
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - {{jsxref("String.prototype.toLocaleLowerCase()")}}
 - {{jsxref("String.prototype.toLocaleUpperCase()")}}
