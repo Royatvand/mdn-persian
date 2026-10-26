@@ -1,7 +1,6 @@
 ---
 title: "Request: formData() method"
 source: "https://developer.mozilla.org/en-US/docs/Web/API/Request/formData"
-status: "needs-translation"
 ---
 
 ---
@@ -14,33 +13,32 @@ browser-compat: api.Request.formData
 
 {{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-The **`formData()`** method of the {{domxref("Request")}} interface
-reads the request body and returns it as a promise that resolves with a {{domxref("FormData")}} object.
+متد **`formData()`** از رابط {{domxref("Request")}} بدنهٔ درخواست را می‌خواند و یک Promise برمی‌گرداند که با یک شیء {{domxref("FormData")}} تکمیل می‌شود.
 
-## Syntax
+## نحو
 
 ```js-nolint
 formData()
 ```
 
-### Parameters
+### پارامترها
 
-None.
+این متد پارامتری نمی‌گیرد.
 
-### Return value
+### مقدار بازگشتی
 
-A {{jsxref("Promise")}} that resolves with a {{domxref("FormData")}} object.
+یک {{jsxref("Promise")}} که با شیء {{domxref("FormData")}} تکمیل می‌شود.
 
-### Exceptions
+### خطاها
 
 - {{jsxref("TypeError")}}
-  - : Thrown for one of the following reasons:
-    - The request body is [disturbed or locked](/en-US/docs/Web/API/Fetch_API/Using_Fetch#locked_and_disturbed_streams).
-    - There was an error decoding the body content (for example, because the {{httpheader("Content-Encoding")}} header is incorrect).
-    - The {{glossary("MIME")}} type of the body cannot be determined from the {{httpheader("Content-Type")}} headers included in the request, or is not `application/x-www-form-urlencoded` or `multipart/form-data`.
-    - The body cannot be parsed as a `FormData` object.
+  - : در هر یک از شرایط زیر رخ می‌دهد:
+    - بدنهٔ درخواست قبلاً خوانده شده یا قفل شده باشد ([توضیحات بیشتر](/en-US/docs/Web/API/Fetch_API/Using_Fetch#locked-and-disturbed-streams)).
+    - هنگام رمزگشایی محتوای بدنه خطایی رخ دهد؛ برای مثال، مقدار سربرگ {{httpheader("Content-Encoding")}} نادرست باشد.
+    - نوع {{glossary("MIME")}} بدنه از سربرگ‌های {{httpheader("Content-Type")}} درخواست قابل تشخیص نباشد یا با `application/x-www-form-urlencoded` و `multipart/form-data` مطابقت نداشته باشد.
+    - نتوان بدنه را به‌عنوان شیء `FormData` تجزیه کرد.
 
-## Examples
+## مثال
 
 ```js
 const formData = new FormData();
@@ -55,18 +53,18 @@ const request = new Request("/myEndpoint", {
 });
 
 request.formData().then((data) => {
-  // do something with the formdata sent in the request
+  // داده‌های فرم ارسال‌شده در درخواست را پردازش کنید
 });
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - {{domxref("Response.formData()")}}
