@@ -1,7 +1,6 @@
 ---
 title: "String.prototype.repeat()"
 source: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/repeat"
-status: "needs-translation"
 ---
 
 ---
@@ -13,8 +12,7 @@ browser-compat: javascript.builtins.String.repeat
 sidebar: jsref
 ---
 
-The **`repeat()`** method of {{jsxref("String")}} values constructs and returns a new string
-which contains the specified number of copies of this string, concatenated together.
+متد **`repeat()`** در مقدارهای {{jsxref("String")}} رشته‌ای جدید می‌سازد و برمی‌گرداند که تعداد مشخصی از نسخه‌های همین رشته را به‌هم چسبانده است.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.repeat()", "shorter")}}
 
@@ -25,29 +23,29 @@ console.log(`I feel ${mood.repeat(3)}`);
 // Expected output: "I feel Happy! Happy! Happy! "
 ```
 
-## Syntax
+## نحو
 
 ```js-nolint
 repeat(count)
 ```
 
-### Parameters
+### پارامترها
 
 - `count`
-  - : An integer between `0` and {{jsxref("Number/POSITIVE_INFINITY", "Infinity")}}, indicating the number of times to repeat the string.
+  - : عدد صحیحی بین `0` و {{jsxref("Number/POSITIVE_INFINITY", "Infinity")}} که تعداد تکرار رشته را مشخص می‌کند.
 
-### Return value
+### مقدار بازگشتی
 
-A new string containing the specified number of copies of the given string.
+رشته‌ای جدید شامل تعداد مشخص‌شده‌ای از نسخه‌های رشتهٔ ورودی.
 
-### Exceptions
+### خطاها
 
 - {{jsxref("RangeError")}}
-  - : Thrown if `count` is negative or if `count` overflows maximum string length.
+  - : اگر `count` منفی باشد یا از بیشینهٔ طول رشته فراتر رود، خطا رخ می‌دهد.
 
-## Examples
+## مثال‌ها
 
-### Using repeat()
+### استفاده از repeat()
 
 ```js
 "abc".repeat(-1); // RangeError
@@ -61,15 +59,15 @@ A new string containing the specified number of copies of the given string.
 // 'abcabc' (repeat() is a generic method)
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - [Polyfill of `String.prototype.repeat` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
 - [es-shims polyfill of `String.prototype.repeat`](https://www.npmjs.com/package/string.prototype.repeat)

@@ -1,7 +1,6 @@
 ---
 title: "Response: arrayBuffer() method"
 source: "https://developer.mozilla.org/en-US/docs/Web/API/Response/arrayBuffer"
-status: "needs-translation"
 ---
 
 ---
@@ -14,60 +13,46 @@ browser-compat: api.Response.arrayBuffer
 
 {{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-The **`arrayBuffer()`** method of the {{domxref("Response")}} interface
-takes a {{domxref("Response")}} stream and reads it to completion. It returns a promise
-that resolves with an {{jsxref("ArrayBuffer")}}.
+متد **`arrayBuffer()`** از رابط {{domxref("Response")}} جریان پاسخ را تا انتها می‌خواند و یک Promise برمی‌گرداند که با یک {{jsxref("ArrayBuffer")}} تکمیل می‌شود.
 
-## Syntax
+## نحو
 
 ```js-nolint
 arrayBuffer()
 ```
 
-### Parameters
+### پارامترها
 
-None.
+این متد پارامتری نمی‌گیرد.
 
-### Return value
+### مقدار بازگشتی
 
-A promise that resolves with an {{jsxref("ArrayBuffer")}}.
+یک Promise که با یک {{jsxref("ArrayBuffer")}} تکمیل می‌شود.
 
-### Exceptions
+### خطاها
 
 - `AbortError` {{domxref("DOMException")}}
-  - : The request was [aborted](/en-US/docs/Web/API/Fetch_API/Using_Fetch#canceling_a_request).
+  - : اگر درخواست لغو شده باشد، این خطا رخ می‌دهد. [توضیحات بیشتر](/en-US/docs/Web/API/Fetch_API/Using_Fetch#canceling_a_request)
 - {{jsxref("TypeError")}}
-  - : Thrown for one of the following reasons:
-    - The response body is [disturbed or locked](/en-US/docs/Web/API/Fetch_API/Using_Fetch#locked_and_disturbed_streams).
-    - There was an error decoding the body content (for example, because the {{httpheader("Content-Encoding")}} header is incorrect).
+  - : در هر یک از شرایط زیر رخ می‌دهد:
+    - بدنهٔ پاسخ قبلاً خوانده شده یا قفل شده باشد ([توضیحات بیشتر](/en-US/docs/Web/API/Fetch_API/Using_Fetch#locked-and-disturbed-streams)).
+    - هنگام رمزگشایی محتوای بدنه خطایی رخ دهد؛ برای مثال، مقدار سربرگ {{httpheader("Content-Encoding")}} نادرست باشد.
 - {{jsxref("RangeError")}}
-  - : Thrown if there is a problem creating the associated `ArrayBuffer` (for example, if the data size is too large).
+  - : اگر هنگام ایجاد `ArrayBuffer` مربوطه مشکلی رخ دهد، مثلاً اندازهٔ داده بیش از حد بزرگ باشد.
 
-## Examples
+## مثال‌ها
 
-### Playing music
+### پخش موسیقی
 
-In our [fetch array buffer live](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-array-buffer), we have a Play button. When pressed, the `getData()`
-function is run. Note that before playing full audio file will be downloaded. If you
-need to play ogg during downloading (stream it) - consider
-{{domxref("HTMLAudioElement")}}:
+در [نمونهٔ زندهٔ دریافت ArrayBuffer](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-array-buffer) یک دکمهٔ پخش وجود دارد. با فشردن آن، تابع `getData()` اجرا می‌شود. توجه کنید که پیش از پخش، کل فایل صوتی دانلود می‌شود. اگر می‌خواهید فایل OGG هنگام دانلود پخش شود، می‌توانید از {{domxref("HTMLAudioElement")}} استفاده کنید:
 
 ```js
 new Audio("music.ogg").play();
 ```
 
-In `getData()` we create a new request using the
-{{domxref("Request.Request","Request()")}} constructor, then use it to fetch an OGG
-music track. We also use {{domxref("BaseAudioContext/createBufferSource", "AudioContext.createBufferSource")}} to create an
-audio buffer source. When the fetch is successful, we read an {{jsxref("ArrayBuffer")}}
-out of the response using `arrayBuffer()`, decode the audio data using
-{{domxref("BaseAudioContext/decodeAudioData", "AudioContext.decodeAudioData()")}}, set the decoded data as the audio buffer
-source's buffer (`source.buffer`), then connect the source up to the
-{{domxref("BaseAudioContext/destination", "AudioContext.destination")}}.
+در تابع `getData()` با سازندهٔ {{domxref("Request.Request","Request()")}} درخواست جدیدی می‌سازیم و فایل موسیقی OGG را دریافت می‌کنیم. سپس با {{domxref("BaseAudioContext/createBufferSource", "AudioContext.createBufferSource")}} منبع بافر صوتی می‌سازیم. پس از موفقیت درخواست، با `arrayBuffer()` یک {{jsxref("ArrayBuffer")}} از پاسخ می‌خوانیم، دادهٔ صوتی را با {{domxref("BaseAudioContext/decodeAudioData", "AudioContext.decodeAudioData()")}} رمزگشایی می‌کنیم، دادهٔ رمزگشایی‌شده را در بافر منبع قرار می‌دهیم و منبع را به {{domxref("BaseAudioContext/destination", "AudioContext.destination")}} متصل می‌کنیم.
 
-Once `getData()` has finished running, we start the audio source playing
-with `start(0)`, then disable the play button so it can't be clicked again
-when it is already playing (this would cause an error.)
+پس از پایان اجرای `getData()`، پخش صدا با `start(0)` آغاز می‌شود و دکمهٔ پخش غیرفعال می‌شود تا دوباره کلیک نشود و خطایی رخ ندهد.
 
 ```js
 function getData() {
@@ -89,7 +74,7 @@ function getData() {
     });
 }
 
-// wire up buttons to stop and play audio
+// اتصال رویدادهای دکمه‌های توقف و پخش
 
 play.onclick = () => {
   getData().then((source) => {
@@ -99,11 +84,9 @@ play.onclick = () => {
 };
 ```
 
-### Reading files
+### خواندن فایل‌ها
 
-The {{domxref("Response.Response","Response()")}} constructor accepts
-{{domxref("File")}}s and {{domxref("Blob")}}s, so it may be used to read a
-{{domxref("File")}} into other formats.
+سازندهٔ {{domxref("Response.Response","Response()")}} فایل‌های {{domxref("File")}} و {{domxref("Blob")}} را می‌پذیرد؛ بنابراین می‌توان از آن برای خواندن یک فایل در قالب‌های دیگر استفاده کرد.
 
 ```html
 <input type="file" />
@@ -122,16 +105,16 @@ document
   });
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
-- [ServiceWorker API](/en-US/docs/Web/API/Service_Worker_API)
-- [HTTP access control (CORS)](/en-US/docs/Web/HTTP/Guides/CORS)
+- [رابط Service Worker](/en-US/docs/Web/API/Service_Worker_API)
+- [کنترل دسترسی بین‌مبدأ HTTP (CORS)](/en-US/docs/Web/HTTP/Guides/CORS)
 - [HTTP](/en-US/docs/Web/HTTP)

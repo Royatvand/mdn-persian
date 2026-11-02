@@ -1,7 +1,6 @@
 ---
 title: "Response: blob() method"
 source: "https://developer.mozilla.org/en-US/docs/Web/API/Response/blob"
-status: "needs-translation"
 ---
 
 ---
@@ -14,48 +13,37 @@ browser-compat: api.Response.blob
 
 {{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-The **`blob()`** method of the {{domxref("Response")}} interface takes
-a {{domxref("Response")}} stream and reads it to completion. It returns a promise that
-resolves with a {{domxref("Blob")}}.
+متد **`blob()`** از رابط {{domxref("Response")}} جریان پاسخ را تا انتها می‌خواند و یک Promise برمی‌گرداند که با یک شیء {{domxref("Blob")}} تکمیل می‌شود.
 
-## Syntax
+## نحو
 
 ```js-nolint
 blob()
 ```
 
-### Parameters
+### پارامترها
 
-None.
+این متد پارامتری نمی‌گیرد.
 
 > [!NOTE]
-> If the {{domxref("Response")}} has a
-> {{domxref("Response.type")}} of `"opaque"`, the resulting {{domxref("Blob")}}
-> will have a {{domxref("Blob.size")}} of `0` and a {{domxref("Blob.type")}} of
-> empty string `""`, which renders it _useless_ for methods like
-> {{domxref("URL.createObjectURL_static", "URL.createObjectURL()")}}.
+> اگر مقدار {{domxref("Response.type")}} پاسخ برابر `"opaque"` باشد، شیء {{domxref("Blob")}} حاصل دارای {{domxref("Blob.size")}} برابر `0` و {{domxref("Blob.type")}} برابر رشتهٔ خالی `""` خواهد بود. در این حالت برای متدهایی مانند {{domxref("URL.createObjectURL_static", "URL.createObjectURL()")}} کاربردی نیست.
 
-### Return value
+### مقدار بازگشتی
 
-A promise that resolves with a {{domxref("Blob")}} whose data is the body's bytes and the media type is the response's `Content-Type` header's value.
+یک Promise که با شیء {{domxref("Blob")}} تکمیل می‌شود. دادهٔ این شیء از بایت‌های بدنه تشکیل شده و نوع رسانهٔ آن از مقدار سربرگ `Content-Type` پاسخ گرفته می‌شود.
 
-### Exceptions
+### خطاها
 
 - `AbortError` {{domxref("DOMException")}}
-  - : The request was [aborted](/en-US/docs/Web/API/Fetch_API/Using_Fetch#canceling_a_request).
+  - : اگر درخواست لغو شده باشد، این خطا رخ می‌دهد. [توضیحات بیشتر](/en-US/docs/Web/API/Fetch_API/Using_Fetch#canceling_a_request)
 - {{jsxref("TypeError")}}
-  - : Thrown for one of the following reasons:
-    - The response body is [disturbed or locked](/en-US/docs/Web/API/Fetch_API/Using_Fetch#locked_and_disturbed_streams).
-    - There was an error decoding the body content (for example, because the {{httpheader("Content-Encoding")}} header is incorrect).
+  - : در هر یک از شرایط زیر رخ می‌دهد:
+    - بدنهٔ پاسخ قبلاً خوانده شده یا قفل شده باشد ([توضیحات بیشتر](/en-US/docs/Web/API/Fetch_API/Using_Fetch#locked-and-disturbed-streams)).
+    - هنگام رمزگشایی محتوای بدنه خطایی رخ دهد؛ برای مثال، مقدار سربرگ {{httpheader("Content-Encoding")}} نادرست باشد.
 
-## Examples
+## مثال
 
-In our [fetch request example](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-request) (run [fetch request live](https://mdn.github.io/dom-examples/fetch/fetch-request/)), we
-create a new request using the {{domxref("Request.Request","Request()")}} constructor,
-then use it to fetch a JPG. When the fetch is successful, we read a {{domxref("Blob")}}
-out of the response using `blob()`, put it into an object URL using
-{{domxref("URL.createObjectURL_static", "URL.createObjectURL()")}}, and then set that URL as the source of an
-{{htmlelement("img")}} element to display the image.
+در [نمونهٔ دریافت درخواست](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-request) می‌بینیم که چگونه با سازندهٔ {{domxref("Request.Request","Request()")}} درخواست جدیدی ایجاد کرده و یک تصویر JPG دریافت کنیم. پس از موفقیت درخواست، با `blob()` یک {{domxref("Blob")}} از پاسخ می‌خوانیم، برای آن یک نشانی شیء با {{domxref("URL.createObjectURL_static", "URL.createObjectURL()")}} می‌سازیم و آن نشانی را به‌عنوان منبع عنصر {{htmlelement("img")}} قرار می‌دهیم.
 
 ```js
 const myImage = document.querySelector("img");
@@ -70,16 +58,16 @@ fetch(myRequest)
   });
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
-- [ServiceWorker API](/en-US/docs/Web/API/Service_Worker_API)
-- [HTTP access control (CORS)](/en-US/docs/Web/HTTP/Guides/CORS)
+- [رابط Service Worker](/en-US/docs/Web/API/Service_Worker_API)
+- [کنترل دسترسی بین‌مبدأ HTTP (CORS)](/en-US/docs/Web/HTTP/Guides/CORS)
 - [HTTP](/en-US/docs/Web/HTTP)

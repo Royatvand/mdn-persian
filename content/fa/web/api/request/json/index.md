@@ -1,7 +1,6 @@
 ---
 title: "Request: json() method"
 source: "https://developer.mozilla.org/en-US/docs/Web/API/Request/json"
-status: "needs-translation"
 ---
 
 ---
@@ -14,36 +13,34 @@ browser-compat: api.Request.json
 
 {{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-The **`json()`** method of the {{domxref("Request")}} interface
-reads the request body and returns it as a promise that resolves with the result of parsing the body text as {{JSxRef("JSON")}}.
+متد **`json()`** از رابط {{domxref("Request")}} بدنهٔ درخواست را می‌خواند و یک Promise برمی‌گرداند که با نتیجهٔ تجزیهٔ متن بدنه به‌عنوان {{JSxRef("JSON")}} تکمیل می‌شود.
 
-Note that despite the method being named `json()`, the result is not JSON but is instead the result of taking JSON as input and parsing it to produce a JavaScript object.
+با اینکه نام متد `json()` است، نتیجهٔ آن JSON خام نیست؛ بلکه مقدار جاوااسکریپتی حاصل از تجزیهٔ JSON است.
 
-## Syntax
+## نحو
 
 ```js-nolint
 json()
 ```
 
-### Parameters
+### پارامترها
 
-None.
+این متد پارامتری نمی‌گیرد.
 
-### Return value
+### مقدار بازگشتی
 
-A {{jsxref("Promise")}} that resolves to a JavaScript object. This object could be
-anything that can be represented by JSON — an object, an array, a string, a number…
+یک {{jsxref("Promise")}} که با مقداری جاوااسکریپتی تکمیل می‌شود. این مقدار می‌تواند هر چیزی باشد که JSON نمایش می‌دهد؛ مانند شیء، آرایه، رشته یا عدد.
 
-### Exceptions
+### خطاها
 
 - {{jsxref("TypeError")}}
-  - : Thrown for one of the following reasons:
-    - The request body is [disturbed or locked](/en-US/docs/Web/API/Fetch_API/Using_Fetch#locked_and_disturbed_streams).
-    - There was an error decoding the body content (for example, because the {{httpheader("Content-Encoding")}} header is incorrect).
+  - : در هر یک از شرایط زیر رخ می‌دهد:
+    - بدنهٔ درخواست قبلاً خوانده شده یا قفل شده باشد ([توضیحات بیشتر](/en-US/docs/Web/API/Fetch_API/Using_Fetch#locked-and-disturbed-streams)).
+    - هنگام رمزگشایی محتوای بدنه خطایی رخ دهد؛ برای مثال، مقدار سربرگ {{httpheader("Content-Encoding")}} نادرست باشد.
 - {{jsxref("SyntaxError")}}
-  - : The request body cannot be parsed as JSON.
+  - : اگر نتوان بدنهٔ درخواست را به‌عنوان JSON تجزیه کرد.
 
-## Examples
+## مثال
 
 ```js
 const obj = { hello: "world" };
@@ -54,18 +51,18 @@ const request = new Request("/myEndpoint", {
 });
 
 request.json().then((data) => {
-  // do something with the data sent in the request
+  // داده‌های ارسال‌شده در درخواست را پردازش کنید
 });
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - {{domxref("Response.json()")}}

@@ -1,7 +1,6 @@
 ---
 title: "Array.prototype.includes()"
 source: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes"
-status: "needs-translation"
 ---
 
 ---
@@ -13,9 +12,7 @@ browser-compat: javascript.builtins.Array.includes
 sidebar: jsref
 ---
 
-The **`includes()`** method of {{jsxref("Array")}} instances determines whether an array
-includes a certain value among its entries, returning `true` or
-`false` as appropriate.
+متد **`includes()`** در نمونه‌های {{jsxref("Array")}} بررسی می‌کند که آیا مقدار مشخصی در میان اعضای آرایه وجود دارد یا نه؛ نتیجه `true` یا `false` است.
 
 {{InteractiveExample("JavaScript Demo: Array.prototype.includes()")}}
 
@@ -34,38 +31,38 @@ console.log(pets.includes("at"));
 // Expected output: false
 ```
 
-## Syntax
+## نحو
 
 ```js-nolint
 includes(searchElement)
 includes(searchElement, fromIndex)
 ```
 
-### Parameters
+### پارامترها
 
 - `searchElement`
-  - : The value to search for.
+  - : مقداری که باید جست‌وجو شود.
 - `fromIndex` {{optional_inline}}
-  - : Zero-based index at which to start searching, [converted to an integer](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
-    - Negative index counts back from the end of the array — if `-array.length <= fromIndex < 0`, `fromIndex + array.length` is used. However, the array is still searched from front to back in this case.
-    - If `fromIndex < -array.length` or `fromIndex` is omitted, `0` is used, causing the entire array to be searched.
-    - If `fromIndex >= array.length`, the array is not searched and `false` is returned.
+  - : اندیس صفرمبنا برای شروع جست‌وجو که [به عدد صحیح تبدیل می‌شود](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+    - اندیس منفی از انتهای آرایه به عقب می‌شمارد؛ اگر `-array.length <= fromIndex < 0` باشد، از `fromIndex + array.length` استفاده می‌شود. بااین‌حال، جست‌وجو همچنان از ابتدا به انتهای آرایه انجام می‌شود.
+    - اگر `fromIndex < -array.length` باشد یا آرگومان حذف شود، مقدار `0` استفاده می‌شود و کل آرایه جست‌وجو خواهد شد.
+    - اگر `fromIndex >= array.length` باشد، آرایه جست‌وجو نمی‌شود و `false` برمی‌گردد.
 
-### Return value
+### مقدار بازگشتی
 
-A boolean value which is `true` if the value `searchElement` is found within the array (or the part of the array indicated by the index `fromIndex`, if specified).
+مقدار بولی؛ اگر `searchElement` در آرایه (یا در بخشی که با `fromIndex` مشخص شده) پیدا شود `true` است.
 
-## Description
+## توضیحات
 
-The `includes()` method compares `searchElement` to elements of the array using the [SameValueZero algorithm](/en-US/docs/Web/JavaScript/Guide/Equality_comparisons_and_sameness#same-value-zero_equality). This algorithm works like strict equality `===` (where `-0` and `+0` are considered equal), with the exception that {{jsxref("NaN")}} is considered equal to itself.
+متد `includes()` مقدار `searchElement` را با اعضای آرایه با استفاده از الگوریتم [SameValueZero](/en-US/docs/Web/JavaScript/Guide/Equality_comparisons_and_sameness#same-value-zero_equality) مقایسه می‌کند. این الگوریتم مانند برابری سخت‌گیرانهٔ `===` عمل می‌کند (`-0` و `+0` را برابر می‌داند)، با این تفاوت که {{jsxref("NaN")}} را با خودش برابر در نظر می‌گیرد.
 
-When used on [sparse arrays](/en-US/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays), the `includes()` method iterates empty slots as if they have the value `undefined`.
+هنگام استفاده روی [آرایه‌های تنک](/en-US/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays)، متد `includes()` خانه‌های خالی را مانند خانه‌هایی با مقدار `undefined` بررسی می‌کند.
 
-The `includes()` method is [generic](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). It only expects the `this` value to have a `length` property and integer-keyed properties.
+متد `includes()` [عمومی](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods) است و فقط انتظار دارد مقدار `this` ویژگی `length` و ویژگی‌هایی با کلید عدد صحیح داشته باشد.
 
-## Examples
+## مثال‌ها
 
-### Using includes()
+### استفاده از includes()
 
 ```js
 [1, 2, 3].includes(2); // true
@@ -76,10 +73,9 @@ The `includes()` method is [generic](/en-US/docs/Web/JavaScript/Reference/Global
 ["1", "2", "3"].includes(3); // false
 ```
 
-### fromIndex is greater than or equal to the array length
+### وقتی fromIndex بزرگ‌تر یا مساوی طول آرایه است
 
-If `fromIndex` is greater than or equal to the length of the
-array, `false` is returned. The array will not be searched.
+اگر `fromIndex` بزرگ‌تر یا مساوی طول آرایه باشد، `false` برگردانده می‌شود و آرایه جست‌وجو نخواهد شد.
 
 ```js
 const arr = ["a", "b", "c"];
@@ -88,12 +84,9 @@ arr.includes("c", 3); // false
 arr.includes("c", 100); // false
 ```
 
-### Computed index is less than 0
+### وقتی اندیس محاسبه‌شده منفی است
 
-If `fromIndex` is negative, the computed index is calculated to
-be used as a position in the array at which to begin searching for
-`searchElement`. If the computed index is less than or equal to
-`0`, the entire array will be searched.
+اگر `fromIndex` منفی باشد، اندیس محاسبه‌شده محل آغاز جست‌وجوی `searchElement` در آرایه است. اگر این اندیس کوچک‌تر یا مساوی `0` باشد، کل آرایه جست‌وجو می‌شود.
 
 ```js
 // array length is 3
@@ -108,17 +101,17 @@ arr.includes("c", -100); // true
 arr.includes("a", -2); // false
 ```
 
-### Using includes() on sparse arrays
+### استفاده از includes() on sparse arrays
 
-You can search for `undefined` in a sparse array and get `true`.
+می‌توانید در آرایهٔ تنک به‌دنبال `undefined` بگردید و `true` دریافت کنید.
 
 ```js
 console.log([1, , 3].includes(undefined)); // true
 ```
 
-### Calling includes() on non-array objects
+### فراخوانی includes() روی اشیایی غیر از آرایه
 
-The `includes()` method reads the `length` property of `this` and then accesses each property whose key is a nonnegative integer less than `length`.
+متد `includes()` ویژگی `length` مقدار `this` را می‌خواند و سپس به ویژگی‌هایی دسترسی پیدا می‌کند که کلیدشان عدد صحیح نامنفی و کوچک‌تر از `length` باشد.
 
 ```js
 const arrayLike = {
@@ -134,15 +127,15 @@ console.log(Array.prototype.includes.call(arrayLike, 1));
 // false
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - [Polyfill of `Array.prototype.includes` in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
 - [es-shims polyfill of `Array.prototype.includes`](https://www.npmjs.com/package/array-includes)

@@ -1,7 +1,6 @@
 ---
 title: "String.prototype.startsWith()"
 source: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith"
-status: "needs-translation"
 ---
 
 ---
@@ -13,7 +12,7 @@ browser-compat: javascript.builtins.String.startsWith
 sidebar: jsref
 ---
 
-The **`startsWith()`** method of {{jsxref("String")}} values determines whether this string begins with the characters of a specified string, returning `true` or `false` as appropriate.
+متد **`startsWith()`** برای مقدارهای {{jsxref("String")}} بررسی می‌کند که آیا این رشته با نویسه‌های رشتهٔ مشخص‌شده آغاز می‌شود یا نه؛ نتیجه `true` یا `false` است.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.startsWith()")}}
 
@@ -27,36 +26,36 @@ console.log(str.startsWith("Sat", 3));
 // Expected output: false
 ```
 
-## Syntax
+## نحو
 
 ```js-nolint
 startsWith(searchString)
 startsWith(searchString, position)
 ```
 
-### Parameters
+### پارامترها
 
 - `searchString`
-  - : The characters to be searched for at the start of this string. Cannot [be a regex](/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes). All values that are not regexes are [coerced to strings](/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), so omitting it or passing `undefined` causes `startsWith()` to search for the string `"undefined"`, which is rarely what you want.
+  - : نویسه‌هایی که باید در ابتدای این رشته جست‌وجو شوند. این مقدار نمی‌تواند [عبارت باقاعده](/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes) باشد. مقدارهای دیگر به رشته [تبدیل](/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) می‌شوند؛ بنابراین حذف آرگومان یا ارسال `undefined` باعث جست‌وجوی رشتهٔ `"undefined"` می‌شود که معمولاً مطلوب نیست.
 - `position` {{optional_inline}}
-  - : The start position at which `searchString` is expected to be found (the index of `searchString`'s first character). Defaults to `0`.
+  - : موقعیتی که انتظار می‌رود `searchString` از آنجا آغاز شود (اندیس نخستین نویسهٔ آن). مقدار پیش‌فرض `0` است.
 
-### Return value
+### مقدار بازگشتی
 
-**`true`** if the given characters are found at the beginning of the string, including when `searchString` is an empty string; otherwise, **`false`**.
+اگر نویسه‌های داده‌شده در ابتدای رشته وجود داشته باشند، `true` برمی‌گرداند؛ حتی اگر `searchString` خالی باشد. در غیر این صورت `false` است.
 
-### Exceptions
+### خطاها
 
 - {{jsxref("TypeError")}}
-  - : Thrown if `searchString` [is a regex](/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes).
+  - : اگر `searchString` [عبارت باقاعده](/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes) باشد، خطا رخ می‌دهد.
 
-## Description
+## توضیحات
 
-This method lets you determine whether or not a string begins with another string. This method is case-sensitive.
+این متد مشخص می‌کند که آیا یک رشته با رشتهٔ دیگری آغاز می‌شود یا نه. این بررسی به بزرگی و کوچکی حروف حساس است.
 
-## Examples
+## مثال‌ها
 
-### Using startsWith()
+### استفاده از startsWith()
 
 ```js
 const str = "To be, or not to be, that is the question.";
@@ -66,15 +65,15 @@ console.log(str.startsWith("not to be")); // false
 console.log(str.startsWith("not to be", 10)); // true
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - [Polyfill of `String.prototype.startsWith` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
 - [es-shims polyfill of `String.prototype.startsWith`](https://www.npmjs.com/package/string.prototype.startswith)

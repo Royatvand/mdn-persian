@@ -1,7 +1,6 @@
 ---
 title: "Promise.resolve()"
 source: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve"
-status: "needs-translation"
 ---
 
 ---
@@ -13,9 +12,9 @@ browser-compat: javascript.builtins.Promise.resolve
 sidebar: jsref
 ---
 
-The **`Promise.resolve()`** static method "resolves" a given value to a {{jsxref("Promise")}}. If the value is a promise, that promise is returned; if the value is a [thenable](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables), `Promise.resolve()` will call the `then()` method with two callbacks it prepared; otherwise the returned promise will be fulfilled with the value.
+متد ایستای **`Promise.resolve()`** مقدار داده‌شده را به یک {{jsxref("Promise")}} تبدیل و آن را resolve می‌کند. اگر مقدار خود Promise باشد، همان Promise برگردانده می‌شود؛ اگر [thenable](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables) باشد، `Promise.resolve()` متد `then()` آن را با دو callback آماده‌شده فراخوانی می‌کند؛ در غیر این صورت Promise برگشتی با همان مقدار fulfilled می‌شود.
 
-This function flattens nested layers of promise-like objects (e.g., a promise that fulfills to a promise that fulfills to something) into a single layer — a promise that fulfills to a non-thenable value.
+این تابع لایه‌های تو‌در‌توی اشیای شبیه Promise را به یک لایه تبدیل می‌کند؛ برای مثال، اگر Promise با Promise دیگری تکمیل شود، نتیجه در نهایت Promiseای خواهد بود که با مقداری غیر thenable تکمیل می‌شود.
 
 {{InteractiveExample("JavaScript Demo: Promise.resolve()")}}
 
@@ -28,40 +27,40 @@ promise1.then((value) => {
 });
 ```
 
-## Syntax
+## نحو
 
 ```js-nolint
 Promise.resolve(value)
 ```
 
-### Parameters
+### پارامترها
 
 - `value`
-  - : Argument to be resolved by this `Promise`. Can also be a `Promise` or a thenable to resolve.
+  - : مقداری که باید توسط این `Promise` resolve شود. این مقدار می‌تواند خود یک `Promise` یا thenable نیز باشد.
 
-### Return value
+### مقدار بازگشتی
 
-A {{jsxref("Promise")}} that is resolved with the given value, or the promise passed as value, if the value was a promise object. A resolved promise can be in any of the states — fulfilled, rejected, or pending. For example, resolving a rejected promise will still result in a rejected promise.
+یک {{jsxref("Promise")}} که با مقدار داده‌شده resolve می‌شود؛ اگر مقدار ورودی شیء Promise باشد، همان Promise برگردانده می‌شود. Promiseای که resolve شده، می‌تواند در هر یک از وضعیت‌های fulfilled، rejected یا pending باشد. برای مثال، resolve کردن یک Promise ردشده همچنان به Promise ردشده منجر می‌شود.
 
-## Description
+## توضیحات
 
-`Promise.resolve()` _resolves_ a promise, which is not the same as fulfilling or rejecting the promise. See [Promise description](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#description) for definitions of the terminology. In brief, `Promise.resolve()` returns a promise whose eventual state depends on another promise, thenable object, or other value.
+`Promise.resolve()` یک Promise را _resolve_ می‌کند؛ این با fulfilled یا rejected شدن آن یکسان نیست. برای تعریف این اصطلاحات، توضیحات [Promise](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#description) را ببینید. به‌طور خلاصه، `Promise.resolve()` پرامیزی برمی‌گرداند که وضعیت نهایی آن به Promise دیگر، شیء thenable یا مقدار دیگری بستگی دارد.
 
 > [!NOTE]
-> If evaluating the `value` expression may synchronously throw an error, this error won't be caught and wrapped in a rejected promise by `Promise.resolve()`. Consider using {{jsxref("Promise/try", "Promise.try(() => value)")}} in this case.
+> اگر ارزیابی عبارت `value` ممکن است به‌صورت هم‌زمان خطا پرتاب کند، `Promise.resolve()` آن خطا را نمی‌گیرد و در Promise ردشده قرار نمی‌دهد. در این حالت استفاده از {{jsxref("Promise/try", "Promise.try(() => value)")}} را در نظر بگیرید.
 
-`Promise.resolve()` is generic and supports subclassing, which means it can be called on subclasses of `Promise`, and the result will be a promise of the subclass type. To do so, the subclass's constructor must implement the same signature as the [`Promise()`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise) constructor — accepting a single `executor` function that can be called with the `resolve` and `reject` callbacks as parameters.
+`Promise.resolve()` عمومی است و از زیرکلاس‌سازی پشتیبانی می‌کند؛ بنابراین می‌توان آن را روی زیرکلاس‌های `Promise` فراخوانی کرد و نتیجه از نوع همان زیرکلاس خواهد بود. برای این کار، سازندهٔ زیرکلاس باید امضایی مشابه سازندهٔ [`Promise()`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise) داشته باشد و یک تابع `executor` بپذیرد که callbackهای `resolve` و `reject` به آن داده می‌شوند.
 
-`Promise.resolve()` special-cases native `Promise` instances. If `value` belongs to `Promise` or a subclass, and `value.constructor === Promise`, then `value` is directly returned by `Promise.resolve()`, without creating a new `Promise` instance. Otherwise, `Promise.resolve()` is essentially a shorthand for `new Promise((resolve) => resolve(value))`.
+`Promise.resolve()` با نمونه‌های بومی `Promise` رفتار ویژه‌ای دارد. اگر `value` از نوع `Promise` باشد و `value.constructor === Promise`، همان `value` مستقیماً برگردانده می‌شود و نمونهٔ جدیدی ساخته نمی‌شود. در غیر این صورت، `Promise.resolve()` تقریباً شکل کوتاه‌شدهٔ `new Promise((resolve) => resolve(value))` است.
 
-The bulk of the resolving logic is actually implemented by [the `resolve` function](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise#the_resolve_function) passed by the `Promise()` constructor. In summary:
+بخش اصلی منطق resolve در واقع توسط [تابع `resolve`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise#the_resolve_function) پیاده‌سازی می‌شود که سازندهٔ `Promise()` آن را ارسال می‌کند. خلاصهٔ رفتار:
 
-- If a non-[thenable](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables) value is passed, the returned promise is already fulfilled with that value.
-- If a thenable is passed, the returned promise will adopt the state of that thenable by calling the `then` method and passing a pair of resolving functions as arguments. (But because native promises directly pass through `Promise.resolve()` without creating a wrapper, the `then` method is not called on native promises.) If the `resolve` function receives another thenable object, it will be resolved again, so that the eventual fulfillment value of the promise will never be thenable.
+- اگر مقدار ورودی [thenable](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables) نباشد، Promise برگشتی از همان ابتدا با آن مقدار fulfilled است.
+- اگر thenable داده شود، Promise برگشتی با فراخوانی متد `then` و ارسال دو تابع resolveکننده، وضعیت آن را می‌پذیرد. (اما چون Promiseهای بومی بدون ساخت wrapper از `Promise.resolve()` عبور می‌کنند، متد `then` روی آن‌ها فراخوانی نمی‌شود.) اگر تابع `resolve` thenable دیگری دریافت کند، آن را نیز resolve می‌کند؛ بنابراین مقدار نهایی Promise دیگر thenable نخواهد بود.
 
-## Examples
+## مثال‌ها
 
-### Using the static Promise.resolve method
+### استفاده از متد ایستای Promise.resolve
 
 ```js
 Promise.resolve("Success").then(
@@ -74,7 +73,7 @@ Promise.resolve("Success").then(
 );
 ```
 
-### Resolving an array
+### resolve کردن یک آرایه
 
 ```js
 const p = Promise.resolve([1, 2, 3]);
@@ -83,9 +82,9 @@ p.then((v) => {
 });
 ```
 
-### Resolving another Promise
+### resolve کردن یک Promise دیگر
 
-`Promise.resolve()` reuses existing `Promise` instances. If it's resolving a native promise, it returns the same promise instance without creating a wrapper.
+`Promise.resolve()` نمونه‌های موجود `Promise` را دوباره استفاده می‌کند. اگر Promise بومی را resolve کند، همان نمونه را بدون ساخت wrapper برمی‌گرداند.
 
 ```js
 const original = Promise.resolve(33);
@@ -100,9 +99,9 @@ console.log(`original === cast ? ${original === cast}`);
 // value: 33
 ```
 
-The inverted order of the logs is due to the fact that the `then` handlers are called asynchronously. See the {{jsxref("Promise/then", "then()")}} reference for more information.
+ترتیب معکوس خروجی‌ها به این دلیل است که handlerهای `then` به‌صورت ناهمگام فراخوانی می‌شوند. برای اطلاعات بیشتر، مرجع {{jsxref("Promise/then", "then()")}} را ببینید.
 
-### Resolving thenables and throwing Errors
+### resolve کردن thenableها و پرتاب خطا
 
 ```js
 // Resolving a thenable object
@@ -156,7 +155,7 @@ p3.then(
 );
 ```
 
-Nested thenables will be "deeply flattened" to a single promise.
+thenableهای تو‌در‌تو به‌صورت عمیق در یک Promise واحد ادغام می‌شوند.
 
 ```js
 const thenable = {
@@ -176,7 +175,7 @@ Promise.resolve(thenable).then((v) => {
 ```
 
 > [!WARNING]
-> Do not call `Promise.resolve()` on a thenable that resolves to itself. That leads to infinite recursion, because it attempts to flatten an infinitely-nested promise.
+> روی thenableای که خودش را resolve می‌کند، `Promise.resolve()` را فراخوانی نکنید. این کار به بازگشت بی‌نهایت منجر می‌شود، زیرا تلاش می‌کند Promiseای با تو‌در‌تویی بی‌نهایت را تخت کند.
 
 ```js example-bad
 const thenable = {
@@ -188,9 +187,9 @@ const thenable = {
 Promise.resolve(thenable); // Will lead to infinite recursion.
 ```
 
-### Calling resolve() on a non-Promise constructor
+### فراخوانی resolve() روی سازنده‌ای غیر از Promise
 
-`Promise.resolve()` is a generic method. It can be called on any constructor that implements the same signature as the `Promise()` constructor. For example, we can call it on a constructor that passes it `console.log` as `resolve`:
+`Promise.resolve()` متدی عمومی است و می‌توان آن را روی هر سازنده‌ای فراخوانی کرد که امضایی مشابه سازندهٔ `Promise()` داشته باشد. برای مثال، می‌توان آن را روی سازنده‌ای اجرا کرد که `console.log` را به‌عنوان تابع `resolve` دریافت می‌کند:
 
 ```js
 class NotPromise {
@@ -207,7 +206,7 @@ class NotPromise {
 Promise.resolve.call(NotPromise, "foo"); // Logs "Resolved foo"
 ```
 
-The ability to flatten nested thenables is implemented by the `resolve` function of the `Promise()` constructor, so if you call it on another constructor, nested thenables may not be flattened, depending on how that constructor implements its `resolve` function.
+قابلیت تخت‌کردن thenableهای تو‌در‌تو در تابع `resolve` سازندهٔ `Promise()` پیاده‌سازی شده است؛ بنابراین اگر این متد را روی سازندهٔ دیگری فراخوانی کنید، بسته به پیاده‌سازی تابع `resolve` آن سازنده، ممکن است thenableهای تو‌در‌تو تخت نشوند.
 
 ```js
 const thenable = {
@@ -224,14 +223,14 @@ const thenable = {
 Promise.resolve.call(NotPromise, thenable); // Logs "Resolved { then: [Function: then] }"
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - {{jsxref("Promise")}}

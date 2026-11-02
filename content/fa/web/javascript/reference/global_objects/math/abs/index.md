@@ -1,7 +1,6 @@
 ---
 title: "Math.abs()"
 source: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/abs"
-status: "needs-translation"
 ---
 
 ---
@@ -13,7 +12,7 @@ browser-compat: javascript.builtins.Math.abs
 sidebar: jsref
 ---
 
-The **`Math.abs()`** static method returns the absolute value of a number.
+متد ایستای **`Math.abs()`** قدرمطلق یک عدد را برمی‌گرداند.
 
 {{InteractiveExample("JavaScript Demo: Math.abs()")}}
 
@@ -32,28 +31,28 @@ console.log(difference(1.23456, 7.89012));
 // Expected output: 6.6555599999999995
 ```
 
-## Syntax
+## نحو
 
 ```js-nolint
 Math.abs(x)
 ```
 
-### Parameters
+### پارامترها
 
 - `x`
-  - : A number.
+  - : یک عدد.
 
-### Return value
+### مقدار بازگشتی
 
-The absolute value of `x`. If `x` is negative or `-0`, returns its opposite number `-x` (which is non-negative). Otherwise, returns `x` itself. The result is therefore always a positive number or `0`.
+قدر مطلق `x`. اگر `x` منفی یا `-0` باشد، عدد مخالف آن یعنی `-x` (که نامنفی است) برگردانده می‌شود؛ در غیر این صورت خود `x` برگردانده می‌شود. بنابراین نتیجه همیشه عددی نامنفی یا `0` است.
 
-## Description
+## توضیحات
 
-Because `abs()` is a static method of `Math`, you always use it as `Math.abs()`, rather than as a method of a `Math` object you created (`Math` is not a constructor).
+چون `abs()` متدی ایستا از `Math` است، همیشه آن را به‌شکل `Math.abs()` به کار ببرید؛ `Math` سازنده نیست و از آن نمونه ساخته نمی‌شود.
 
-## Examples
+## مثال‌ها
 
-### Using Math.abs()
+### استفاده از Math.abs()
 
 ```js
 Math.abs(-Infinity); // Infinity
@@ -64,9 +63,9 @@ Math.abs(1); // 1
 Math.abs(Infinity); // Infinity
 ```
 
-### Coercion of parameter
+### تبدیل پارامتر
 
-`Math.abs()` [coerces its parameter to a number](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion). Non-coercible values will become `NaN`, making `Math.abs()` also return `NaN`.
+`Math.abs()` پارامتر خود را [به عدد تبدیل می‌کند](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion). مقدارهایی که قابل تبدیل نیستند به `NaN` تبدیل می‌شوند و در نتیجه `Math.abs()` نیز `NaN` برمی‌گرداند.
 
 ```js
 Math.abs("-1"); // 1
@@ -81,15 +80,15 @@ Math.abs("string"); // NaN
 Math.abs(); // NaN
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - {{jsxref("Math.ceil()")}}
 - {{jsxref("Math.floor()")}}

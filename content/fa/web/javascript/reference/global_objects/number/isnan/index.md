@@ -1,7 +1,6 @@
 ---
 title: "Number.isNaN()"
 source: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN"
-status: "needs-translation"
 ---
 
 ---
@@ -13,7 +12,7 @@ browser-compat: javascript.builtins.Number.isNaN
 sidebar: jsref
 ---
 
-The **`Number.isNaN()`** static method determines whether the passed value is the number value {{jsxref("NaN")}}, and returns `false` if the input is not of the Number type. It is a more robust version of the original, global {{jsxref("isNaN()")}} function.
+متد ایستای **`Number.isNaN()`** بررسی می‌کند که آیا مقدار ورودی دقیقاً مقدار عددی {{jsxref("NaN")}} است یا نه. اگر ورودی از نوع `Number` نباشد، `false` برمی‌گرداند. این متد نسخه‌ای مطمئن‌تر از تابع سراسری {{jsxref("isNaN()")}} است.
 
 {{InteractiveExample("JavaScript Demo: Number.isNaN()", "taller")}}
 
@@ -34,32 +33,32 @@ console.log(typeOfNaN(NaN));
 // Expected output: "Number NaN"
 ```
 
-## Syntax
+## نحو
 
 ```js-nolint
 Number.isNaN(value)
 ```
 
-### Parameters
+### پارامترها
 
 - `value`
-  - : The value to be tested for {{jsxref("NaN")}}.
+  - : مقداری که باید از نظر برابر بودن با {{jsxref("NaN")}} بررسی شود.
 
-### Return value
+### مقدار بازگشتی
 
-The boolean value `true` if the given value is a number with value {{jsxref("NaN")}}. Otherwise, `false`.
+اگر مقدار داده‌شده عددی با مقدار {{jsxref("NaN")}} باشد، `true` و در غیر این صورت `false` برمی‌گرداند.
 
-## Description
+## توضیحات
 
-The function `Number.isNaN()` provides a convenient way to check for equality with `NaN`. Note that you cannot test for equality with `NaN` using either the [`==`](/en-US/docs/Web/JavaScript/Reference/Operators/Equality) or [`===`](/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality) operators, because unlike all other value comparisons in JavaScript, these evaluate to `false` whenever one operand is {{jsxref("NaN")}}, even if the other operand is also {{jsxref("NaN")}}.
+تابع `Number.isNaN()` راهی ساده برای بررسی مقدار `NaN` فراهم می‌کند. توجه کنید که نمی‌توان با عملگرهای [`==`](/en-US/docs/Web/JavaScript/Reference/Operators/Equality) یا [`===`](/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality) برابری با `NaN` را سنجید؛ چون اگر یکی از عملوندها `NaN` باشد، نتیجه همیشه `false` است، حتی اگر عملوند دیگر هم `NaN` باشد.
 
-Since `x !== x` is only true for `NaN` among all possible JavaScript values, `Number.isNaN(x)` can also be replaced with a test for `x !== x`, despite the latter being less readable.
+از آنجا که در میان همهٔ مقادیر جاوااسکریپت، عبارت `x !== x` فقط برای `NaN` درست است، می‌توان از آن به‌جای `Number.isNaN(x)` استفاده کرد؛ هرچند خوانایی کمتری دارد.
 
-As opposed to the global {{jsxref("isNaN()")}} function, the `Number.isNaN()` method doesn't force-convert the parameter to a number. This makes it safe to pass values that would normally convert to {{jsxref("NaN")}} but aren't actually the same value as {{jsxref("NaN")}}. This also means that only values of the Number type that are also {{jsxref("NaN")}} return `true`.
+برخلاف تابع سراسری {{jsxref("isNaN()")}}، متد `Number.isNaN()` پارامتر را به عدد تبدیل نمی‌کند. بنابراین می‌توان مقادیری را که معمولاً به `NaN` تبدیل می‌شوند، با اطمینان به آن داد؛ این مقادیر لزوماً خودِ `NaN` نیستند. در نتیجه، فقط مقداری از نوع `Number` که واقعاً `NaN` باشد، `true` برمی‌گرداند.
 
-## Examples
+## مثال‌ها
 
-### Using isNaN()
+### استفاده از isNaN()
 
 ```js
 Number.isNaN(NaN); // true
@@ -68,9 +67,9 @@ Number.isNaN(0 / 0); // true
 Number.isNaN(37); // false
 ```
 
-### Difference between Number.isNaN() and global isNaN()
+### تفاوت Number.isNaN() با isNaN() سراسری
 
-`Number.isNaN()` doesn't attempt to convert the parameter to a number, so non-numbers always return `false`. The following are all `false`:
+`Number.isNaN()` پارامتر را به عدد تبدیل نمی‌کند؛ بنابراین برای مقادیر غیرعددی همیشه `false` برمی‌گرداند. نتیجهٔ همهٔ نمونه‌های زیر `false` است:
 
 ```js
 Number.isNaN("NaN");
@@ -85,7 +84,7 @@ Number.isNaN("");
 Number.isNaN(" ");
 ```
 
-The global {{jsxref("isNaN()")}} coerces its parameter to a number:
+تابع سراسری {{jsxref("isNaN()")}} پارامتر خود را به عدد تبدیل می‌کند:
 
 ```js
 isNaN("NaN"); // true
@@ -100,15 +99,15 @@ isNaN(""); // false, this is coerced to 0
 isNaN(" "); // false, this is coerced to 0
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - [Polyfill of `Number.isNaN` in `core-js`](https://github.com/zloirock/core-js#ecmascript-number)
 - [es-shims polyfill of `Number.isNaN`](https://www.npmjs.com/package/number.isnan)

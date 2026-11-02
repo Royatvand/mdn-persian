@@ -1,7 +1,6 @@
 ---
 title: "Math.ceil()"
 source: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil"
-status: "needs-translation"
 ---
 
 ---
@@ -13,7 +12,7 @@ browser-compat: javascript.builtins.Math.ceil
 sidebar: jsref
 ---
 
-The **`Math.ceil()`** static method always rounds up and returns the smallest integer greater than or equal to a given number.
+متد ایستای **`Math.ceil()`** همیشه عدد را به سمت بالا گرد می‌کند و کوچک‌ترین عدد صحیح بزرگ‌تر یا مساوی عدد ورودی را برمی‌گرداند.
 
 {{InteractiveExample("JavaScript Demo: Math.ceil()")}}
 
@@ -31,28 +30,28 @@ console.log(Math.ceil(-7.004));
 // Expected output: -7
 ```
 
-## Syntax
+## نحو
 
 ```js-nolint
 Math.ceil(x)
 ```
 
-### Parameters
+### پارامترها
 
 - `x`
-  - : A number.
+  - : یک عدد.
 
-### Return value
+### مقدار بازگشتی
 
-The smallest integer greater than or equal to `x`. It's the same value as [`-Math.floor(-x)`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor).
+کوچک‌ترین عدد صحیح بزرگ‌تر یا مساوی `x`؛ این مقدار با [`-Math.floor(-x)`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor) برابر است.
 
-## Description
+## توضیحات
 
-Because `ceil()` is a static method of `Math`, you always use it as `Math.ceil()`, rather than as a method of a `Math` object you created (`Math` is not a constructor).
+چون `ceil()` متدی ایستا از `Math` است، همیشه آن را به‌شکل `Math.ceil()` به کار ببرید؛ `Math` سازنده نیست و از آن نمونه ساخته نمی‌شود.
 
-## Examples
+## مثال‌ها
 
-### Using Math.ceil()
+### استفاده از Math.ceil()
 
 ```js
 Math.ceil(-Infinity); // -Infinity
@@ -67,15 +66,15 @@ Math.ceil(7.004); // 8
 Math.ceil(Infinity); // Infinity
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - {{jsxref("Math.abs()")}}
 - {{jsxref("Math.floor()")}}

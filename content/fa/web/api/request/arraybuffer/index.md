@@ -1,7 +1,6 @@
 ---
 title: "Request: arrayBuffer() method"
 source: "https://developer.mozilla.org/en-US/docs/Web/API/Request/arrayBuffer"
-status: "needs-translation"
 ---
 
 ---
@@ -14,33 +13,32 @@ browser-compat: api.Request.arrayBuffer
 
 {{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-The **`arrayBuffer()`** method of the {{domxref("Request")}} interface
-reads the request body and returns it as a promise that resolves with an {{jsxref("ArrayBuffer")}}.
+متد **`arrayBuffer()`** از رابط {{domxref("Request")}} بدنهٔ درخواست را می‌خواند و یک Promise برمی‌گرداند که با یک {{jsxref("ArrayBuffer")}} تکمیل می‌شود.
 
-## Syntax
+## نحو
 
 ```js-nolint
 arrayBuffer()
 ```
 
-### Parameters
+### پارامترها
 
-None.
+این متد پارامتری نمی‌گیرد.
 
-### Return value
+### مقدار بازگشتی
 
-A promise that resolves with an {{jsxref("ArrayBuffer")}}.
+یک Promise که با یک {{jsxref("ArrayBuffer")}} تکمیل می‌شود.
 
-### Exceptions
+### خطاها
 
 - {{jsxref("TypeError")}}
-  - : Thrown for one of the following reasons:
-    - The request body is [disturbed or locked](/en-US/docs/Web/API/Fetch_API/Using_Fetch#locked_and_disturbed_streams).
-    - There was an error decoding the body content (for example, because the {{httpheader("Content-Encoding")}} header is incorrect).
+  - : در هر یک از شرایط زیر رخ می‌دهد:
+    - بدنهٔ درخواست قبلاً خوانده شده یا قفل شده باشد ([توضیحات بیشتر](/en-US/docs/Web/API/Fetch_API/Using_Fetch#locked_and_disturbed_streams)).
+    - هنگام رمزگشایی محتوای بدنه خطایی رخ دهد؛ برای مثال، مقدار سربرگ {{httpheader("Content-Encoding")}} نادرست باشد.
 - {{jsxref("RangeError")}}
-  - : Thrown if there is a problem creating the associated `ArrayBuffer` (for example, if the data size is too large).
+  - : اگر هنگام ایجاد `ArrayBuffer` مربوطه مشکلی رخ دهد، مثلاً اندازهٔ داده بیش از حد بزرگ باشد.
 
-## Examples
+## مثال
 
 ```js
 const myArray = new Uint8Array(10);
@@ -51,18 +49,18 @@ const request = new Request("/myEndpoint", {
 });
 
 request.arrayBuffer().then((buffer) => {
-  // do something with the buffer sent in the request
+  // با بافر ارسال‌شده در درخواست کاری انجام دهید
 });
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - {{domxref("Response.arrayBuffer()")}}

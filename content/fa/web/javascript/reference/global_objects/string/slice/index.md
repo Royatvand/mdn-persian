@@ -1,7 +1,6 @@
 ---
 title: "String.prototype.slice()"
 source: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice"
-status: "needs-translation"
 ---
 
 ---
@@ -13,8 +12,7 @@ browser-compat: javascript.builtins.String.slice
 sidebar: jsref
 ---
 
-The **`slice()`** method of {{jsxref("String")}} values extracts a section of this string and
-returns it as a new string, without modifying the original string.
+متد **`slice()`** از مقدارهای {{jsxref("String")}} بخشی از رشته را استخراج می‌کند و آن را به‌صورت رشته‌ای جدید برمی‌گرداند، بدون اینکه رشتهٔ اصلی تغییر کند.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.slice()", "taller")}}
 
@@ -34,29 +32,29 @@ console.log(str.slice(-9, -5));
 // Expected output: "lazy"
 ```
 
-## Syntax
+## نحو
 
 ```js-nolint
 slice(indexStart)
 slice(indexStart, indexEnd)
 ```
 
-### Parameters
+### پارامترها
 
 - `indexStart`
-  - : The index of the first character to include in the returned substring.
+  - : اندیس نخستین نویسه‌ای که باید در زیررشتهٔ خروجی قرار بگیرد.
 - `indexEnd` {{optional_inline}}
-  - : The index of the first character to exclude from the returned substring.
+  - : اندیس نخستین نویسه‌ای که نباید در زیررشتهٔ خروجی قرار بگیرد.
 
-### Return value
+### مقدار بازگشتی
 
-A new string containing the extracted section of the string.
+رشته‌ای جدید که بخش استخراج‌شده از رشته را در بر دارد.
 
-## Description
+## توضیحات
 
-`slice()` extracts the text from one string and returns a new string.
+`slice()` بخشی از متن یک رشته را استخراج می‌کند و رشته‌ای جدید برمی‌گرداند.
 
-`slice()` extracts up to but not including `indexEnd`. For example, `str.slice(4, 8)` extracts the fifth character through the eighth character (characters indexed `4`, `5`, `6`, and `7`):
+`slice()` تا قبل از `indexEnd` را استخراج می‌کند و خود آن اندیس را شامل نمی‌شود. برای مثال، `str.slice(4, 8)` نویسه‌های پنجم تا هشتم را برمی‌گرداند (اندیس‌های `4`، `5`، `6` و `7`):
 
 ```plain
               indexStart        indexEnd
@@ -70,18 +68,18 @@ A new string containing the extracted section of the string.
                     Result
 ```
 
-- If `indexStart >= str.length`, an empty string is returned.
-- If `indexStart < 0`, the index is counted from the end of the string. More formally, in this case, the substring starts at `max(indexStart + str.length, 0)`.
-- If `indexStart` is omitted, `undefined`, or cannot be [converted to a number](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion), it's treated as `0`.
-- If `indexEnd` is omitted or `undefined`, or if `indexEnd >= str.length`, `slice()` extracts to the end of the string.
-- If `indexEnd < 0`, the index is counted from the end of the string. More formally, in this case, the substring ends at `max(indexEnd + str.length, 0)`.
-- If `indexEnd <= indexStart` after normalizing negative values (i.e., `indexEnd` represents a character that's before `indexStart`), an empty string is returned.
+- اگر `indexStart >= str.length` باشد، رشته‌ای خالی برگردانده می‌شود.
+- اگر `indexStart < 0` باشد، اندیس از انتهای رشته محاسبه می‌شود. به‌طور دقیق‌تر، زیررشته از `max(indexStart + str.length, 0)` آغاز می‌شود.
+- اگر `indexStart` حذف شود، مقدارش `undefined` باشد یا نتوان آن را [به عدد تبدیل کرد](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion)، مقدار `0` در نظر گرفته می‌شود.
+- اگر `indexEnd` حذف شود، `undefined` باشد یا `indexEnd >= str.length` باشد، `slice()` تا انتهای رشته را استخراج می‌کند.
+- اگر `indexEnd < 0` باشد، اندیس از انتهای رشته محاسبه می‌شود. در این حالت، زیررشته در `max(indexEnd + str.length, 0)` پایان می‌یابد.
+- اگر پس از نرمال‌سازی مقادیر منفی، `indexEnd <= indexStart` باشد (یعنی `indexEnd` به نویسه‌ای پیش از `indexStart` اشاره کند)، رشته‌ای خالی برگردانده می‌شود.
 
-## Examples
+## مثال‌ها
 
-### Using slice() to create a new string
+### ساخت رشته‌ای جدید با slice()
 
-The following example uses `slice()` to create a new string.
+مثال زیر با `slice()` یک رشتهٔ جدید می‌سازد.
 
 ```js
 const str1 = "The morning is upon us."; // The length of str1 is 23.
@@ -95,9 +93,9 @@ console.log(str4); // is upon us.
 console.log(str5); // ""
 ```
 
-### Using slice() with negative indexes
+### استفاده از slice() با اندیس‌های منفی
 
-The following example uses `slice()` with negative indexes.
+مثال زیر `slice()` را با اندیس‌های منفی به کار می‌برد.
 
 ```js
 const str = "The morning is upon us.";
@@ -107,37 +105,33 @@ str.slice(0, -1); // 'The morning is upon us'
 str.slice(4, -1); // 'morning is upon us'
 ```
 
-This example counts backwards from the end of the string by `11` to find the
-start index and forwards from the start of the string by `16` to find the end
-index.
+در این مثال، برای یافتن اندیس آغاز از انتهای رشته ۱۱ خانه به عقب می‌رویم و برای یافتن اندیس پایان از ابتدای رشته ۱۶ خانه جلو می‌رویم.
 
 ```js
 console.log(str.slice(-11, 16)); // "is u"
 ```
 
-Here it counts forwards from the start by `11` to find the start index and
-backwards from the end by `7` to find the end index.
+اینجا برای یافتن اندیس آغاز از ابتدای رشته ۱۱ خانه جلو می‌رویم و برای یافتن اندیس پایان از انتهای رشته ۷ خانه به عقب می‌رویم.
 
 ```js
 console.log(str.slice(11, -7)); // " is u"
 ```
 
-These arguments count backwards from the end by `5` to find the start index
-and backwards from the end by `1` to find the end index.
+در این آرگومان‌ها، برای یافتن اندیس آغاز ۵ خانه و برای اندیس پایان ۱ خانه از انتهای رشته به عقب می‌رویم.
 
 ```js
 console.log(str.slice(-5, -1)); // "n us"
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - {{jsxref("String.prototype.substr()")}}
 - {{jsxref("String.prototype.substring()")}}

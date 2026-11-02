@@ -1,7 +1,6 @@
 ---
 title: "String.prototype.trim()"
 source: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trim"
-status: "needs-translation"
 ---
 
 ---
@@ -13,9 +12,9 @@ browser-compat: javascript.builtins.String.trim
 sidebar: jsref
 ---
 
-The **`trim()`** method of {{jsxref("String")}} values removes whitespace from both ends of this string and returns a new string, without modifying the original string.
+متد **`trim()`** در مقدارهای {{jsxref("String")}} فاصله‌های خالی را از هر دو سوی رشته حذف می‌کند و رشته‌ای جدید برمی‌گرداند؛ رشتهٔ اصلی تغییر نمی‌کند.
 
-To return a new string with whitespace trimmed from just one end, use {{jsxref("String/trimStart", "trimStart()")}} or {{jsxref("String/trimEnd", "trimEnd()")}}.
+برای حذف فاصله‌ها فقط از یک سمت، از {{jsxref("String/trimStart", "trimStart()")}} یا {{jsxref("String/trimEnd", "trimEnd()")}} استفاده کنید.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.trim()")}}
 
@@ -29,42 +28,42 @@ console.log(greeting.trim());
 // Expected output: "Hello world!";
 ```
 
-## Syntax
+## نحو
 
 ```js-nolint
 trim()
 ```
 
-### Parameters
+### پارامترها
 
-None.
+این متد پارامتری نمی‌گیرد.
 
-### Return value
+### مقدار بازگشتی
 
-A new string representing `str` stripped of whitespace from both its beginning and end. Whitespace is defined as [white space](/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#white_space) characters plus [line terminators](/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators).
+رشته‌ای جدید که فاصله‌های خالی ابتدا و انتهای `str` از آن حذف شده‌اند. فاصلهٔ خالی شامل نویسه‌های [فاصله](/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#white_space) و [پایان‌دهندهٔ خط](/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators) است.
 
-If neither the beginning or end of `str` has any whitespace, a new string is still returned (essentially a copy of `str`).
+حتی اگر ابتدا و انتهای `str` هیچ فاصله‌ای نداشته باشد، باز هم رشته‌ای جدید (در عمل یک کپی از `str`) برگردانده می‌شود.
 
-## Examples
+## مثال‌ها
 
-### Using trim()
+### استفاده از trim()
 
-The following example trims whitespace from both ends of `str`.
+مثال زیر فاصله‌های خالی را از هر دو سوی `str` حذف می‌کند.
 
 ```js
 const str = "   foo  ";
 console.log(str.trim()); // 'foo'
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - {{jsxref("String.prototype.trimStart()")}}
 - {{jsxref("String.prototype.trimEnd()")}}

@@ -1,7 +1,6 @@
 ---
 title: "Math.sqrt()"
 source: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/sqrt"
-status: "needs-translation"
 ---
 
 ---
@@ -13,7 +12,7 @@ browser-compat: javascript.builtins.Math.sqrt
 sidebar: jsref
 ---
 
-The **`Math.sqrt()`** static method returns the square root of a number. That is
+متد ایستای **`Math.sqrt()`** جذر یک عدد را برمی‌گرداند؛ یعنی
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -38,28 +37,28 @@ console.log(calcHypotenuse(0, 0));
 // Expected output: 0
 ```
 
-## Syntax
+## نحو
 
 ```js-nolint
 Math.sqrt(x)
 ```
 
-### Parameters
+### پارامترها
 
 - `x`
-  - : A number greater than or equal to 0.
+  - : عددی بزرگ‌تر یا مساوی ۰.
 
-### Return value
+### مقدار بازگشتی
 
-The square root of `x`, a nonnegative number. If `x < 0`, returns {{jsxref("NaN")}}.
+جذر `x`، یعنی عددی نامنفی. اگر `x < 0` باشد، {{jsxref("NaN")}} برمی‌گرداند.
 
-## Description
+## توضیحات
 
-Because `sqrt()` is a static method of `Math`, you always use it as `Math.sqrt()`, rather than as a method of a `Math` object you created (`Math` is not a constructor).
+چون `sqrt()` متدی ایستا از `Math` است، همیشه آن را به‌شکل `Math.sqrt()` به کار ببرید؛ `Math` سازنده نیست و از آن نمونه ساخته نمی‌شود.
 
-## Examples
+## مثال‌ها
 
-### Using Math.sqrt()
+### استفاده از Math.sqrt()
 
 ```js
 Math.sqrt(-1); // NaN
@@ -71,15 +70,15 @@ Math.sqrt(9); // 3
 Math.sqrt(Infinity); // Infinity
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - {{jsxref("Math.cbrt()")}}
 - {{jsxref("Math.exp()")}}

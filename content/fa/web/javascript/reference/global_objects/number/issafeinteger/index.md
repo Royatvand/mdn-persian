@@ -1,7 +1,6 @@
 ---
 title: "Number.isSafeInteger()"
 source: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger"
-status: "needs-translation"
 ---
 
 ---
@@ -13,7 +12,7 @@ browser-compat: javascript.builtins.Number.isSafeInteger
 sidebar: jsref
 ---
 
-The **`Number.isSafeInteger()`** static method determines whether the provided value is a number that is a _safe integer_.
+متد ایستای **`Number.isSafeInteger()`** بررسی می‌کند که آیا مقدار داده‌شده یک _عدد صحیح امن_ است یا نه.
 
 {{InteractiveExample("JavaScript Demo: Number.isSafeInteger()")}}
 
@@ -32,37 +31,37 @@ console.log(warn(2 ** 53 - 1));
 // Expected output: "Precision safe."
 ```
 
-## Syntax
+## نحو
 
 ```js-nolint
 Number.isSafeInteger(testValue)
 ```
 
-### Parameters
+### پارامترها
 
 - `testValue`
-  - : The value to be tested for being a safe integer.
+  - : مقداری که امن‌بودن عدد صحیح آن بررسی می‌شود.
 
-### Return value
+### مقدار بازگشتی
 
-The boolean value `true` if the given value is a number that is a safe integer. Otherwise `false`.
+اگر مقدار داده‌شده عدد صحیح امن باشد، `true` و در غیر این صورت `false` برمی‌گرداند.
 
-## Description
+## توضیحات
 
-The safe integers consist of all integers from -(2<sup>53</sup> - 1) to 2<sup>53</sup> - 1, inclusive (±9,007,199,254,740,991). A safe integer is an integer that:
+اعداد صحیح امن، تمام عددهای صحیح از ‎-(2<sup>53</sup> - 1) تا 2<sup>53</sup> - 1 (با احتساب دو کران، یعنی ±9,007,199,254,740,991) را شامل می‌شوند. عدد صحیح امن عددی است که:
 
-- can be exactly represented as an IEEE-754 double precision number, and
-- whose IEEE-754 representation cannot be the result of rounding any other integer to fit the IEEE-754 representation.
+- بتوان آن را دقیقاً به‌صورت عدد ممیز شناور با دقت دوبرابر IEEE-754 نمایش داد؛ و
+- نمایش IEEE-754 آن حاصل گردکردن عدد صحیح دیگری برای جا شدن در قالب IEEE-754 نباشد.
 
-For example, 2<sup>53</sup> - 1 is a safe integer: it can be exactly represented, and no other integer rounds to it under any IEEE-754 rounding mode. In contrast, 2<sup>53</sup> is _not_ a safe integer: it can be exactly represented in IEEE-754, but the integer 2<sup>53</sup> + 1 can't be directly represented in IEEE-754 but instead rounds to 2<sup>53</sup> under round-to-nearest and round-to-zero rounding.
+برای مثال، 2<sup>53</sup> - 1 عدد صحیح امنی است: دقیق نمایش داده می‌شود و هیچ عدد صحیح دیگری در حالت‌های گردکردن IEEE-754 به آن گرد نمی‌شود. در مقابل، 2<sup>53</sup> عدد صحیح امنی _نیست_: خودش دقیق نمایش داده می‌شود، اما 2<sup>53</sup> + 1 قابل نمایش مستقیم نیست و در روش‌های گردکردن به نزدیک‌ترین و به سمت صفر، به 2<sup>53</sup> گرد می‌شود.
 
-Handling values larger or smaller than \~9 quadrillion with full precision requires using an [arbitrary precision arithmetic library](https://en.wikipedia.org/wiki/Arbitrary-precision_arithmetic). See [What Every Programmer Needs to Know about Floating Point Arithmetic](https://floating-point-gui.de/) for more information on floating point representations of numbers.
+برای پردازش دقیق مقادیری بزرگ‌تر یا کوچک‌تر از حدود ۹ کوادریلیون، به [کتابخانهٔ محاسبات با دقت دلخواه](https://en.wikipedia.org/wiki/Arbitrary-precision_arithmetic) نیاز دارید. برای اطلاعات بیشتر دربارهٔ نمایش ممیز شناور، مقالهٔ [آنچه هر برنامه‌نویس باید دربارهٔ محاسبات ممیز شناور بداند](https://floating-point-gui.de/) را ببینید.
 
-For larger integers, consider using the {{jsxref("BigInt")}} type.
+برای عددهای صحیح بزرگ‌تر، استفاده از نوع {{jsxref("BigInt")}} را در نظر بگیرید.
 
-## Examples
+## مثال‌ها
 
-### Using isSafeInteger()
+### استفاده از isSafeInteger()
 
 ```js
 Number.isSafeInteger(3); // true
@@ -75,15 +74,15 @@ Number.isSafeInteger(3.1); // false
 Number.isSafeInteger(3.0); // true
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - [Polyfill of `Number.isSafeInteger` in `core-js`](https://github.com/zloirock/core-js#ecmascript-number)
 - [es-shims polyfill of `Number.isSafeInteger`](https://www.npmjs.com/package/number.issafeinteger)

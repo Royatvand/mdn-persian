@@ -1,7 +1,6 @@
 ---
 title: "Math.min()"
 source: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/min"
-status: "needs-translation"
 ---
 
 ---
@@ -13,7 +12,7 @@ browser-compat: javascript.builtins.Math.min
 sidebar: jsref
 ---
 
-The **`Math.min()`** static method returns the smallest of the numbers given as input parameters, or {{jsxref("Infinity")}} if there are no parameters.
+متد ایستای **`Math.min()`** کوچک‌ترین عدد را از میان ورودی‌ها برمی‌گرداند. اگر هیچ ورودی‌ای داده نشود، مقدار {{jsxref("Infinity")}} را برمی‌گرداند.
 
 {{InteractiveExample("JavaScript Demo: Math.min()")}}
 
@@ -30,7 +29,7 @@ console.log(Math.min(...array));
 // Expected output: 1
 ```
 
-## Syntax
+## نحو
 
 ```js-nolint
 Math.min()
@@ -39,26 +38,26 @@ Math.min(value1, value2)
 Math.min(value1, value2, /* …, */ valueN)
 ```
 
-### Parameters
+### پارامترها
 
 - `value1`, …, `valueN`
-  - : Zero or more numbers among which the lowest value will be selected and returned.
+  - : صفر یا چند عدد که کوچک‌ترین مقدار از میان آن‌ها انتخاب و برگردانده می‌شود.
 
-### Return value
+### مقدار بازگشتی
 
-The smallest of the given numbers. Returns {{jsxref("NaN")}} if any of the parameters is or is converted into `NaN`. Returns {{jsxref("Infinity")}} if no parameters are provided.
+کوچک‌ترین عدد ورودی. اگر هر یک از ورودی‌ها `NaN` باشد یا به `NaN` تبدیل شود، نتیجه {{jsxref("NaN")}} است. اگر ورودی‌ای وجود نداشته باشد، {{jsxref("Infinity")}} برگردانده می‌شود.
 
-## Description
+## توضیحات
 
-Because `min()` is a static method of `Math`, you always use it as `Math.min()`, rather than as a method of a `Math` object you created (`Math` is not a constructor).
+از آنجا که `min()` متدی ایستا از `Math` است، همیشه آن را به‌شکل `Math.min()` به کار می‌برید؛ نمی‌توانید از آن به‌عنوان متد یک شیء ساخته‌شده از `Math` استفاده کنید، چون `Math` سازنده نیست.
 
-[`Math.min.length`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/length) is 2, which weakly signals that it's designed to handle at least two parameters.
+مقدار [`Math.min.length`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/length) برابر ۲ است؛ این موضوع به‌طور ضمنی نشان می‌دهد که متد برای دریافت دست‌کم دو پارامتر طراحی شده است.
 
-## Examples
+## مثال‌ها
 
-### Using Math.min()
+### استفاده از Math.min()
 
-This finds the min of `x` and `y` and assigns it to `z`:
+این کد کوچک‌ترین مقدار `x` و `y` را پیدا می‌کند و در `z` قرار می‌دهد:
 
 ```js
 const x = 10;
@@ -66,10 +65,9 @@ const y = -20;
 const z = Math.min(x, y); // -20
 ```
 
-### Clipping a value with Math.min()
+### محدود کردن مقدار با Math.min()
 
-`Math.min()` is often used to clip a value so that it is always less than or
-equal to a boundary. For instance, this
+معمولاً از `Math.min()` برای محدود کردن یک مقدار استفاده می‌شود تا همیشه کوچک‌تر یا مساوی یک حد مشخص باشد. برای نمونه، کد زیر
 
 ```js
 let x = f(foo);
@@ -79,22 +77,22 @@ if (x > boundary) {
 }
 ```
 
-may be written as this
+را می‌توان به شکل زیر نوشت:
 
 ```js
 const x = Math.min(f(foo), boundary);
 ```
 
-{{jsxref("Math.max()")}} can be used in a similar way to clip a value at the other end.
+{{jsxref("Math.max()")}} را می‌توان به روشی مشابه برای محدود کردن مقدار از سمت دیگر به کار برد.
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - {{jsxref("Math.max()")}}

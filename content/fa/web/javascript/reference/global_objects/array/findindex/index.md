@@ -1,7 +1,6 @@
 ---
 title: "Array.prototype.findIndex()"
 source: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex"
-status: "needs-translation"
 ---
 
 ---
@@ -13,10 +12,9 @@ browser-compat: javascript.builtins.Array.findIndex
 sidebar: jsref
 ---
 
-The **`findIndex()`** method of {{jsxref("Array")}} instances returns the index of the first element in an array that satisfies the provided testing function.
-If no elements satisfy the testing function, -1 is returned.
+متد **`findIndex()`** در نمونه‌های {{jsxref("Array")}} اندیس نخستین عضوی را برمی‌گرداند که تابع آزمون داده‌شده را برآورده کند. اگر هیچ عضوی شرط را برآورده نکند، `-1` برگردانده می‌شود.
 
-See also the {{jsxref("Array/find", "find()")}} method, which returns the first element that satisfies the testing function (rather than its index).
+همچنین متد {{jsxref("Array/find", "find()")}} را ببینید که به‌جای اندیس، خودِ نخستین عضو منطبق با تابع آزمون را برمی‌گرداند.
 
 {{InteractiveExample("JavaScript Demo: Array.prototype.findIndex()", "shorter")}}
 
@@ -29,43 +27,43 @@ console.log(array.findIndex(isLargeNumber));
 // Expected output: 3
 ```
 
-## Syntax
+## نحو
 
 ```js-nolint
 findIndex(callbackFn)
 findIndex(callbackFn, thisArg)
 ```
 
-### Parameters
+### پارامترها
 
 - `callbackFn`
-  - : A function to execute for each element in the array. It should return a [truthy](/en-US/docs/Glossary/Truthy) value to indicate a matching element has been found, and a [falsy](/en-US/docs/Glossary/Falsy) value otherwise. The function is called with the following arguments:
+  - : تابعی که برای هر عضو آرایه اجرا می‌شود. اگر عضو موردنظر پیدا شد باید مقداری [truthy](/en-US/docs/Glossary/Truthy) و در غیر این صورت مقداری [falsy](/en-US/docs/Glossary/Falsy) برگرداند. تابع با آرگومان‌های زیر فراخوانی می‌شود:
     - `element`
-      - : The current element being processed in the array.
+      - : عضو فعلی آرایه که در حال پردازش است.
     - `index`
-      - : The index of the current element being processed in the array.
+      - : اندیس عضو فعلی آرایه.
     - `array`
-      - : The array `findIndex()` was called upon.
+      - : آرایه‌ای که `findIndex()` روی آن فراخوانی شده است.
 - `thisArg` {{optional_inline}}
-  - : A value to use as `this` when executing `callbackFn`. See [iterative methods](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
+  - : مقداری که هنگام اجرای `callbackFn` به‌عنوان `this` استفاده می‌شود. بخش [متدهای تکرارشونده](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods) را ببینید.
 
-### Return value
+### مقدار بازگشتی
 
-The index of the first element in the array that passes the test. Otherwise, `-1`.
+اندیس نخستین عضو آرایه که آزمون را می‌گذراند؛ در غیر این صورت `-1`.
 
-## Description
+## توضیحات
 
-The `findIndex()` is an [iterative method](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods). It calls a provided `callbackFn` function once for each element in an array in ascending-index order, until `callbackFn` returns a [truthy](/en-US/docs/Glossary/Truthy) value. `findIndex()` then returns the index of that element and stops iterating through the array. If `callbackFn` never returns a truthy value, `findIndex()` returns `-1`. Read the [iterative methods](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods) section for more information about how these methods work in general.
+`findIndex()` یک [متد تکرارشونده](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods) است. تابع `callbackFn` را به‌ترتیب اندیس‌های صعودی برای هر عضو اجرا می‌کند تا زمانی که مقدار [truthy](/en-US/docs/Glossary/Truthy) برگرداند. سپس اندیس آن عضو را برمی‌گرداند و پیمایش متوقف می‌شود. اگر `callbackFn` هیچ‌وقت مقدار truthy برنگرداند، نتیجه `-1` خواهد بود. برای آشنایی کلی با این رفتار، بخش [متدهای تکرارشونده](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods) را بخوانید.
 
-`callbackFn` is invoked for _every_ index of the array, not just those with assigned values. Empty slots in [sparse arrays](/en-US/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) behave the same as `undefined`.
+`callbackFn` برای _تمام_ اندیس‌های آرایه اجرا می‌شود، نه فقط اندیس‌هایی که مقدار دارند. خانه‌های خالی در [آرایه‌های تنک](/en-US/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) مانند `undefined` رفتار می‌کنند.
 
-The `findIndex()` method is [generic](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). It only expects the `this` value to have a `length` property and integer-keyed properties.
+متد `findIndex()` [عمومی](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods) است و فقط انتظار دارد مقدار `this` ویژگی `length` و ویژگی‌هایی با کلیدهای عدد صحیح داشته باشد.
 
-## Examples
+## مثال‌ها
 
-### Find the index of the first prime number in an array
+### یافتن اندیس نخستین عدد اول در آرایه
 
-The following example returns the index of the first element in the array that is a prime number, or `-1` if there is no prime number.
+مثال زیر اندیس نخستین عدد اول در آرایه را برمی‌گرداند؛ اگر عدد اولی وجود نداشته باشد، `-1` برمی‌گرداند.
 
 ```js
 function isPrime(n) {
@@ -88,11 +86,11 @@ console.log([4, 6, 7, 9, 12].findIndex(isPrime)); // 2 (array[2] is 7)
 ```
 
 > [!NOTE]
-> The `isPrime()` implementation is for demonstration only. For a real-world application, you would want to use a heavily memoized algorithm such as the [Sieve of Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes) to avoid repeated calculations.
+> پیاده‌سازی `isPrime()` فقط برای نمایش مثال است. در برنامهٔ واقعی بهتر است از الگوریتمی با ذخیره‌سازی نتایج محاسبات، مانند [غربال اراتستن](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes)، استفاده کنید تا محاسبات تکراری کاهش یابد.
 
-### Using the third argument of callbackFn
+### استفاده از آرگومان سوم callbackFn
 
-The `array` argument is useful if you want to access another element in the array, especially when you don't have an existing variable that refers to the array. The following example first uses `filter()` to extract the positive values and then uses `findIndex()` to find the first element that is less than its neighbors.
+آرگومان `array` زمانی مفید است که بخواهید به عضو دیگری از آرایه دسترسی داشته باشید، به‌ویژه اگر متغیری برای ارجاع به آرایه ندارید. مثال زیر ابتدا با `filter()` مقادیر مثبت را جدا می‌کند و سپس با `findIndex()` نخستین عضوی را می‌یابد که از همسایه‌هایش کوچک‌تر است.
 
 ```js
 const numbers = [3, -1, 1, 4, 1, 5, 9, 2, 6];
@@ -108,17 +106,17 @@ const firstTrough = numbers
 console.log(firstTrough); // 1
 ```
 
-### Using findIndex() on sparse arrays
+### استفاده از findIndex() روی آرایه‌های تنک
 
-You can search for `undefined` in a sparse array and get the index of an empty slot.
+می‌توانید در آرایه‌ای تنک به‌دنبال `undefined` بگردید و اندیس یک خانهٔ خالی را پیدا کنید.
 
 ```js
 console.log([1, , 3].findIndex((x) => x === undefined)); // 1
 ```
 
-### Calling findIndex() on non-array objects
+### فراخوانی findIndex() روی اشیایی غیر از آرایه
 
-The `findIndex()` method reads the `length` property of `this` and then accesses each property whose key is a nonnegative integer less than `length`.
+متد `findIndex()` ویژگی `length` مقدار `this` را می‌خواند و سپس به هر ویژگی‌ای دسترسی پیدا می‌کند که کلید آن عدد صحیح نامنفی و کوچک‌تر از `length` باشد.
 
 ```js
 const arrayLike = {
@@ -133,15 +131,15 @@ console.log(
 ); // 1
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - [Polyfill of `Array.prototype.findIndex` in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
 - [es-shims polyfill of `Array.prototype.findIndex`](https://www.npmjs.com/package/array.prototype.findindex)

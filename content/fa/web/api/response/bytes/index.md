@@ -1,7 +1,6 @@
 ---
 title: "Response: bytes() method"
 source: "https://developer.mozilla.org/en-US/docs/Web/API/Response/bytes"
-status: "needs-translation"
 ---
 
 ---
@@ -14,39 +13,36 @@ browser-compat: api.Response.bytes
 
 {{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-The **`bytes()`** method of the {{domxref("Response")}} interface takes a {{domxref("Response")}} stream and reads it to completion.
-It returns a promise that resolves with a {{jsxref("Uint8Array")}}.
+متد **`bytes()`** از رابط {{domxref("Response")}} جریان پاسخ را تا انتها می‌خواند و یک Promise برمی‌گرداند که با یک {{jsxref("Uint8Array")}} تکمیل می‌شود.
 
-## Syntax
+## نحو
 
 ```js-nolint
 bytes()
 ```
 
-### Parameters
+### پارامترها
 
-None.
+این متد پارامتری نمی‌گیرد.
 
-### Return value
+### مقدار بازگشتی
 
-A promise that resolves with a {{jsxref("Uint8Array")}}.
+یک Promise که با یک {{jsxref("Uint8Array")}} تکمیل می‌شود.
 
-### Exceptions
+### خطاها
 
 - `AbortError` {{domxref("DOMException")}}
-  - : The request was [aborted](/en-US/docs/Web/API/Fetch_API/Using_Fetch#canceling_a_request).
+  - : اگر درخواست لغو شده باشد، این خطا رخ می‌دهد. [توضیحات بیشتر](/en-US/docs/Web/API/Fetch_API/Using_Fetch#canceling_a_request)
 - {{jsxref("TypeError")}}
-  - : Thrown for one of the following reasons:
-    - The response body is [disturbed or locked](/en-US/docs/Web/API/Fetch_API/Using_Fetch#locked_and_disturbed_streams).
-    - There was an error decoding the body content (for example, because the {{httpheader("Content-Encoding")}} header is incorrect).
+  - : اگر بدنهٔ پاسخ قبلاً خوانده شده یا قفل شده باشد، یا هنگام رمزگشایی محتوای بدنه خطایی رخ دهد (برای مثال، سربرگ {{httpheader("Content-Encoding")}} نادرست باشد).
 - {{jsxref("RangeError")}}
-  - : Thrown if there is a problem creating the associated `ArrayBuffer` (for example, if the data size is too large).
+  - : اگر هنگام ایجاد `ArrayBuffer` مربوطه مشکلی رخ دهد، مثلاً اندازهٔ داده بیش از حد بزرگ باشد.
 
-## Examples
+## مثال‌ها
 
-### Fetching and decoding a file
+### دریافت و رمزگشایی یک فایل
 
-The code below shows how you might fetch a text file, return the body as a {{jsxref("Uint8Array")}}, and then decode this into a string.
+کد زیر یک فایل متنی را دریافت می‌کند، بدنهٔ آن را به‌صورت {{jsxref("Uint8Array")}} برمی‌گرداند و سپس آن را به رشته تبدیل می‌کند.
 
 ```js
 const response = await fetch("https://www.example.com/textfile.txt");
@@ -55,13 +51,13 @@ const string = new TextDecoder().decode(textFile);
 console.log(string);
 ```
 
-### Getting an image file signature
+### تشخیص امضای فایل تصویر
 
-This example demonstrates how you can use `bytes()` to read the signature bytes of a number of image files, and identify the type.
+در این مثال از `bytes()` برای خواندن بایت‌های ابتدایی چند تصویر و تشخیص نوع فایل استفاده می‌کنیم.
 
 #### HTML
 
-First we define a {{htmlelement("select")}} element for choosing the file type, with corresponding values that indicate the specific file on WikiMedia commons to fetch.
+ابتدا یک عنصر {{htmlelement("select")}} برای انتخاب نوع فایل تعریف می‌کنیم. مقدار هر گزینه، نشانی فایل مربوطه در Wikimedia Commons است.
 
 ```html
 <label for="file-select">Choose a file:</label>
@@ -106,10 +102,7 @@ function log(text) {
 }
 ```
 
-The code first checks if the `bytes()` method is supported.
-If the method is supported it adds an event handler for the [`change` event](/en-US/docs/Web/API/HTMLElement/change_event) on the `<select>` element.
-When the value changes, it passes the value of the selection (a URL for an image file) to the `checkSignature()` method defined below.
-If the method is not supported it logs this information.
+ابتدا بررسی می‌کنیم که آیا متد `bytes()` پشتیبانی می‌شود یا نه. در صورت پشتیبانی، برای رویداد [`change`](/en-US/docs/Web/API/HTMLElement/change_event) عنصر انتخاب، شنونده‌ای اضافه می‌کنیم. با تغییر گزینه، نشانی فایل تصویر به تابع `checkSignature()` فرستاده می‌شود؛ در غیر این صورت، پیام مناسبی ثبت می‌شود.
 
 ```js
 if ("bytes" in Response.prototype) {
@@ -126,10 +119,7 @@ if ("bytes" in Response.prototype) {
 }
 ```
 
-The `checkSignature()` method is defined below.
-This fetches a file at the given `url`, and uses `response.bytes()` to get its contents as a byte array.
-The initial bytes are then compared to the initial signature bytes of a number of common file types.
-The file name and the file type are then logged.
+تابع `checkSignature()` فایل را از نشانی مشخص‌شده دریافت می‌کند و با `response.bytes()` محتوای آن را به آرایه‌ای از بایت‌ها تبدیل می‌کند. سپس بایت‌های ابتدایی با امضای شناخته‌شدهٔ چند قالب تصویر مقایسه می‌شوند و نام فایل و نوع آن در خروجی ثبت می‌شود.
 
 ```js
 async function checkSignature(url) {
@@ -138,7 +128,7 @@ async function checkSignature(url) {
   const response = await fetch(url);
   const image = await response.bytes();
 
-  // File signatures from: https://en.wikipedia.org/wiki/List_of_file_signatures
+  // امضاهای فایل از: https://en.wikipedia.org/wiki/List_of_file_signatures
   const jpgSignature = [0xff, 0xd8, 0xff, 0xe0];
   const pngSignature = [0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a];
   const gif89aSignature = [0x47, 0x49, 0x46, 0x38, 0x39, 0x61];
@@ -167,23 +157,22 @@ async function checkSignature(url) {
 }
 ```
 
-#### Result
+#### نتیجه
 
-Choose an image type using the selection list.
-The log should then display the file name, along with the file type that was determined from the file's signature.
+با انتخاب نوع تصویر از فهرست، خروجی باید نام فایل و نوع تشخیص‌داده‌شده بر اساس امضای آن را نمایش دهد.
 
 {{EmbedLiveSample("Getting an image file signature", "100", "200px")}}
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
-- [ServiceWorker API](/en-US/docs/Web/API/Service_Worker_API)
-- [HTTP access control (CORS)](/en-US/docs/Web/HTTP/Guides/CORS)
+- [رابط Service Worker](/en-US/docs/Web/API/Service_Worker_API)
+- [کنترل دسترسی بین‌مبدأ HTTP (CORS)](/en-US/docs/Web/HTTP/Guides/CORS)
 - [HTTP](/en-US/docs/Web/HTTP)

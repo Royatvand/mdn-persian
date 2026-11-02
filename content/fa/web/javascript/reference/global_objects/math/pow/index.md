@@ -1,7 +1,6 @@
 ---
 title: "Math.pow()"
 source: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/pow"
-status: "needs-translation"
 ---
 
 ---
@@ -13,7 +12,7 @@ browser-compat: javascript.builtins.Math.pow
 sidebar: jsref
 ---
 
-The **`Math.pow()`** static method returns the value of a base raised to a power. That is
+متد ایستای **`Math.pow()`** مقدار پایه را به توان مشخص‌شده می‌رساند؛ یعنی
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -38,39 +37,39 @@ console.log(Math.pow(-7, 0.5));
 // Expected output: NaN
 ```
 
-## Syntax
+## نحو
 
 ```js-nolint
 Math.pow(base, exponent)
 ```
 
-### Parameters
+### پارامترها
 
 - `base`
-  - : The base number.
+  - : عدد پایه.
 - `exponent`
-  - : The exponent number.
+  - : عدد توان.
 
-### Return value
+### مقدار بازگشتی
 
-A number representing `base` taken to the power of `exponent`. Returns {{jsxref("NaN")}} in one of the following cases:
+عددی که برابر `base` به توان `exponent` است. در هر یک از حالت‌های زیر {{jsxref("NaN")}} برمی‌گرداند:
 
-- `exponent` is `NaN`.
-- `base` is `NaN` and `exponent` is not `0`.
-- `base` is ±1 and `exponent` is ±`Infinity`.
-- `base < 0` and `exponent` is not an integer.
+- مقدار `exponent` برابر `NaN` باشد.
+- `base` برابر `NaN` باشد و `exponent` صفر نباشد.
+- `base` برابر ±۱ و `exponent` برابر ±`Infinity` باشد.
+- `base < 0` باشد و `exponent` عدد صحیح نباشد.
 
-## Description
+## توضیحات
 
-`Math.pow()` is equivalent to the [`**`](/en-US/docs/Web/JavaScript/Reference/Operators/Exponentiation) operator, except `Math.pow()` only accepts numbers.
+`Math.pow()` معادل عملگر [`**`](/en-US/docs/Web/JavaScript/Reference/Operators/Exponentiation) است، با این تفاوت که `Math.pow()` فقط عدد می‌پذیرد.
 
-`Math.pow(NaN, 0)` (and the equivalent `NaN ** 0`) is the only case where {{jsxref("NaN")}} doesn't propagate through mathematical operations — it returns `1` despite the operand being `NaN`. In addition, the behavior where `base` is 1 and `exponent` is non-finite (±Infinity or `NaN`) is different from IEEE 754, which specifies that the result should be 1, whereas JavaScript returns `NaN` to preserve backward compatibility with its original behavior.
+`Math.pow(NaN, 0)` (و عبارت معادل `NaN ** 0`) تنها حالتی است که {{jsxref("NaN")}} در عملیات ریاضی انتشار پیدا نمی‌کند؛ با وجود `NaN` بودن عملوند، نتیجه `1` است. همچنین وقتی `base` برابر ۱ و `exponent` نامتناهی (±Infinity یا `NaN`) باشد، رفتار جاوااسکریپت با IEEE 754 متفاوت است: استاندارد IEEE 754 نتیجه را ۱ می‌داند، اما جاوااسکریپت برای حفظ سازگاری با رفتار قدیمی خود `NaN` برمی‌گرداند.
 
-Because `pow()` is a static method of `Math`, use it as `Math.pow()`, rather than as a method of a `Math` object you created (`Math` is not a constructor).
+چون `pow()` متدی ایستا از `Math` است، آن را به‌شکل `Math.pow()` استفاده کنید؛ `Math` سازنده نیست و از آن نمونه ساخته نمی‌شود.
 
-## Examples
+## مثال‌ها
 
-### Using Math.pow()
+### استفاده از Math.pow()
 
 ```js
 // Basic cases
@@ -125,15 +124,15 @@ Math.pow(NaN, 1); // NaN
 Math.pow(1, NaN); // NaN
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - {{jsxref("Math.cbrt()")}}
 - {{jsxref("Math.exp()")}}

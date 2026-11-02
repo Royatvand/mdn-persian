@@ -1,7 +1,6 @@
 ---
 title: "Array.of()"
 source: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/of"
-status: "needs-translation"
 ---
 
 ---
@@ -13,9 +12,7 @@ browser-compat: javascript.builtins.Array.of
 sidebar: jsref
 ---
 
-The **`Array.of()`** static method creates a new `Array`
-instance from a variable number of arguments, regardless of number or type of the
-arguments.
+متد ایستای **`Array.of()`** با تعداد متغیری از آرگومان‌ها، یک نمونهٔ جدید از `Array` می‌سازد؛ تعداد و نوع آرگومان‌ها در این رفتار تفاوتی ایجاد نمی‌کند.
 
 {{InteractiveExample("JavaScript Demo: Array.of()", "shorter")}}
 
@@ -27,7 +24,7 @@ console.log(Array.of());
 // Expected output: Array []
 ```
 
-## Syntax
+## نحو
 
 ```js-nolint
 Array.of()
@@ -36,18 +33,18 @@ Array.of(element1, element2)
 Array.of(element1, element2, /* …, */ elementN)
 ```
 
-### Parameters
+### پارامترها
 
 - `element1`, …, `elementN`
-  - : Elements used to create the array.
+  - : عناصری که برای ساخت آرایه استفاده می‌شوند.
 
-### Return value
+### مقدار بازگشتی
 
 A new {{jsxref("Array")}} instance.
 
-## Description
+## توضیحات
 
-The difference between `Array.of()` and the [`Array()`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Array) constructor is in the handling of single arguments: `Array.of(7)` creates an array with a single element, `7`, whereas `Array(7)` creates an empty array with a `length` property of `7`. (That implies an array of 7 empty slots, not slots with actual {{jsxref("undefined")}} values.)
+تفاوت `Array.of()` با سازندهٔ [`Array()`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Array) در نحوهٔ برخورد با یک آرگومان است: `Array.of(7)` آرایه‌ای با یک عضو به مقدار `7` می‌سازد، اما `Array(7)` آرایه‌ای خالی با ویژگی `length` برابر ۷ ایجاد می‌کند. این یعنی آرایه هفت خانهٔ خالی دارد، نه خانه‌هایی که مقدار واقعی {{jsxref("undefined")}} داشته باشند.
 
 ```js
 Array.of(7); // [7]
@@ -57,11 +54,11 @@ Array.of(1, 2, 3); // [1, 2, 3]
 Array(1, 2, 3); // [1, 2, 3]
 ```
 
-The `Array.of()` method is a generic factory method. For example, if a subclass of `Array` inherits the `of()` method, the inherited `of()` method will return new instances of the subclass instead of `Array` instances. In fact, the `this` value can be any constructor function that accepts a single argument representing the length of the new array, and the constructor will be called with the number of arguments passed to `of()`. The final `length` will be set again when all elements are assigned. If the `this` value is not a constructor function, the plain `Array` constructor is used instead.
+متد `Array.of()` یک متد کارخانه‌ای عمومی است. برای مثال، اگر زیرکلاسی از `Array` این متد را به ارث ببرد، فراخوانی آن نمونه‌ای از همان زیرکلاس می‌سازد، نه از `Array`. مقدار `this` می‌تواند هر تابع سازنده‌ای باشد که طول آرایهٔ جدید را به‌عنوان آرگومان می‌پذیرد؛ سازنده با تعداد آرگومان‌های ارسال‌شده به `of()` فراخوانی می‌شود. پس از اختصاص همهٔ عناصر، مقدار نهایی `length` دوباره تنظیم می‌شود. اگر `this` تابع سازنده نباشد، از سازندهٔ معمولی `Array` استفاده می‌شود.
 
-## Examples
+## مثال‌ها
 
-### Using Array.of()
+### استفاده از Array.of()
 
 ```js
 Array.of(1); // [1]
@@ -69,9 +66,9 @@ Array.of(1, 2, 3); // [1, 2, 3]
 Array.of(undefined); // [undefined]
 ```
 
-### Calling of() on non-array constructors
+### فراخوانی of() روی سازنده‌هایی غیر از Array
 
-The `of()` method can be called on any constructor function that accepts a single argument representing the length of the new array.
+متد `of()` را می‌توان روی هر تابع سازنده‌ای فراخوانی کرد که آرگومانی نشان‌دهندهٔ طول آرایهٔ جدید می‌پذیرد.
 
 ```js
 function NotArray(len) {
@@ -85,21 +82,21 @@ console.log(Array.of.call(NotArray, 1, 2, 3));
 console.log(Array.of.call(Object)); // [Number: 0] { length: 0 }
 ```
 
-When the `this` value is not a constructor, a plain `Array` object is returned.
+اگر مقدار `this` سازنده نباشد، یک شیء معمولی `Array` برگردانده می‌شود.
 
 ```js
 console.log(Array.of.call({}, 1)); // [ 1 ]
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - [Polyfill of `Array.of` in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
 - [es-shims polyfill of `Array.of`](https://www.npmjs.com/package/array.of)

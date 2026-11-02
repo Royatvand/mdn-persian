@@ -1,7 +1,6 @@
 ---
 title: "String.prototype.trimEnd()"
 source: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trimEnd"
-status: "needs-translation"
 ---
 
 ---
@@ -13,7 +12,7 @@ browser-compat: javascript.builtins.String.trimEnd
 sidebar: jsref
 ---
 
-The **`trimEnd()`** method of {{jsxref("String")}} values removes whitespace from the end of this string and returns a new string, without modifying the original string. `trimRight()` is an alias of this method.
+متد **`trimEnd()`** در مقدارهای {{jsxref("String")}} فاصله‌های خالی انتهای رشته را حذف می‌کند و رشته‌ای جدید برمی‌گرداند، بدون تغییر رشتهٔ اصلی. `trimRight()` نام مستعار همین متد است.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.trimEnd()")}}
 
@@ -27,7 +26,7 @@ console.log(greeting.trimEnd());
 // Expected output: "   Hello world!";
 ```
 
-## Syntax
+## نحو
 
 ```js-nolint
 trimEnd()
@@ -35,29 +34,29 @@ trimEnd()
 trimRight()
 ```
 
-### Parameters
+### پارامترها
 
-None.
+این متد پارامتری نمی‌گیرد.
 
-### Return value
+### مقدار بازگشتی
 
-A new string representing `str` stripped of whitespace from its end (right side). Whitespace is defined as [white space](/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#white_space) characters plus [line terminators](/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators).
+رشته‌ای جدید که فاصله‌های خالی انتهای (سمت راست) `str` از آن حذف شده‌اند. فاصلهٔ خالی شامل نویسه‌های [فاصله](/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#white_space) و [پایان‌دهندهٔ خط](/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators) است.
 
-If the end of `str` has no whitespace, a new string is still returned (essentially a copy of `str`).
+اگر انتهای `str` فاصلهٔ خالی نداشته باشد، باز هم رشته‌ای جدید (در عمل کپی `str`) برگردانده می‌شود.
 
-### Aliasing
+### نام مستعار
 
-After {{jsxref("String/trim", "trim()")}} was standardized, engines also implemented the non-standard method `trimRight`. However, for consistency with {{jsxref("String/padEnd", "padEnd()")}}, when the method got standardized, its name was chosen as `trimEnd`. For web compatibility reasons, `trimRight` remains as an alias to `trimEnd`, and they refer to the exact same function object. In some engines this means:
+پس از استانداردشدن {{jsxref("String/trim", "trim()")}}، موتورهای جاوااسکریپت متد غیراستاندارد `trimRight` را نیز پیاده‌سازی کردند. برای هماهنگی با {{jsxref("String/padEnd", "padEnd()")}}، نام استاندارد این متد `trimEnd` انتخاب شد. برای سازگاری با وب، `trimRight` همچنان نام مستعار `trimEnd` باقی مانده و هر دو به دقیقاً یک شیء تابع اشاره می‌کنند. در برخی موتورهای جاوااسکریپت، نتیجه چنین است:
 
 ```js
 String.prototype.trimRight.name === "trimEnd";
 ```
 
-## Examples
+## مثال‌ها
 
-### Using trimEnd()
+### استفاده از trimEnd()
 
-The following example trims whitespace from the end of `str`, but not from its start.
+مثال زیر فاصله‌های خالی انتهای `str` را حذف می‌کند، اما ابتدای آن را تغییر نمی‌دهد.
 
 ```js
 let str = "   foo  ";
@@ -69,15 +68,15 @@ console.log(str.length); // 6
 console.log(str); // '   foo'
 ```
 
-## Specifications
+## مشخصات
 
 {{Specifications}}
 
-## Browser compatibility
+## سازگاری با مرورگرها
 
 {{Compat}}
 
-## See also
+## همچنین ببینید
 
 - [Polyfill of `String.prototype.trimEnd` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
 - [es-shims polyfill of `String.prototype.trimEnd`](https://www.npmjs.com/package/string.prototype.trimend)
